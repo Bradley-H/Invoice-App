@@ -1,0 +1,39 @@
+@mixin centered{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@mixin tablet{
+    @media (min-width: $tabletMin) and (max-width: $tabletMax) {
+        @content;
+    }
+}
+
+
+@mixin tabletUp{
+    @media (min-width: $tabletMin) {
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media (min-width: $laptopMin) and (max-width: $laptopMax) {
+        @content;
+    }
+}
+
+
+@mixin laptopUp{
+    @media (min-width: $laptopMin) {
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media (min-width: $desktopMin) {
+        @content;
+    }
+}

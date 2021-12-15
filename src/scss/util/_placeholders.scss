@@ -1,0 +1,30 @@
+%flex{
+    display: flex;
+}
+
+%flexCol{
+    display: flex;
+    flex-direction: column;
+}
+
+
+%centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%grid{
+    display: grid;
+}
+
+
+%grid2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+%grid3{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

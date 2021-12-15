@@ -1,0 +1,33 @@
+@import "functions";
+$colorDanger: #ec5757;
+$colorDangerLight: #FF9797FF;
+
+// THEME COLORS //
+$colorDark: #252945;
+$colorDarker: #1e2139;
+$colorDarkest: #0c0e16;
+
+$colorLight: #7C5DFAFF;
+$colorLighter: #9277FFFF;
+$colorLightest: #7e88C3;
+
+// MISC COLORS //
+$miscLight: #DfE3FA;
+$miscDark: #888EB0;
+
+// FONT FAMILY //
+$primaryFont:'Spartan', sans-serif;
+$secondaryFont: 'Antonio', sans-serif;
+
+// BACKGROUND COLORS //
+$bgColorLight: #F8F8FBFF;
+$bgColorDark: #141625FF;
+
+// COMPONENT SPECIFIC VARIABLES //
+    // NAVBAR //
+$navHeight: toRem(70);   //this is for when it's height is larger //
+$navWidth: toRem(75);   //this is for when it's width is larger //
+    // CONTAINER //
+$containerWidth: toRem(1500);
+$containerHeight: toRem(2000);
+    // BUTTON //

@@ -1,0 +1,57 @@
+@import "../util/functions";
+
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+button, input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+body, html{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    font-family: $primaryFont;
+};
+
+$fontSize: (h1: 32, h2: 28, h3: 19, p: 13);
+
+@each $size, $val in $fontSize {
+    #{$size}{
+        font-size: toRem($val);
+    }
+}
+
+h1, h2,h3{
+    font-weight: bold;
+}
+
+// THIS IS FOR REUSABILITY //
+.bgColorDark{
+    background-color: #000;
+}
+
+.bgColorLight{
+    background-color: #fff;
+}
+
+.txtColorDark{
+    color: $miscLight;
+}
+
+.txtColorLight{
+    color: black;
+}
