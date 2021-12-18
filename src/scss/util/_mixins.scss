@@ -1,8 +1,13 @@
 @mixin centered{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@mixin mobileMax{
+    @media (min-width: 520px) and (max-width: ($tabletMin - 1) ) {
+        @content;
+    }
 }
 
 

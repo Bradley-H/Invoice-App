@@ -22,7 +22,6 @@ $secondaryFont: 'Antonio', sans-serif;
 // BACKGROUND COLORS //
 $bgColorLight: #F8F8FBFF;
 $bgColorDark: #141625FF;
-
 // COMPONENT SPECIFIC VARIABLES //
     // NAVBAR //
 $navHeight: toRem(70);   //this is for when it's height is larger //
@@ -30,4 +29,6 @@ $navWidth: toRem(75);   //this is for when it's width is larger //
     // CONTAINER //
 $containerWidth: toRem(1500);
 $containerHeight: toRem(2000);
-    // BUTTON //
+    // INVOICE MODAL //
+$invoiceModalWidthMobile: toRem(600);
+$invoiceModalWidthLaptop: toRem(450);

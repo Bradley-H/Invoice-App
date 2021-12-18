@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Text from '$lib/Text/Text.svelte'
     export let href: string = "";
 </script>
 
@@ -6,21 +7,25 @@
 <style lang="scss">
     @import "../../scss/util/index.scss";
     a, button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-size: 1rem;
-        margin: .5rem 0;
+        margin: 1.5rem 0;
     }
 
     i{
         color: $colorLight;
         font-weight: bold;
-        margin-right: .35rem;
+        margin-right: .5rem;
+        font-size: 1.2rem;
     }
 </style>
 
 
 
 {#if href}
-<a {href} on:click><i class="fas fa-chevron-left"/>Go Back</a>
+<a {href}><i class="fas fa-chevron-left"/><Text size="h3" text="Go back"/></a>
 {:else}
-<button on:click><i class="fas fa-chevron-left"/>Go back</button>
+<button on:click|preventDefault><i class="fas fa-chevron-left"/><Text size="h3" text="Go back"/></button>
 {/if}

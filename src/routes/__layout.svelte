@@ -1,6 +1,8 @@
 <script lang="ts">
     // STORES //
 import {globalStore} from '../store/globalStore';
+// SVELTE IMPORTS //
+import {onMount} from 'svelte';
 // COMPONENTS //
 import Navigation from "$lib/Navigation/Navigation.svelte";
 import InvoiceModal from '$lib/Modal/InvoiceModal.svelte';
@@ -18,17 +20,17 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
+    max-height: 100%;
     width: 100%;
-    padding: 5rem 0 0 0;
-    &.bgColorDark{
-        background-color: $bgColorDark;
-    }
+    padding: 1rem;
+    overflow: auto;
 }
 </style>
 
 
 <Navigation/>
+
 <InvoiceModal/>
 <main class="bgColor{theme}">
     <slot/>

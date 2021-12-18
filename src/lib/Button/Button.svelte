@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
     export let href = ""
     export let text = ""
     export let type = "primary";
     export let icon = "";
     export let fluid = false;
+    export let rounded: Boolean = false
 </script>
 
 
@@ -12,17 +13,17 @@
 
     a,button{
         @include centered;
-        padding: .75rem;
-        border-radius: 0 12px 12px 0;
-        color: white;
+        padding: .5rem;
         font-weight: bold;
         min-width: 5rem;
         font-size: 1.1rem;
+        cursor: pointer;
         &.primary{
             background-color: $colorLight;
         }
         &.secondary{
             background-color: $colorDark;
+            color: $miscDark;
         }
         &.accent{
             background-color: $colorLightest;
@@ -32,14 +33,19 @@
         }
         &.fluid{
             width: 100%;
-            border-radius: 8px;
+        }
+        i{
+            margin-right: .5rem;
+        }
+        &.rounded{
+            border-radius: 15px;
         }
     }
 </style>
 
 
 {#if !href}
-    <button on:click|preventDefault class:fluid={fluid} class="{type}"><i class="fas fa-{icon}"></i>{text}</button>
+    <button class:rounded={rounded} on:click|preventDefault class:fluid={fluid} class="{type}"><i class="fas fa-{icon}"></i>{text}</button>
 {:else}
-    <a on:click|preventDefault class="{type}" {href}>{text}</a>
+    <a on:click|preventDefault class="{type}" {href}><i class="fas fa-{icon}"></i>{text}</a>
 {/if}

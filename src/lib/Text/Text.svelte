@@ -3,7 +3,7 @@
 import {globalStore} from '../../store/globalStore';
 $: theme = $globalStore.theme;
     // PROPS //
-export let text = "Hello World"
+export let text:any = "Hello World"
 export let size = "h1";
 export let title: boolean = false;
 export let disabled: boolean = false;
@@ -16,7 +16,6 @@ import "../../scss/styles.scss";
 @import "../../scss/util/index";
 
 h1,h2,h3,p{
-    width: 100%;
     &.disabled{
         color: grey;
     }

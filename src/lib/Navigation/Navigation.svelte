@@ -9,9 +9,13 @@
     function themeSwitch(){
         if($globalStore.theme === "Dark"){
             $globalStore.theme = "Light";
+            document.querySelector("body").classList.remove("bgColorDark");
+            document.querySelector("body").classList.add("bgColorLight");
             icon = "sun";
         } else {
-            $globalStore.theme = "Dark";
+            $globalStore.theme = "Dark";            
+            document.querySelector("body").classList.add("bgColorDark");
+            document.querySelector("body").classList.remove("bgColorLight");
             icon = "moon";
         }
     }    
@@ -25,14 +29,14 @@
         height: $navHeight;
         width: 100%;
         background-color: $colorDarker;
-        position: fixed;
-        top: 0;
-        left: 0;
         z-index: 3;
         @include laptopUp {
             flex-direction: column;
             height: 100%;
             width: $navWidth;
+            position: fixed;
+            left: 0;
+            top: 0;
         }
         .settings {
             @include centered;
