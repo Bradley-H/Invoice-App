@@ -19,7 +19,7 @@
     $: length = 1;
     // PROPS //
     export let id = "";
-    export let paymentDue = "";
+    export let paymentDue = formateDate("");
     export let description = "";
     export let paymentTerms = 30;
     export let clientName = "";
@@ -42,6 +42,7 @@
     function submitItemList(e) {
         items = [{ ...e.detail }];
     }
+    import {formateDate, numberWithCommas} from '../../store/functionStore'
     // SCSS FILES //
     import "../../scss/styles.scss";
 </script>
@@ -59,7 +60,6 @@
         margin-bottom: 5rem;
         }
         .title {
-        margin-top: toRem(40);
         margin-bottom: toRem(35);
         }
         .billFrom {
@@ -69,21 +69,44 @@
                 @extend %grid;
                 &-city {
                     @extend %grid2;
+                    @include tabletUp{
+                        grid-template-columns: 1fr 1fr 1fr;
+                    }
                 }
                 &-country {
                     grid-column: span 2 / span 2;
+                    @include tabletUp{
+                        grid-column: unset;
+                    }
                 }
             }
         }
         .billTo {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
             margin-bottom: 2.5rem;
+
+            &_invoiceInformation{
+                @include tabletUp{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
+                }
+            }
             &_information {
                 @extend %grid;
                 &-city {
                     @extend %grid2;
+                    @include tabletUp{
+                        grid-template-columns: 1fr 1fr 1fr;
+                    }
                 }
                 &-country {
                     grid-column: span 2 / span 2;
+                    @include tabletUp{
+                        grid-column: unset;
+                    }
                 }
             }
         }
@@ -97,13 +120,14 @@
         z-index: 2;
         position: fixed;
         margin: 2rem 0 0 0;
-        @include tablet {
-            max-width: $invoiceModalWidthMobile;
-            margin: $navHeight 0 0 0;
+        max-width: $invoiceModalWidthMobile;
+        margin: $navHeight 0 0 0;
+        @include tablet{
+            max-width: 700px;
         }
         @include laptopUp {
-            max-width: $invoiceModalWidthLaptop;
-            margin: 0 $navWidth 0 0;
+            max-width: 575px;
+            margin: 0 0 0 $navWidth;
         }
     }
 
@@ -118,16 +142,26 @@
     }
 
     .btns{
-        @extend %grid3;
-        gap: 10px;
-        position: sticky;
-        left: 0;
-        background-color: lighten($bgColorDark, 10%);
-        width: 100%;
+        @extend %flex;
+        justify-content: center;
         max-width: $invoiceModalWidthMobile;
-        height: 5rem;
-        padding: 1rem .8rem;
-        transform: translateY(-3rem);
+        transform: translateY(-2.5rem);
+        position: sticky;
+        margin: 2rem 0;
+        @include mobileMaxUp{
+            justify-content: space-between
+        }
+        @include laptopUp{
+            margin: 0;
+        }
+        div{
+            @extend %flex;
+            gap: 10px;
+            margin-left: .5rem;
+        }
+        @include laptopUp{
+            transform: translateY(-1rem);
+        }
     }
 </style>
 
@@ -145,12 +179,12 @@
         <div class="billFrom">
             <p>Bill From</p>    
             <div class="billFrom_information">
-                <FormField text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderStreet} />
+                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderStreet} />
                 <div class="billFrom_information-city">
-                    <FormField text="City" id="senderCity" placeholder="City" bind:value={senderCity} />
-                    <FormField text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderPostCode}/>
+                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={senderCity} />
+                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderPostCode}/>
                     <div class="billFrom_information-country">
-                        <FormField id="senderCountry" text="Country" placeholder="Country" bind:value={senderCountry}/>
+                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={senderCountry}/>
                     </div>
                 </div>
             </div>
@@ -162,15 +196,15 @@
         <p>Bill To</p>
         <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={clientName}/>
         <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={clientEmail}/>
-        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientStreet}/>
+        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientStreet} />
 
         <div class="billTo_information">
             <div class="billTo_information-city">
-                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientCity}/>
-                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal Code" bind:value={clientPostCode}/>
-            </div>
-            <div class="billTo_information-country">
-                <FormField text="Country" id="clientCountry" placeholder="Country" bind:value={clientCountry}/>
+                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientCity} />
+                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={clientPostCode}/>
+                <div class="billTo_information-country">
+                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={clientCountry}/>
+                </div>
             </div>
         </div>
 
@@ -186,12 +220,15 @@
         {#each {length} as _, i (i)}
             <ItemList index={i} on:inputItemList={submitItemList}/>
         {/each}
-        <Button type="primary" icon="plus" fluid text="Add Item" on:click={() => length++}/>
+        <Button rounded icon="plus" fluid text="Add Item" on:click={() => length++}/>
     </div>
     <div class="btns">
-        <Button type="primary" fluid text="Add" on:click={() => length++}/>
-        <Button type="primary" fluid text="Add" on:click={() => length++}/>
-        <Button type="primary" fluid text="Add" on:click={() => length++}/>
+        <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={console.log}/>
+        <div>
+            <Button type="secondary" icon="save" size="medium" rounded text="Save as Draft" on:click={() => length++}/>
+            <Button type="primary" size="medium" icon="paper-plane" rounded text="Save and Send" on:click={() => length++}/>
+        </div>
+        
     </div>
     </form>
     

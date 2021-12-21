@@ -10,18 +10,15 @@
 
 
     div{
-        margin-top: .5rem;
         @include tabletUp{
-            margin: 0
+            margin: 0;
         }
         h3{
             @include centered;
             text-transform: capitalize;
             height: 3rem;
+            border-radius: 5px;
             width: toRem(140);
-            @include desktop{
-                margin-top: .5rem;
-            }
             &.paid{
                 color: darken($color: rgb(35, 223, 160), $amount: 10);
                 background-color: rgba($color: rgb(61, 179, 61), $alpha: .15);

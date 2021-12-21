@@ -3,29 +3,24 @@
 import Button from '$lib/Button/Button.svelte';
 import Invoice from '$lib/Invoice/Invoice.svelte';
 import Text from '$lib/Text/Text.svelte';
-$: total = 0
-$: filter = "All";
-// STORES
-import { globalStore } from '../store/globalStore';
-// FUNCTIONS //
-async function getInvoices(){
-    let res = await fetch('./json/data.json');
-    let data = await res.json();
-    total = data.length;
-    return data
-}
+import FormField from '$lib/FormField/FormField.svelte';
 // CONSTANTS //
 const options = [
-    {id: 0, text: "All", value:"All"},
-    {id: 1, text: "Paid", value:"Paid"},
-    {id: 2, text: "Pending", value:"Pending"},
-    {id: 3, text: "Draft", value:"Draft"},
-
+    {id: 0, text: "All", value:"all"},
+    {id: 1, text: "Paid", value:"paid"},
+    {id: 2, text: "Pending", value:"pending"},
+    {id: 3, text: "Draft", value:"draft"},
 ]
+// STORES
+import { globalStore } from '../store/globalStore';
 // VARIABLES AND REACTIVE VALUES //
-
+$: filter = "all";
+$: filterInvoices = $globalStore.invoices.filter(inv => inv.status === filter || filter === "all")
+$: total = filterInvoices.length
+// FUNCTIONS //
+import {getInvoices} from '../store/functionStore';
+// SASS FILES //
     import "../scss/styles.scss";
-import FormField from '$lib/FormField/FormField.svelte';
 </script>
 
 
@@ -36,13 +31,11 @@ import FormField from '$lib/FormField/FormField.svelte';
         display: flex;
         flex-direction: column;
         width: 100%;
-        max-width: 1500px;
-        @include laptopUp{
-            padding: 0 0 0 5rem;
-        }
+        max-width: $containerWidth;
         @include desktop{
             display: grid;
             grid-template-columns: 1fr;
+            max-width: $containerWidthDesktop;
         }
         div.invoices{
         display: flex;
@@ -59,23 +52,17 @@ import FormField from '$lib/FormField/FormField.svelte';
             grid-template-columns: 1fr 1fr;
             gap: 7px;
             justify-self: center;
+            max-width: $containerWidthDesktop;
         }
     }
     .helperBar{
-        display: grid;
-        grid-template-columns: 30% 2fr;
-        margin-top: 1rem;
-        @include mobileMax{
-            grid-template-columns: 1fr 1fr;
-        }
-        @include tabletUp{
-            display: flex;
-            justify-content: space-between;
-        }
+        display: flex;
+        justify-content: space-between;
         &_invoice{
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-right: 1rem;
         }
         .settings{
             display: grid;
@@ -96,25 +83,25 @@ import FormField from '$lib/FormField/FormField.svelte';
 
 
 <div class="container">
-    {#await getInvoices()}
+    {#await getInvoices("")}
     <div class="loading">
         <Text size="h1" text="Getting invoices, please wait"/>
     </div>
-    {:then invoice} 
+    {:then inv} 
     <div class="helperBar">
         <div class="helperBar_invoice">
-            <Text size="h3" text="Invoices"/>
+            <Text size="h2" text="Invoices"/>
             <Text size="p" text="{total} invoices"/>
         </div>
         <div class="settings">
-            <FormField id="filter" bind:value={filter} form="select" {options}/>
+            <FormField id="filter" form="select" {options} bind:value={filter}/>
             <Button rounded icon="plus" text="Add Invoice" on:click={() => $globalStore.modalStatus = "Add"}/>
         </div>
     </div>
     <div class="invoices">
-        {#each invoice as inv}
-            <Invoice {...inv}/>
-            {/each}
+        {#each filterInvoices as {id, paymentDue, total, clientName, status}, i (i)}
+                <Invoice {id} {paymentDue} {total} {clientName} {status} />
+        {/each}
         </div>
     {/await}
 </div>

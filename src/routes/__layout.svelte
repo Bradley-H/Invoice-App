@@ -21,17 +21,19 @@ main{
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    max-height: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 2rem 1.5rem;
     overflow: auto;
+    @include laptopUp{
+        padding: 3rem 2rem 0 6.5rem;
+    }
 }
 </style>
 
 
 <Navigation/>
-
 <InvoiceModal/>
+
 <main class="bgColor{theme}">
     <slot/>
 </main>

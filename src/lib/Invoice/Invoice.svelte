@@ -10,15 +10,7 @@
     import Text from '$lib/Text/Text.svelte';
     import Tag from '$lib/Invoice/Tag.svelte';
 // FUNCTIONS //
-function formateDate(date){
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let newDate = new Date(date);
-    let month = months[newDate.getMonth()];
-    let day = newDate.getDate();
-    let year = newDate.getFullYear();
-    return `${month} ${day}, ${year}`;
-
-}
+import {formateDate, numberWithCommas} from '../../store/functionStore'
 // SCSS FILES //
     import "../../scss/styles.scss";
 </script>
@@ -27,9 +19,10 @@ function formateDate(date){
 <style lang="scss">
     @import "../../scss/util/index";
     
-    .container{
+    .container-invoice{
         display: grid;
         grid-template-columns:1fr 0fr;
+        width: 100%;
         @include laptopUp{
             grid-template-columns:2fr 1fr;
         }
@@ -49,6 +42,7 @@ function formateDate(date){
         display: grid;
         grid-template-columns: 1fr;
         padding: 1rem;
+        gap: 10px;
         @include mobileMax{
             grid-template-columns: 1fr 2fr;
             place-items: center;
@@ -56,6 +50,7 @@ function formateDate(date){
         @include tablet{
             grid-template-columns: 1fr 2fr;
             text-align: center;
+            padding: 0;
         }
         @include laptop{
             grid-template-columns: 1fr 70%;
@@ -65,6 +60,7 @@ function formateDate(date){
         @include desktop{
             grid-template-columns: 1fr 2fr;
             align-items: center;
+            padding: 0;
         }
         div{
             display: flex;
@@ -98,42 +94,42 @@ function formateDate(date){
     .paymentInformation{
         display: grid;
         grid-template-columns: 1fr;
+        justify-content: center;
         text-align: center;
         align-items: center;
-        padding: 1rem .5rem;
+        padding: .5rem;
         width: 95%;
         margin-right: -1rem;
+        gap: 7px;
         @include mobileMax{
             display: grid;
             grid-template-columns: 1fr 1fr;
             place-items: center;
             gap: 16px;
-        }
-        @include tablet{
-            padding: 0;
+            justify-content: center;
         }
         @include laptop{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 0;
         }
         @include desktop{
-            @include centered;
-            padding-right: .5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 .5rem 0 0;
         }
     }
     }
     
 </style>
 
-
 <Card inv {id}>
-    <div class="container">
+    <div class="container-invoice">
         <div class="dueInformation">
             <Text size="h3" text="#{id}"/>
             <div>
                 <Text size="p" text="Due: {formateDate(paymentDue)}"/>
-                <Text size="h3" text="${total.toFixed(2)}"/>
+                <Text size="h3" text="${numberWithCommas(total.toFixed(2))}"/>
             </div>
         </div>
     <div class="paymentInformation">

@@ -6,15 +6,17 @@
     export let inv: boolean = false;
     export let id: string = "";
     export let modal: boolean = false;
+    export let round: boolean = false;
 </script>
 
 <style lang="scss">
     @import "../../scss/util/index";
     div,
     a {
-        @extend %flexCol;
+        @extend %flex;
         position: relative;
         width: 100%;
+        padding: 1rem;
         &.Dark {
             background-color: lighten($color: $bgColorDark, $amount: 9);
         }
@@ -22,10 +24,11 @@
             background-color: darken($color: $bgColorLight, $amount: 11);
         }
         &.inv {
-           display: flex;
+           @extend %flex;
            width: 100%;
            border-radius: 12px;
            margin: .25rem 0;
+           padding: toRem(12);
         }
         &.modal {
             @extend %flexCol;
@@ -40,22 +43,18 @@
             &.Light {
                 background-color: darken($color: $bgColorLight, $amount: 15);
             }
-            @include tablet {
-                max-width: $invoiceModalWidthMobile;
-                margin: $navHeight 0 0 0;
-            }
-            @include laptopUp {
-                max-width: $invoiceModalWidthLaptop;
-                margin: 0 0 0 $navWidth;
-            }
         }
+    }
+
+    .round{
+        border-radius: 8px;
     }
 </style>
 
 
 
 {#if !inv}
-    <div class:modal class={$globalStore.theme}>
+    <div class:round={round} class:modal class={$globalStore.theme}>
         <slot />
     </div>
 {:else}
