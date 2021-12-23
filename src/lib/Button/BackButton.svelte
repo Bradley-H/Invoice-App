@@ -1,6 +1,6 @@
 <script lang="ts">
     import Text from '$lib/Text/Text.svelte'
-    export let href: string = "";
+    export let href: boolean = false
 </script>
 
 
@@ -12,6 +12,7 @@
         align-items: center;
         font-size: 1rem;
         margin: 1.5rem 0;
+        cursor: pointer;
     }
 
     i{
@@ -25,7 +26,7 @@
 
 
 {#if href}
-<a {href}><i class="fas fa-chevron-left"/><Text size="h3" text="Go back"/></a>
+<a href="/"><i class="fas fa-chevron-left"/><Text size="h3" text="Go back"/></a>
 {:else}
 <button on:click|preventDefault><i class="fas fa-chevron-left"/><Text size="h3" text="Go back"/></button>
 {/if}

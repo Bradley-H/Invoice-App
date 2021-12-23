@@ -97,7 +97,7 @@
 
 
 <nav>
-    <a href="/"><i class="fas fa-home"></i></a>
+    <a on:click={() => $globalStore.modalStatus = null ? "" : $globalStore.modalStatus = null} href="/"><i class="fas fa-home"></i></a>
     <div class="settings">
         <div class="themeSwitcher">
            <i on:click={themeSwitch} class="fas fa-{icon}">

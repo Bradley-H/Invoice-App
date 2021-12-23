@@ -20,7 +20,7 @@ export async function getInvoices(path){
 
 
     // IF PATH IN PROVIDED //
-    if(path){
+    if(path.length > 0){
     let getData = data.find(invoice => invoice.id === path);    
     return {
         id: getData.id,

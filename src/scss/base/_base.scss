@@ -27,7 +27,7 @@ body, html{
     height: 100%;
 };
 
-$fontSize: (h1: 32, h2: 25, h3: 19, p: 13);
+$fontSize: (h1: 32, h2: 25, h3: 17.5, p: 13);
 
 @each $size, $val in $fontSize {
     #{$size}{

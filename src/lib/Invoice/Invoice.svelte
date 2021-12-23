@@ -1,6 +1,6 @@
 <script lang="ts">
     // PROPS //
-    export let id;
+    export let id: any
     export let paymentDue: string = "";
     export let total: number = 0;
     export let clientName: string = "";

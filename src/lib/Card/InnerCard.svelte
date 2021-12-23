@@ -19,7 +19,7 @@
             background-color: lighten($color: $bgColorDark, $amount: 15);
         }
         &.Light{
-            background-color: lighten($color: $bgColorDark, $amount: 10);
+            background-color: darken($color: $bgColorLight, $amount: 10);
         }
     }
 </style>

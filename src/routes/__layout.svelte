@@ -1,16 +1,13 @@
 <script lang="ts">
     // STORES //
 import {globalStore} from '../store/globalStore';
-// SVELTE IMPORTS //
-import {onMount} from 'svelte';
 // COMPONENTS //
 import Navigation from "$lib/Navigation/Navigation.svelte";
-import InvoiceModal from '$lib/Modal/InvoiceModal.svelte';
+import InvoiceModal from '$lib/Modal/InvoiceModal.svelte'
 // VARIABLES //
 $: theme = $globalStore.theme;
 // SASS DEFINITIONS //
 import "../scss/styles.scss"
-
 </script>
 
 
@@ -25,7 +22,7 @@ main{
     padding: 2rem 1.5rem;
     overflow: auto;
     @include laptopUp{
-        padding: 3rem 2rem 0 6.5rem;
+        padding: 1rem 2rem 2rem 6.5rem;
     }
 }
 </style>
@@ -33,7 +30,6 @@ main{
 
 <Navigation/>
 <InvoiceModal/>
-
 <main class="bgColor{theme}">
     <slot/>
 </main>

@@ -1,26 +1,23 @@
-<script lang="ts">
-        import FormField from "./FormField.svelte";
+<!-- <script lang="ts">
+    import FormField from "./FormField.svelte";
+    import {globalStore} from '../../store/globalStore';
     // SVELTE IMPORTS //
-        import { createEventDispatcher } from "svelte";
-        import {numberWithCommas} from '../../store/functionStore'
-        const dispatch = createEventDispatcher();
-        // FUNCTIONS //
-        function dispatchInput(e) {
-            dispatch("inputItemList", {qty, price, name, total} );
-        }
-    // REACTIVE STATEMENTS //
-        export let qty = 0;
-        export let price = 0.00
-        export let name = "";
-        $: total =`$${numberWithCommas((qty * price).toFixed(2))}`;
+    import { numberWithCommas } from "../../store/functionStore";
+     // PROPS // 
 
+    export let i = 0;
+    $: qty = $globalStore.modalStatus = "edit" ? $globalStore.currentInvoice[0].items[i].quantity : 0;
+    $: price = $globalStore.modalStatus = "edit" ? $globalStore.currentInvoice[0].items[i].price : 0;
+    $: name = $globalStore.modalStatus = "edit" ? $globalStore.currentInvoice[0].items[i].name : "";
+    $: total = `$${numberWithCommas((qty * price).toFixed(2))}`;
+    export const items = {qty, price, name, total}
 
-        $: console.log(qty);
-        
-    // PROPS //
-        export let index = 0;
-import "../../scss/styles.scss";
-
+  $: console.log(qty, price, name, total, i);
+    
+     // FUNCTIONS //
+     function dispatchInput(e) {
+    }
+    import "../../scss/styles.scss";
 </script>
 
 <style lang="scss">
@@ -29,11 +26,11 @@ import "../../scss/styles.scss";
         display: flex;
         margin-bottom: 2rem;
         gap: 10px;
-        @include tabletUp{
+        @include tabletUp {
             display: grid;
-            grid-template-columns: .7fr 1.5fr;
+            grid-template-columns: 0.7fr 1.5fr;
         }
-        .nameField{
+        .nameField {
             display: grid;
             grid-template-columns: 1fr;
         }
@@ -43,20 +40,10 @@ import "../../scss/styles.scss";
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 10px;
-        @include tabletUp{
-            grid-template-columns: .8fr .8fr 1.5fr 1fr;
+        @include tabletUp {
+            grid-template-columns: 0.8fr 0.8fr 1.5fr 1fr;
         }
     }
 </style>
 
-<div class="itemList" on:change={dispatchInput}>
-    <div class="nameField">
-        <FormField title bind:value={name} id="Name{index}" form="number" text="Name" placeholder="Item"  />
-    </div>
-    <div class="attributes">
-        <FormField title bind:value={qty} id="qty{index}" text="Qty" placeholder="Qty"   />
-        <FormField title bind:value={price} id="price{index}" form="number" text="Price" placeholder="Price"   />
-        <FormField title bind:value="{total}"  id="total{index}" disabled text="Total" placeholder="Total" />
-        <button on:click|preventDefault><i class="fas fa-trash" /></button>
-    </div>
-</div>
+ -->

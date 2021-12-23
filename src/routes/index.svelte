@@ -4,6 +4,8 @@ import Button from '$lib/Button/Button.svelte';
 import Invoice from '$lib/Invoice/Invoice.svelte';
 import Text from '$lib/Text/Text.svelte';
 import FormField from '$lib/FormField/FormField.svelte';
+// SVELTE IMPORTS //
+
 // CONSTANTS //
 const options = [
     {id: 0, text: "All", value:"all"},
@@ -16,9 +18,12 @@ import { globalStore } from '../store/globalStore';
 // VARIABLES AND REACTIVE VALUES //
 $: filter = "all";
 $: filterInvoices = $globalStore.invoices.filter(inv => inv.status === filter || filter === "all")
-$: total = filterInvoices.length
 // FUNCTIONS //
 import {getInvoices} from '../store/functionStore';
+function addInvoice(){
+    $globalStore.currentInvoice = [];
+    $globalStore.modalStatus = "add"
+    }
 // SASS FILES //
     import "../scss/styles.scss";
 </script>
@@ -91,11 +96,11 @@ import {getInvoices} from '../store/functionStore';
     <div class="helperBar">
         <div class="helperBar_invoice">
             <Text size="h2" text="Invoices"/>
-            <Text size="p" text="{total} invoices"/>
+            <Text size="p" text="{filterInvoices.length} invoices"/>
         </div>
         <div class="settings">
             <FormField id="filter" form="select" {options} bind:value={filter}/>
-            <Button rounded icon="plus" text="Add Invoice" on:click={() => $globalStore.modalStatus = "Add"}/>
+            <Button rounded icon="plus" text="Add Invoice" on:click={addInvoice}/>
         </div>
     </div>
     <div class="invoices">
