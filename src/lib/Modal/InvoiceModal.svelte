@@ -8,41 +8,36 @@
     import Button from "$lib/Button/Button.svelte";
     // STORES //
     import { globalStore } from "../../store/globalStore";
-    // CONSTANTS //
-    const options = [
-        { id: 0, text: "30 Days", value: 30 },
-        { id: 1, text: "60 Days", value: 60 },
-    ];
-    // VARIABLES //
-    $: title =
-        $globalStore.modalStatus === "Add" ? "Add Invoice" : `Edit #${id}`;
-    $: length = 1;
+    import {formateDate} from '../../store/functionStore';
     // PROPS //
-    export let id = "";
-    export let paymentDue = formateDate("");
-    export let description = "";
-    export let paymentTerms = 30;
-    export let clientName = "";
-    export let clientEmail = "";
-    export let senderStreet = "";
-    export let senderCity = "";
-    export let senderPostCode = "";
-    export let senderCountry = "";
-    export let clientStreet = "";
-    export let clientCity = "";
-    export let clientPostCode = "";
-    export let clientCountry = "";
-    export let items = [];
+    $: id = 0
+    $: paymentDue = 0
+    $: description = ""
+    $: paymentTerms = 30
+    $: clientName = ""
+    $: clientEmail = ""
+    $: senderStreet = "" 
+    $: senderCity = ""
+    $: senderPostCode = ""
+    $: senderCountry = ""
+    $: clientStreet = ""
+    $: clientCity = ""
+    $: clientPostCode = "" 
+    $: clientCountry = "";
+    $: items = []
+    // CONSTANTS //
+        const options = [
+            { id: 0, text: "30 Days", value: 30 },
+            { id: 1, text: "60 Days", value: 60 },
+        ];
     // SVELTE IMPORTS //
     import { fade, fly } from "svelte/transition";
-    // FUNCTIONS //
+    // VARIABLES //
+    $: title = $globalStore.modalStatus === "add" ? "Add Invoice" : `Edit #${id}`;
+    $: length = 0
     function removeModal() {
         $globalStore.modalStatus = null;
     }
-    function submitItemList(e) {
-        items = [{ ...e.detail }];
-    }
-    import {formateDate, numberWithCommas} from '../../store/functionStore'
     // SCSS FILES //
     import "../../scss/styles.scss";
 </script>
@@ -85,7 +80,6 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
-            margin-bottom: 2.5rem;
 
             &_invoiceInformation{
                 @include tabletUp{
@@ -98,6 +92,7 @@
                 @extend %grid;
                 &-city {
                     @extend %grid2;
+                    margin: 1rem 0;
                     @include tabletUp{
                         grid-template-columns: 1fr 1fr 1fr;
                     }
@@ -117,7 +112,7 @@
     .modal {
         width: 100%;
         height: 100%;
-        z-index: 2;
+        z-index: 4;
         position: fixed;
         margin: 2rem 0 0 0;
         max-width: $invoiceModalWidthMobile;
@@ -188,7 +183,6 @@
                     </div>
                 </div>
             </div>
-          
         </div>
     
 
@@ -217,16 +211,30 @@
 
     <p>Item list</p>
     <div class="items">
+        <!-- EACH BLOCK -->
         {#each {length} as _, i (i)}
-            <ItemList index={i} on:inputItemList={submitItemList}/>
+        <div class="itemList">
+            <div class="nameField">
+                <FormField title bind:value={items[i].names} id="Name" text="Name" placeholder="Item"  />
+            </div>
+            <div class="attributes">
+                <FormField title bind:value={items[i].quantity} id="qty" form="number" text="Qty" placeholder="Qty"   />
+                <FormField title bind:value={items[i].price} id="price" form="number" text="Price" placeholder="Price"/>
+                <FormField title bind:value="{items[i].total}"  id="total" disabled text="Total" placeholder="Total"/>
+                <button on:click|preventDefault><i class="fas fa-trash" /></button>
+            </div>
+        </div>
         {/each}
-        <Button rounded icon="plus" fluid text="Add Item" on:click={() => length++}/>
+        <!-- EACH BLOCK -->
+        <Button rounded icon="plus" fluid text="Add Item" on:click={() => {
+            length++;
+        }}/>
     </div>
     <div class="btns">
-        <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={console.log}/>
+        <Button type="danger" icon="trash" size="medium" rounded text="Discard" />
         <div>
-            <Button type="secondary" icon="save" size="medium" rounded text="Save as Draft" on:click={() => length++}/>
-            <Button type="primary" size="medium" icon="paper-plane" rounded text="Save and Send" on:click={() => length++}/>
+            <Button type="secondary" icon="save" size="medium" rounded text="Save as Draft"/>
+            <Button type="primary" size="medium" icon="paper-plane" rounded text="Save and Send"/>
         </div>
         
     </div>
