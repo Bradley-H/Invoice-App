@@ -211,21 +211,9 @@
 
     <p>Item list</p>
     <div class="items">
-        <!-- EACH BLOCK -->
         {#each {length} as _, i (i)}
-        <div class="itemList">
-            <div class="nameField">
-                <FormField title bind:value={items[i].names} id="Name" text="Name" placeholder="Item"  />
-            </div>
-            <div class="attributes">
-                <FormField title bind:value={items[i].quantity} id="qty" form="number" text="Qty" placeholder="Qty"   />
-                <FormField title bind:value={items[i].price} id="price" form="number" text="Price" placeholder="Price"/>
-                <FormField title bind:value="{items[i].total}"  id="total" disabled text="Total" placeholder="Total"/>
-                <button on:click|preventDefault><i class="fas fa-trash" /></button>
-            </div>
-        </div>
+            <ItemList i={i} />
         {/each}
-        <!-- EACH BLOCK -->
         <Button rounded icon="plus" fluid text="Add Item" on:click={() => {
             length++;
         }}/>

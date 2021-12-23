@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
     import FormField from "./FormField.svelte";
     import {globalStore} from '../../store/globalStore';
     // SVELTE IMPORTS //
@@ -46,4 +46,15 @@
     }
 </style>
 
- -->
+
+<div class="itemList" on:change={dispatchInput}>
+    <div class="nameField">
+        <FormField title bind:value={name} id="Name" text="Name" placeholder="Item"  />
+    </div>
+    <div class="attributes">
+        <FormField title bind:value={qty} id="qty" form="number" text="Qty" placeholder="Qty"   />
+        <FormField title bind:value={price} id="price" form="number" text="Price" placeholder="Price"/>
+        <FormField title bind:value="{total}"  id="total" disabled text="Total" placeholder="Total"/>
+        <button on:click|preventDefault><i class="fas fa-trash" /></button>
+    </div>
+</div>
