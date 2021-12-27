@@ -33,7 +33,14 @@
     import { fade, fly } from "svelte/transition";
     // VARIABLES //
     $: title = $globalStore.modalStatus === "add" ? "Add Invoice" : `Edit #${id}`;
-    $: length = ($globalStore.items.length|| 1);
+    let length;
+    $: if($globalStore.modalStatus == "edit") {
+        try {
+            length = ($globalStore.items.length + 1);
+        } catch (error) {
+            console.log(error);
+        }
+    }
     function removeModal() {
         $globalStore.modalStatus = null;
     }
@@ -217,7 +224,7 @@
 
     <p>Item list</p>
     <div class="items">
-        {#each {length} as _, i (i)}
+        {#each Array(length) as _, i}
             <ItemList {i} on:getItemData={addItems} />
         {/each}
         <Button rounded icon="plus" fluid text="Add Item" on:click={increaseLength}/>

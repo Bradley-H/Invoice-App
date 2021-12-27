@@ -21,7 +21,7 @@
         let getData = data.find(invoice => invoice.id === $page.path.slice(1));
         $globalStore.items = [];
         $globalStore.modalStatus = 'edit';
-        getData.items.map(item => {
+        getData.items.forEach(item => {
             $globalStore.items = [...$globalStore.items, item];
         })
         console.log($globalStore.currentInvoice);
