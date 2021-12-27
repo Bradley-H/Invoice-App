@@ -4,5 +4,6 @@ export let globalStore = writable({
     theme: "Dark",
     modalStatus: null,
     invoices: [], //all the invoices //
-    currentInvoice: [] // the current invoice that is being made, edited or being viewed //
+    currentInvoice:<any> [], // the current invoice that is being made, edited or being viewed //
+    items: [], // the items that are being added or edited to the current invoice //
 })

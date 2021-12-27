@@ -4,8 +4,6 @@ import Button from '$lib/Button/Button.svelte';
 import Invoice from '$lib/Invoice/Invoice.svelte';
 import Text from '$lib/Text/Text.svelte';
 import FormField from '$lib/FormField/FormField.svelte';
-// SVELTE IMPORTS //
-
 // CONSTANTS //
 const options = [
     {id: 0, text: "All", value:"all"},

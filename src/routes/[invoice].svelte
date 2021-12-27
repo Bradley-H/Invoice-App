@@ -16,12 +16,17 @@
     // FUNCTIONS //
     import { getInvoices, numberWithCommas, formateDate } from "../store/functionStore";
     async function editInvoice(){
-        $globalStore.currentInvoice = [];
         let res = await fetch('./json/data.json');
         let data = await res.json();
-        let getData = data.find(invoice => invoice.id === $page.path.slice(1))
-        $globalStore.currentInvoice = [getData];
-        $globalStore.modalStatus = "edit"
+        let getData = data.find(invoice => invoice.id === $page.path.slice(1));
+        $globalStore.items = [];
+        $globalStore.modalStatus = 'edit';
+        getData.items.map(item => {
+            $globalStore.items = [...$globalStore.items, item];
+        })
+        console.log($globalStore.currentInvoice);
+        
+        
     }
     // SASS DEFINITIONS //
     import "../scss/styles.scss";

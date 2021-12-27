@@ -8,23 +8,22 @@
     import Button from "$lib/Button/Button.svelte";
     // STORES //
     import { globalStore } from "../../store/globalStore";
-    import {formateDate} from '../../store/functionStore';
+    import {formateDate} from '../../store/functionStore'; //come back to later after I complete edit invoice //
     // PROPS //
-    $: id = 0
-    $: paymentDue = 0
-    $: description = ""
-    $: paymentTerms = 30
-    $: clientName = ""
-    $: clientEmail = ""
-    $: senderStreet = "" 
-    $: senderCity = ""
-    $: senderPostCode = ""
-    $: senderCountry = ""
-    $: clientStreet = ""
-    $: clientCity = ""
-    $: clientPostCode = "" 
-    $: clientCountry = "";
-    $: items = []
+    let id = ""
+    let description = "" 
+    let senderStreet = "" 
+    let senderCity = "" 
+    let senderPostCode = "" 
+    let senderCountry = "" 
+    let clientEmail = "" 
+    let clientCountry =  ""
+    let clientStreet = "" 
+    let clientPostCode = "" 
+    let clientName = "" 
+    let clientCity = "";
+    let paymentDue = "" 
+    let paymentTerms = 30;
     // CONSTANTS //
         const options = [
             { id: 0, text: "30 Days", value: 30 },
@@ -34,9 +33,16 @@
     import { fade, fly } from "svelte/transition";
     // VARIABLES //
     $: title = $globalStore.modalStatus === "add" ? "Add Invoice" : `Edit #${id}`;
-    $: length = 0
+    $: length = ($globalStore.items.length|| 1);
     function removeModal() {
         $globalStore.modalStatus = null;
+    }
+    function addItems(){
+        console.log("Added")
+    }
+    function increaseLength(){
+        $globalStore.items[length] = {}
+        length++
     }
     // SCSS FILES //
     import "../../scss/styles.scss";
@@ -112,7 +118,7 @@
     .modal {
         width: 100%;
         height: 100%;
-        z-index: 4;
+        z-index: 2;
         position: fixed;
         margin: 2rem 0 0 0;
         max-width: $invoiceModalWidthMobile;
@@ -212,11 +218,9 @@
     <p>Item list</p>
     <div class="items">
         {#each {length} as _, i (i)}
-            <ItemList i={i} />
+            <ItemList {i} on:getItemData={addItems} />
         {/each}
-        <Button rounded icon="plus" fluid text="Add Item" on:click={() => {
-            length++;
-        }}/>
+        <Button rounded icon="plus" fluid text="Add Item" on:click={increaseLength}/>
     </div>
     <div class="btns">
         <Button type="danger" icon="trash" size="medium" rounded text="Discard" />
