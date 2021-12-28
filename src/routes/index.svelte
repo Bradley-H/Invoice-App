@@ -11,16 +11,18 @@ const options = [
     {id: 2, text: "Pending", value:"pending"},
     {id: 3, text: "Draft", value:"draft"},
 ]
+
 // STORES
 import { globalStore } from '../store/globalStore';
 // VARIABLES AND REACTIVE VALUES //
 $: filter = "all";
-$: filterInvoices = $globalStore.invoices.filter(inv => inv.status === filter || filter === "all")
+$:filteredList = ""
+$: status = "paid";
 // FUNCTIONS //
 import {getInvoices} from '../store/functionStore';
 function addInvoice(){
     $globalStore.currentInvoice = [];
-    $globalStore.modalStatus = "add"
+    $globalStore.modalStatus = "add";
     }
 // SASS FILES //
     import "../scss/styles.scss";
@@ -94,7 +96,7 @@ function addInvoice(){
     <div class="helperBar">
         <div class="helperBar_invoice">
             <Text size="h2" text="Invoices"/>
-            <Text size="p" text="{filterInvoices.length} invoices"/>
+            <Text size="p" text="{filteredList = inv.filter(invoice => invoice.status == filter || filter === "all").length} invoices"/>
         </div>
         <div class="settings">
             <FormField id="filter" form="select" {options} bind:value={filter}/>
@@ -102,8 +104,12 @@ function addInvoice(){
         </div>
     </div>
     <div class="invoices">
-        {#each filterInvoices as {id, paymentDue, total, clientName, status}, i (i)}
+        {#each inv as {id, paymentDue, total, clientName, status}, i (i)}
+            {#if filter == "all" || status == filter}
+            <div>
                 <Invoice {id} {paymentDue} {total} {clientName} {status} />
+            </div>
+            {/if}
         {/each}
         </div>
     {/await}

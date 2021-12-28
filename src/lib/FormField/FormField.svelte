@@ -12,10 +12,17 @@
     export let options = [];
     export let disabled: boolean = false;
     export let placeholder: string = "";
+    export let step: number = .1;
     function numField(e) {
-            if (e.key <= 9 || e.key === "Backspace" || e.key === "Tab") {
+        if(!((e.keyCode > 95 && e.keyCode < 106)
+      || (e.keyCode > 47 && e.keyCode < 58) 
+      || e.keyCode == 8)) {
+            e.preventDefault();
+            return false;
+    }
+            if (e.key <= 9 || e.key === "Backspace" || e.key === "Tab" || value.length === 0) {
                 return
-            } else {
+            } else{
                 e.preventDefault();
             }
         }
@@ -68,7 +75,7 @@
 {#if form === "text"}
     <input {disabled} class="{$globalStore.theme}" {id} type="text"  {placeholder} bind:value={value} />
 {:else if form === "number"}
-    <input {disabled} class="{$globalStore.theme}" on:keypress={numField} {id} type="number" {placeholder}  bind:value={value} />
+    <input {disabled} class="{$globalStore.theme}" {step} on:keypress={numField} {id} type="number" {placeholder}  bind:value={value} />
 {:else if form === "date"}
     <input {disabled} {id} type="date" {placeholder}  bind:value={value}/>
     {:else if form === "select"}

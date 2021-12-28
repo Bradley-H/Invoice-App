@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let status = "paid"
+    export let status;
     // SCSS FILES //
     import "../../scss/styles.scss";
 </script>

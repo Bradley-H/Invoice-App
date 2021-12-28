@@ -13,12 +13,10 @@ export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// GET INVOICES
+// GET INVOICES IF YOU ARE IN A DYNAMIC ROUTE
 export async function getInvoices(path){
     let res = await fetch('./json/data.json');
     let data = await res.json();
-
-
     // IF PATH IN PROVIDED //
     if(path.length > 0){
     let getData = data.find(invoice => invoice.id === path);    
@@ -50,8 +48,7 @@ export async function getInvoices(path){
         })
     }
 } else{
-    globalStore.update($store => {
-        return $store.invoices = [...data], $store
-    })
+    // OTHERWISE OUTPUT ALL INVOICES IN INDEX PAGE
+    return data;
 }
 }
