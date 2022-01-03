@@ -1,7 +1,8 @@
 import { writable } from 'svelte/store';
 
 export let globalStore = writable({
-    theme: "Dark",
-    modalStatus: null,
-    currentInvoice:<any> [], // the current invoice that is being made, edited or being viewed //
+    theme: "Dark", // status of the current theme // Dark or Light
+    modalStatus: null, // status of modal //
+    editedInvoice: {}, //invoice being edited //
+    invoices: [] // all invoices
 })

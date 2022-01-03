@@ -12,7 +12,7 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-netlify": "^1.0.0-next.36",
-    "@sveltejs/kit": "^1.0.0-next.201",
+    "@sveltejs/kit": "^1.0.0-next.212",
     "node-sass": "^7.0.0",
     "sass": "^1.45.0",
     "svelte": "^3.44.0",
@@ -21,5 +21,8 @@
     "tslib": "^2.3.1",
     "typescript": "^4.4.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "uid": "^2.0.0"
+  }
 }

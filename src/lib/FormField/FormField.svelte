@@ -10,23 +10,24 @@
     export let text:string = "";
     export let value: any;
     export let options = [];
+    export let valid: boolean = false;
     export let disabled: boolean = false;
     export let placeholder: string = "";
     export let step: number = .1;
+    export let invalidMessage: string = "";
     function numField(e) {
-        if(!((e.keyCode > 95 && e.keyCode < 106)
-      || (e.keyCode > 47 && e.keyCode < 58) 
-      || e.keyCode == 8)) {
-            e.preventDefault();
-            return false;
-    }
-            if (e.key <= 9 || e.key === "Backspace" || e.key === "Tab" || value.length === 0) {
-                return
-            } else{
-                e.preventDefault();
-            }
+        // CHECK IF IT'S A NUMBER //
+        if (e.target.value.match(/^[0-9]*$/)) {
+            // IF IT IS, SET VALUE //
+            value = e.target.value;
+            // IF IT'S NOT, SET VALUE TO 0 //
+        } else {
+            invalidMessage = "Please enter a number";
         }
+    }
     import "../../scss/styles.scss";
+
+   
 </script>
 
 <style lang="scss">
@@ -42,6 +43,9 @@
             font-weight: bold;
             width: 100%;
             height: 3.5rem;
+            &.invalid{
+                border: 1px solid $colorDanger;
+            }
             &.Dark {
                 background-color: lighten($color: $bgColorDark, $amount: 7);
                 color: #fff;
@@ -56,6 +60,14 @@
         }
     }
 
+    p{
+        display: none;
+        color: $colorDanger;
+        margin: .3rem 0;
+        &.invalid{
+            display: block;
+        }
+    }
 
     select{
         border: none;
@@ -71,18 +83,21 @@
 
 
 <div class:title={title}>
-    <label {disabled} for={id}><Text {disabled} size="p" title {text}/></label>
+    <label {disabled} for={id}> <Text {disabled} size="p" title {text}/></label>
 {#if form === "text"}
-    <input {disabled} class="{$globalStore.theme}" {id} type="text"  {placeholder} bind:value={value} />
+    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {id} type="text" {placeholder} bind:value={value} />
 {:else if form === "number"}
-    <input {disabled} class="{$globalStore.theme}" {step} on:keypress={numField} {id} type="number" {placeholder}  bind:value={value} />
+    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {step} on:keydown={numField} {id} type="number" {placeholder}  bind:value={value} />
 {:else if form === "date"}
-    <input {disabled} {id} type="date" {placeholder}  bind:value={value}/>
+    <input {disabled} {id} type="date" {placeholder} class:invalid={!valid}  bind:value={value}/>
     {:else if form === "select"}
     <select class="{$globalStore.theme}" bind:value={value}>
         {#each options as val }
             <option value={val.value} on:click>{val.text}</option>
         {/each}
     </select>
+{/if}
+{#if invalidMessage && !valid}
+<p class:invalid={!valid}>{invalidMessage}</p>
 {/if}
 </div>

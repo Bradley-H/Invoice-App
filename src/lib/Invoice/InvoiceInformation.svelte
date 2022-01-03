@@ -35,10 +35,7 @@
     async function editInvoice(){
         let res = await fetch('./json/data.json');
         let data = await res.json();
-        let getData = data.find(invoice => invoice.id === $page.path.slice(1));
-        $globalStore.currentInvoice = [];
-        $globalStore.modalStatus = 'edit';
-        return $globalStore.currentInvoice = [getData];       
+        let getData = data.find(invoice => invoice.id === $page.path.slice(1));  
     }
     // SASS DEFINITIONS //
      import "../../store/globalStore";

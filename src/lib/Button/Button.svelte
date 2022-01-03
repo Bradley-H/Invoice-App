@@ -5,6 +5,7 @@
     export let icon:string = "";
     export let size:any = null
     export let fluid:boolean = false;
+    export let disabled: boolean = false;
     export let rounded: Boolean = false
 </script>
 
@@ -54,11 +55,15 @@
             width: 9rem;
         }
     }
+
+    button[disabled]{
+            opacity: .5;
+        }
 </style>
 
 
 {#if !href}
-    <button class:rounded={rounded} on:click|preventDefault class:fluid={fluid} class="{type} {size}"><i class="fas fa-{icon}"></i>{text}</button>
+    <button class:rounded={rounded} {disabled} on:click|preventDefault class:fluid={fluid} class="{type} {size}"><i class="fas fa-{icon}"></i>{text}</button>
 {:else}
     <a on:click|preventDefault class="{type}" {href}><i class="fas fa-{icon}"></i>{text}</a>
 {/if}

@@ -13,42 +13,22 @@ export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// GET INVOICES IF YOU ARE IN A DYNAMIC ROUTE
-export async function getInvoices(path){
-    let res = await fetch('./json/data.json');
-    let data = await res.json();
-    // IF PATH IN PROVIDED //
-    if(path.length > 0){
-    let getData = data.find(invoice => invoice.id === path);    
-    return {
-        id: getData.id,
-        createdAt: getData.createdAt,
-        paymentDue: getData.paymentDue,
-        paymentTerms: getData.paymentTerms,
-        status: getData.status,
-        description: getData.description,
-        clientName: getData.clientName,
-        clientEmail: getData.clientEmail,
-        clientAddress: getData.clientAddress.street,
-        clientCity: getData.clientAddress.city,
-        clientPostCode: getData.clientAddress.postCode,
-        clientCountry: getData.clientAddress.country,
-        senderAddress: getData.senderAddress.street,
-        senderCity: getData.senderAddress.city,
-        senderPostCode: getData.senderAddress.postCode,
-        senderCountry: getData.senderAddress.country,
-        total: getData.total,
-        items: getData.items.map(item => {
-            return{
-                itemName: item.name,
-                itemQuantity: item.quantity,
-                itemPrice: item.price,
-                itemTotal: item.total
-            }
-        })
-    }
-} else{
-    // OTHERWISE OUTPUT ALL INVOICES IN INDEX PAGE
-    return data;
+
+export function closeModal(){
+    globalStore.update($store => {
+        $store.modalStatus = null
+        return $store
+    })
 }
+
+
+// VALIDATION //
+export function numValid(val){
+    if(val === "" || val === 0 || val === null){ return false }
+    if(val.length > 1 || val > 0){ return true }
+}
+export function strValid(str){
+    // USE REGEX TO CHECK IS THE STR IS GREATER THAN 5 CHARACTERS //
+    let REGEX = /^[a-zA-Z0-9]{6,}$/;
+    if(REGEX.test(str)){ return true }
 }

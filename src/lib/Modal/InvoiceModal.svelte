@@ -7,7 +7,9 @@
     import ItemList from "../FormField/ItemList.svelte";
     import Button from "$lib/Button/Button.svelte";
     // STORES //
-    import { globalStore } from "../../store/globalStore";   
+    import { globalStore } from "../../store/globalStore";
+    // PACKAGES //
+    import {uid} from 'uid'
     // CONSTANTS //
         const options = [
             { id: 0, text: "30 Days", value: 30 },
@@ -16,31 +18,145 @@
     // SVELTE IMPORTS //
     import { fade, fly } from "svelte/transition";
     // VARIABLES //
-    $: title = $globalStore.modalStatus === "add" ? "Add Invoice" : `Edit #${$globalStore.currentInvoice.id}`;
-
-    // FUNCTIONS //
-    function addItem(){
-        // makes a new item in the currentInvoice array
-       $globalStore.currentInvoice[0].items = [...$globalStore.currentInvoice[0].items, {name: "", price: 0.00, quantity: 0, total: 0}];
-    }
-
-    async function draftInvoice(){
-        let res = await fetch('./json/data.json');
-        let data = await res.json();
-        let invoice = data.find(inv => $globalStore.currentInvoice[0].id === inv.id);
-        // reassign the status in the data to draft //
-        invoice.status = "draft";
-        // update the data //
-        data[data.indexOf(invoice)] = invoice;
-        console.log(invoice);
-        
-        return invoice;
-    }
-
-    
-    
+        $: title = $globalStore.modalStatus === "add" ? "Add Invoice" : `Editing #`;
+        // THE FORM BIDNINGS //
+        $: newInvoice = {
+            id: "",
+            senderAddress: {
+                street: "",
+                city: "",
+                country: "",
+                postCode: "",
+            },
+            clientAddress: {
+                street: "",
+                city: "",
+                country: "",
+                postCode: "",
+            },
+            items: [{
+                name: "",
+                quantity: 0,
+                price: 0,
+                total: 0
+            }],
+            clientName: "",
+            clientEmail: "",
+            paymentDue: "",
+            status: "",
+            paymentTerms: 30,
+            description: "",
+            total: 0,
+        }
+        // USES THE VALIDATOR TO CHECK IF THAT FIELD IS VALID OR NOT //
+        $: isEmpty = {
+            clientAddress: {
+                city: validator(newInvoice.clientAddress.city),
+                country: validator(newInvoice.clientAddress.country),
+                postCode: validator(newInvoice.clientAddress.postCode),
+                street: validator(newInvoice.clientAddress.street),
+            },
+            senderAddress: {
+                city: validator(newInvoice.senderAddress.city),
+                country: validator(newInvoice.senderAddress.country),
+                postCode: validator(newInvoice.senderAddress.postCode),
+                street: validator(newInvoice.senderAddress.street),
+            },
+            clientEmail: validator(newInvoice.clientEmail),
+            clientName: validator(newInvoice.clientName),
+            description: validator(newInvoice.description),
+            items: newInvoice.items.map(item => {
+                return {
+                    name: strValid(item.name),
+                    quantity: numValid(item.quantity),
+                    price: numValid(item.price),
+                    total: true,
+                }
+            })
+        }
+        //IF THE FORM IS VALID, IT'S ALLOW THE FORM TO BE SUBMITTED //
+    $: if(isEmpty.clientAddress.city && isEmpty.clientAddress.country && isEmpty.clientAddress.postCode && isEmpty.clientAddress.street && isEmpty.clientEmail && isEmpty.clientName && isEmpty.description && isEmpty.items) {
+        valid = true
+        } else {
+            valid = false
+        }
+    // IF YOU CAN SEND THE FORM OR NOT //
+    $: valid = false
     // SCSS FILES //
     import "../../scss/styles.scss";
+
+    // FUNCTIONS //
+    import {closeModal, strValid, numValid} from '../../store/functionStore';
+    function addItem(){
+        newInvoice.items = [...newInvoice.items, {
+            name: "",
+            quantity: 0,
+            price: 0,
+            total: 0,
+        }]
+    }
+    function discardInvoice(){
+        closeModal()
+        // RESET ALL THE FORM FIELDS //
+            newInvoice.senderAddress = {
+                street: "",
+                city: "",
+                country: "",
+                postCode: "",
+            }
+            newInvoice.clientAddress = {
+                street: "",
+                city: "",
+                country: "",
+                postCode: "",
+            }
+            newInvoice.items = [
+                {
+                    name: "",
+                    quantity: 0,
+                    price: 0,
+                    total: 0
+                }
+            ]
+            newInvoice.clientName = "";
+            newInvoice.clientEmail = "";
+            newInvoice.paymentDue = ""
+            newInvoice.paymentTerms = 30;
+            newInvoice.description = "";
+            newInvoice.status = "";
+            newInvoice.total = 0;
+    }
+    async function draftInvoice(){
+        newInvoice.status = "draft";
+        newInvoice.id = uid(6).toUpperCase()
+        // CONVERT newInvoice to JSON //
+        let invoice = JSON.stringify(newInvoice);
+        // SAVE TO JSON FILE //
+        let file = await fetch("./data.json");
+        let data = await file.json();
+        invoice = JSON.parse(invoice);
+        data = [...data, invoice];
+        $globalStore.invoices = data
+        // SAVE TO LOCAL STORAGE //
+        localStorage.setItem("invoices", JSON.stringify(data));
+        // closeModal //
+        closeModal();
+    }
+    function filterItem(index){
+        newInvoice.items = newInvoice.items.filter((item, i) => i !== index)
+    }
+    function validator(value){
+        // CHECK IF THE LENGTH IS GREATER THAN 5 //
+        if(value.length >= 5){ return true}
+        if (value < 1 || value.length < 1 || value === "" || value ===  null  ){ return false}
+    }
+    function updateItems(e){
+        // REASSIGN THE VALUES OF isEmpty.items from e.detail //
+        isEmpty.items = e.detail;
+    }   
+
+    // DESTRUCTURE THE INVOICE //
+    $: ({senderAddress, clientAddress, items, clientName, clientEmail, paymentDue, paymentTerms, description, total} = newInvoice)  
 </script>
 
 <style lang="scss">
@@ -108,6 +224,8 @@
         }
     }
 
+
+
     
 
     .modal {
@@ -159,30 +277,6 @@
             transform: translateY(-1rem);
         }
     }
-
-
-    // .itemList {
-    //     display: flex;
-    //     margin-bottom: 2rem;
-    //     gap: 10px;
-    //     @include tabletUp {
-    //         display: grid;
-    //         grid-template-columns: 0.7fr 1.5fr;
-    //     }
-    //     .nameField {
-    //         display: grid;
-    //         grid-template-columns: 1fr;
-    //     }
-    // }
-
-    // .attributes {
-    //     display: grid;
-    //     grid-template-columns: 1fr 1fr 1fr 1fr;
-    //     gap: 10px;
-    //     @include tabletUp {
-    //         grid-template-columns: 0.8fr 0.8fr 1.5fr 1fr;
-    //     }
-    // }
 </style>
 
 
@@ -194,18 +288,20 @@
         <form>
         <div class="title">
         <Text title size="h2" text={title}/>
-        <BackButton on:click={() => $globalStore.modalStatus = null}/>
+        <BackButton on:click={discardInvoice}/>
         </div>
 
         <div class="billFrom">
             <p>Bill From</p>    
             <div class="billFrom_information">
-                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={$globalStore.currentInvoice[0].senderAddress.street} />
+                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderAddress.street} 
+                 invalidMessage="Please enter a valid street address" valid={isEmpty.senderAddress.street}/>
+
                 <div class="billFrom_information-city">
-                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={$globalStore.currentInvoice[0].senderAddress.city} />
-                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={$globalStore.currentInvoice[0].senderAddress.postCode}/>
+                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={senderAddress.city} valid={isEmpty.senderAddress.city} />
+                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderAddress.postCode} valid={isEmpty.senderAddress.postCode} />
                     <div class="billFrom_information-country">
-                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={$globalStore.currentInvoice[0].senderAddress.country}/>
+                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={senderAddress.country} valid={isEmpty.senderAddress.country}/>
                     </div>
                 </div>
             </div>
@@ -214,39 +310,39 @@
 
     <div class="billTo">
         <p>Bill To</p>
-        <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={$globalStore.currentInvoice[0].clientName}/>
-        <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={$globalStore.currentInvoice[0].clientEmail}/>
-        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={$globalStore.currentInvoice[0].clientAddress.street} />
+        <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={newInvoice.clientName} valid={isEmpty.clientName}/>
+        <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={newInvoice.clientEmail} valid={isEmpty.clientEmail}/>
+        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientAddress.street} valid={isEmpty.clientAddress.street}/>
 
         <div class="billTo_information">
             <div class="billTo_information-city">
-                <FormField text="City" id="clientCity" placeholder="City" bind:value={$globalStore.currentInvoice[0].clientAddress.city} />
-                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={$globalStore.currentInvoice[0].clientAddress.postCode}/>
+                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientAddress.city} valid={isEmpty.clientAddress.city} />
+                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={clientAddress.postCode} valid={isEmpty.clientAddress.postCode}/>
                 <div class="billTo_information-country">
-                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={$globalStore.currentInvoice[0].clientAddress.country}/>
+                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={clientAddress.country} valid={isEmpty.clientAddress.country}/>
                 </div>
             </div>
         </div>
 
         <div class="billTo_invoiceInformation">
-            <FormField text="Invoice Date" id="paymentDue" disabled bind:value={$globalStore.currentInvoice[0].paymentDue}/>
-            <FormField form="select" text="Payment Terms" {options} id="paymentTerms" placeholder="Payment Terms" bind:value={$globalStore.currentInvoice[0].paymentTerms}/>
+            <FormField text="Invoice Date" id="paymentDue" disabled bind:value={newInvoice.paymentDue} valid={true}/>
+            <FormField form="select" text="Payment Terms" {options} id="paymentTerms" placeholder="Payment Terms" bind:value={newInvoice.paymentTerms} />
         </div>
-        <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={$globalStore.currentInvoice[0].description}/>
+        <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={newInvoice.description} valid={isEmpty.description}/>
     </div>
 
     <p>Item list</p>
     <div class="items">
-        {#each $globalStore.currentInvoice[0].items as _, i (i)}
-            <ItemList index={i}/>
+        {#each items as item, i (i)}
+            <ItemList index={i} {item} on:click={() => filterItem(i)}  on:update-item={updateItems}/>
         {/each}
         <Button rounded icon="plus" fluid text="Add Item" on:click={addItem}/>
     </div>
     <div class="btns">
-        <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={() => $globalStore.modalStatus = null}/>
+        <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={discardInvoice}/>
         <div>
-            <Button type="secondary" icon="save" size="medium" rounded text="Save as Draft" on:click={draftInvoice}/>
-            <Button type="primary" size="medium" icon="paper-plane" rounded text="Save and Send"/>
+            <Button type="secondary" icon="save" size="medium" disabled={!valid} rounded text="Save as Draft" on:click={draftInvoice}/>
+            <Button type="primary" size="medium" icon="paper-plane" disabled={!valid} rounded text="Save and Send"/>
         </div>
         
     </div>
@@ -256,19 +352,6 @@
 </div>
 
 
-<div class="overlay" transition:fade={{duration: 500}} on:click={() => $globalStore.modalStatus = null}/>
+<div class="overlay" transition:fade={{duration: 500}} on:click={discardInvoice}/>
 
 {/if}
-
-<!-- MIGHT NEED THIS LATER, PLEASE KEEP JUST INCASE -->
-<!-- <div class="itemList">
-    <div class="nameField">
-        <FormField title bind:value={itm.name} id="Name{i}" text="Name" placeholder="Item"  />
-    </div>
-    <div class="attributes">
-        <FormField title bind:value={itm.quantity} id="qty{i}" form="number" text="Qty" placeholder="Qty"   />
-        <FormField title bind:value={itm.price} id="price{i}" form="number" text="Price" placeholder="Price"/>
-        <FormField title value="${itm.total = numberWithCommas(itm.price * itm.quantity)}"  id="total{i}" disabled text="Total" placeholder="Total"/>
-        <button on:click|preventDefault><i class="fas fa-trash" /></button>
-    </div>
-</div> -->

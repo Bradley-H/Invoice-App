@@ -11,24 +11,22 @@ const options = [
     {id: 2, text: "Pending", value:"pending"},
     {id: 3, text: "Draft", value:"draft"},
 ]
-
-// STORES
+// STORES //
 import { globalStore } from '../store/globalStore';
 // VARIABLES AND REACTIVE VALUES //
 $: filter = "all";
-$:filteredList = ""
-$: status = "paid";
+$: filteredInvoices = $globalStore.invoices.filter(invoice => invoice.status === filter || filter === "all");
 // FUNCTIONS //
-import {getInvoices} from '../store/functionStore';
-function addInvoice(){
-    $globalStore.currentInvoice = [];
-    $globalStore.modalStatus = "add";
-    }
+async function getInvoices(){
+    let res = await fetch('./data.json');
+    let data = await res.json();
+    $globalStore.invoices = data;
+    // GET LOCALSTORE INVOICES //
+    localStorage.getItem("invoices") ? $globalStore.invoices = JSON.parse(localStorage.getItem("invoices")) : null;
+}
 // SASS FILES //
     import "../scss/styles.scss";
 </script>
-
-
 
 <style lang="scss">
     @import "../scss/util/index";
@@ -88,28 +86,24 @@ function addInvoice(){
 
 
 <div class="container">
-    {#await getInvoices("")}
+    {#await getInvoices()}
     <div class="loading">
         <Text size="h1" text="Getting invoices, please wait"/>
     </div>
-    {:then inv} 
+    {:then} 
     <div class="helperBar">
         <div class="helperBar_invoice">
             <Text size="h2" text="Invoices"/>
-            <Text size="p" text="{filteredList = inv.filter(invoice => invoice.status == filter || filter === "all").length} invoices"/>
+            <Text size="p" text="{filteredInvoices.length} invoices"/>
         </div>
         <div class="settings">
-            <FormField id="filter" form="select" {options} bind:value={filter}/>
-            <Button rounded icon="plus" text="Add Invoice" on:click={addInvoice}/>
+            <FormField id="filter" form="select" {options} bind:value={filter} text=""/>
+            <Button rounded icon="plus" text="Add Invoice" on:click={() => $globalStore.modalStatus = "add"}/>
         </div>
     </div>
     <div class="invoices">
-        {#each inv as {id, paymentDue, total, clientName, status}, i (i)}
-            {#if filter == "all" || status == filter}
-            <div>
+        {#each filteredInvoices as {id, paymentDue, total, clientName, status}, i (i)}
                 <Invoice {id} {paymentDue} {total} {clientName} {status} />
-            </div>
-            {/if}
         {/each}
         </div>
     {/await}
