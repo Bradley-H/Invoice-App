@@ -7,16 +7,14 @@ var __export = (target, all) => {
 };
 __export(exports, {
   a: () => subscribe,
-  b: () => createEventDispatcher,
+  b: () => each,
   c: () => create_ssr_component,
-  d: () => each,
+  d: () => safe_not_equal,
   e: () => escape,
-  f: () => safe_not_equal,
-  g: () => null_to_empty,
-  h: () => add_attribute,
+  f: () => null_to_empty,
+  g: () => add_attribute,
+  h: () => set_store_value,
   i: () => is_promise,
-  j: () => set_store_value,
-  k: () => getContext,
   m: () => missing_component,
   n: () => noop,
   s: () => setContext,
@@ -53,11 +51,6 @@ function set_store_value(store, ret, value) {
   store.set(value);
   return ret;
 }
-function custom_event(type, detail, bubbles = false) {
-  const e = document.createEvent("CustomEvent");
-  e.initCustomEvent(type, bubbles, false, detail);
-  return e;
-}
 let current_component;
 function set_current_component(component) {
   current_component = component;
@@ -67,23 +60,8 @@ function get_current_component() {
     throw new Error("Function called outside component initialization");
   return current_component;
 }
-function createEventDispatcher() {
-  const component = get_current_component();
-  return (type, detail) => {
-    const callbacks = component.$$.callbacks[type];
-    if (callbacks) {
-      const event = custom_event(type, detail);
-      callbacks.slice().forEach((fn) => {
-        fn.call(component, event);
-      });
-    }
-  };
-}
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
-}
-function getContext(key) {
-  return get_current_component().$$.context.get(key);
 }
 Promise.resolve();
 const escaped = {

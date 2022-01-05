@@ -24,17 +24,17 @@ var __toModule = (module2) => {
 __export(exports, {
   B: () => BackButton
 });
-var import_index_905b6237 = __toModule(require("./index-905b6237.js"));
-var import_Button_svelte_svelte_type_style_lang_13fe77f7 = __toModule(require("./Button.svelte_svelte_type_style_lang-13fe77f7.js"));
+var import_index_3930c651 = __toModule(require("./index-3930c651.js"));
+var import_functionStore_b30ced0b = __toModule(require("./functionStore-b30ced0b.js"));
 var BackButton_svelte_svelte_type_style_lang = "";
 const css = {
   code: "a.svelte-gp9t8m,button.svelte-gp9t8m{display:flex;justify-content:center;align-items:center;font-size:1rem;margin:1.5rem 0;cursor:pointer}i.svelte-gp9t8m{color:#7C5DFAFF;font-weight:bold;margin-right:0.5rem;font-size:1.2rem}",
   map: null
 };
-const BackButton = (0, import_index_905b6237.c)(($$result, $$props, $$bindings, slots) => {
+const BackButton = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
   let { href = false } = $$props;
   if ($$props.href === void 0 && $$bindings.href && href !== void 0)
     $$bindings.href(href);
   $$result.css.add(css);
-  return `${href ? `<a href="${"/"}" class="${"svelte-gp9t8m"}"><i class="${"fas fa-chevron-left svelte-gp9t8m"}"></i>${(0, import_index_905b6237.v)(import_Button_svelte_svelte_type_style_lang_13fe77f7.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</a>` : `<button class="${"svelte-gp9t8m"}"><i class="${"fas fa-chevron-left svelte-gp9t8m"}"></i>${(0, import_index_905b6237.v)(import_Button_svelte_svelte_type_style_lang_13fe77f7.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</button>`}`;
+  return `${href ? `<a href="${"/"}" class="${"svelte-gp9t8m"}"><i class="${"fas fa-chevron-left svelte-gp9t8m"}"></i>${(0, import_index_3930c651.v)(import_functionStore_b30ced0b.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</a>` : `<button class="${"svelte-gp9t8m"}"><i class="${"fas fa-chevron-left svelte-gp9t8m"}"></i>${(0, import_index_3930c651.v)(import_functionStore_b30ced0b.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</button>`}`;
 });

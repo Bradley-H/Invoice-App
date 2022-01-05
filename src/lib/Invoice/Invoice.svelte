@@ -10,7 +10,7 @@
     import Text from '$lib/Text/Text.svelte';
     import Tag from '$lib/Invoice/Tag.svelte';
 // FUNCTIONS //
-import {formateDate, numberWithCommas} from '../../store/functionStore'
+import {convertDate, numberWithCommas} from '../../store/functionStore'
 // SCSS FILES //
     import "../../scss/styles.scss";
 </script>
@@ -128,7 +128,7 @@ import {formateDate, numberWithCommas} from '../../store/functionStore'
         <div class="dueInformation">
             <Text size="h3" text="#{id}"/>
             <div>
-                <Text size="p" text="Due: {formateDate(paymentDue)}"/>
+                <Text size="p" text="Due: {convertDate(paymentDue)}"/>
                 <Text size="h3" text="${numberWithCommas(total.toFixed(2))}"/>
             </div>
         </div>

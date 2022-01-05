@@ -8,7 +8,6 @@
     import Tag from "$lib/Invoice/Tag.svelte";
      // STORES //
      import { page } from "$app/stores";
-    import {globalStore} from '../../store/globalStore';
     // VARIABLES //
     let innerWidth;
     // PROPS //
@@ -30,12 +29,11 @@
     export let items = [];
     export let total;
     // FUNCTIONS //
-    import {numberWithCommas, formateDate } from "../../store/functionStore";
+    import {numberWithCommas, convertDate } from "../../store/functionStore";
     // FUNCTIONS //
     async function editInvoice(){
         let res = await fetch('./json/data.json');
         let data = await res.json();
-        let getData = data.find(invoice => invoice.id === $page.path.slice(1));  
     }
     // SASS DEFINITIONS //
      import "../../store/globalStore";
@@ -234,12 +232,12 @@
                     <div class="bottomCard_invoiceInfo-billTo-invoices">
                         <div class="bottomCard_invoiceInfo-billTo-invoiceDate">
                             <Text size="p" text="Invoice Date"/>
-                            <Text size="h3" text="{formateDate(createdAt)}"/>
+                            <Text size="h3" text="{convertDate(createdAt)}"/>
                         </div>
     
                         <div class="bottomCard_invoiceInfo-billTo-invoiceDue">
                             <Text size="p" text="Payment Due"/>
-                            <Text size="h3" text="{formateDate(paymentDue)}"/>
+                            <Text size="h3" text="{convertDate(paymentDue)}"/>
                         </div>
                     </div>
 

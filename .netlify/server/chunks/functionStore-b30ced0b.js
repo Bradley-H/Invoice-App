@@ -24,19 +24,17 @@ var __toModule = (module2) => {
 __export(exports, {
   C: () => Card,
   T: () => Text,
-  a: () => numberWithCommas,
-  f: () => formateDate,
+  c: () => convertDate,
   g: () => globalStore,
-  n: () => numValid,
-  s: () => strValid
+  n: () => numberWithCommas
 });
-var import_index_905b6237 = __toModule(require("./index-905b6237.js"));
+var import_index_3930c651 = __toModule(require("./index-3930c651.js"));
 const subscriber_queue = [];
-function writable(value, start = import_index_905b6237.n) {
+function writable(value, start = import_index_3930c651.n) {
   let stop;
   const subscribers = new Set();
   function set(new_value) {
-    if ((0, import_index_905b6237.f)(value, new_value)) {
+    if ((0, import_index_3930c651.d)(value, new_value)) {
       value = new_value;
       if (stop) {
         const run_queue = !subscriber_queue.length;
@@ -56,11 +54,11 @@ function writable(value, start = import_index_905b6237.n) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe2(run, invalidate = import_index_905b6237.n) {
+  function subscribe2(run, invalidate = import_index_3930c651.n) {
     const subscriber = [run, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
-      stop = start(set) || import_index_905b6237.n;
+      stop = start(set) || import_index_3930c651.n;
     }
     run(value);
     return () => {
@@ -77,7 +75,8 @@ let globalStore = writable({
   theme: "Dark",
   modalStatus: null,
   editedInvoice: {},
-  invoices: []
+  invoices: [],
+  deletePrompt: false
 });
 var styles = "";
 var Card_svelte_svelte_type_style_lang = "";
@@ -85,9 +84,9 @@ const css$1 = {
   code: "div.inv.svelte-1dwcrx1,a.inv.svelte-1dwcrx1,div.svelte-1dwcrx1,a.svelte-1dwcrx1{display:flex}div.modal.svelte-1dwcrx1,a.modal.svelte-1dwcrx1{display:flex;flex-direction:column}div.svelte-1dwcrx1,a.svelte-1dwcrx1{position:relative;width:100%;padding:1rem}div.Dark.svelte-1dwcrx1,a.Dark.svelte-1dwcrx1{background-color:#242843}div.Light.svelte-1dwcrx1,a.Light.svelte-1dwcrx1{background-color:#d4d4e7}div.inv.svelte-1dwcrx1,a.inv.svelte-1dwcrx1{width:100%;border-radius:12px;margin:0.25rem 0;padding:0.75rem}div.modal.svelte-1dwcrx1,a.modal.svelte-1dwcrx1{height:100%;width:100%;z-index:2;overflow:auto;padding:1.5rem}div.modal.Dark.svelte-1dwcrx1,a.modal.Dark.svelte-1dwcrx1{background-color:#161828}div.modal.Light.svelte-1dwcrx1,a.modal.Light.svelte-1dwcrx1{background-color:#c7c7df}.round.svelte-1dwcrx1{border-radius:8px}",
   map: null
 };
-const Card = (0, import_index_905b6237.c)(($$result, $$props, $$bindings, slots) => {
+const Card = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_905b6237.a)(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_3930c651.a)(globalStore, (value) => $globalStore = value);
   let { inv = false } = $$props;
   let { id = "" } = $$props;
   let { modal = false } = $$props;
@@ -103,10 +102,10 @@ const Card = (0, import_index_905b6237.c)(($$result, $$props, $$bindings, slots)
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
   return `${!inv ? `<div class="${[
-    (0, import_index_905b6237.e)((0, import_index_905b6237.g)($globalStore.theme)) + " svelte-1dwcrx1",
+    (0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-1dwcrx1",
     (round ? "round" : "") + " " + (modal ? "modal" : "")
-  ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_905b6237.e)(id)}" class="${[
-    (0, import_index_905b6237.e)((0, import_index_905b6237.g)($globalStore.theme)) + " svelte-1dwcrx1",
+  ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_3930c651.e)(id)}" class="${[
+    (0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-1dwcrx1",
     inv ? "inv" : ""
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</a>`}`;
 });
@@ -115,10 +114,10 @@ const css = {
   code: "h1.disabled.svelte-bgfnvq,h2.disabled.svelte-bgfnvq,h3.disabled.svelte-bgfnvq,p.disabled.svelte-bgfnvq{color:grey}.title.svelte-bgfnvq{margin-bottom:0.3rem}",
   map: null
 };
-const Text = (0, import_index_905b6237.c)(($$result, $$props, $$bindings, slots) => {
+const Text = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
   let theme;
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_905b6237.a)(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_3930c651.a)(globalStore, (value) => $globalStore = value);
   let { text = "Hello World" } = $$props;
   let { size = "h1" } = $$props;
   let { title = false } = $$props;
@@ -135,23 +134,24 @@ const Text = (0, import_index_905b6237.c)(($$result, $$props, $$bindings, slots)
   theme = $globalStore.theme;
   $$unsubscribe_globalStore();
   return `${size === "h1" ? `<h1 class="${[
-    "txtColor" + (0, import_index_905b6237.e)(theme) + " svelte-bgfnvq",
+    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_905b6237.e)(text)}</h1>` : `${size === "h2" ? `<h2 class="${[
-    "txtColor" + (0, import_index_905b6237.e)(theme) + " svelte-bgfnvq",
+  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</h1>` : `${size === "h2" ? `<h2 class="${[
+    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_905b6237.e)(text)}</h2>` : `${size === "h3" ? `<h3 class="${[
-    "txtColor" + (0, import_index_905b6237.e)(theme) + " svelte-bgfnvq",
+  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</h2>` : `${size === "h3" ? `<h3 class="${[
+    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_905b6237.e)(text)}</h3>` : `<p class="${[
-    "txtColor" + (0, import_index_905b6237.e)(theme) + " svelte-bgfnvq",
+  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</h3>` : `<p class="${[
+    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_905b6237.e)(text)}</p>`}`}`}`;
+  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</p>`}`}`}`;
 });
-function formateDate(date) {
+var Button_svelte_svelte_type_style_lang = "";
+function convertDate(date, term = 30) {
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let newDate = new Date(date);
-  let month = months[newDate.getMonth()];
+  let month = months[newDate.getMonth() + term / 30];
   let day = newDate.getDate();
   let year = newDate.getFullYear();
   return `${month} ${day}, ${year}`;
@@ -159,18 +159,3 @@ function formateDate(date) {
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-function numValid(val) {
-  if (val === "" || val === 0 || val === null) {
-    return false;
-  }
-  if (val.length > 1 || val > 0) {
-    return true;
-  }
-}
-function strValid(str) {
-  let REGEX = /^[a-zA-Z0-9]{6,}$/;
-  if (REGEX.test(str)) {
-    return true;
-  }
-}
-var Button_svelte_svelte_type_style_lang = "";

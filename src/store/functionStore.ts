@@ -1,14 +1,13 @@
 import { globalStore } from './globalStore';
 
-export function formateDate(date) {
+export  function convertDate(date, term = 30) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let newDate = new Date(date);
-    let month = months[newDate.getMonth()];
-    let day = newDate.getDate();
+    let month = ( months[newDate.getMonth() + (term / 30)]   );
+    let day = (newDate.getDate());
     let year = newDate.getFullYear();
     return `${month} ${day}, ${year}`;
 }
-
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -29,6 +28,11 @@ export function numValid(val){
 }
 export function strValid(str){
     // USE REGEX TO CHECK IS THE STR IS GREATER THAN 5 CHARACTERS //
-    let REGEX = /^[a-zA-Z0-9]{6,}$/;
+    let REGEX = /^s[a-zA-Z0-9]{6,}$/;
     if(REGEX.test(str)){ return true }
+}
+
+export function emailValid(str){
+let REGEX = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+if(REGEX.test(str)){ return true }
 }

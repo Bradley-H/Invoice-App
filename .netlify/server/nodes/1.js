@@ -28,6 +28,6 @@ __export(exports, {
   module: () => module2
 });
 var module2 = __toModule(require("../entries/pages/error.svelte.js"));
-const entry = "error.svelte-f4a96d83.js";
-const js = ["error.svelte-f4a96d83.js", "chunks/vendor-de8ec093.js"];
+const entry = "error.svelte-78cf5ae7.js";
+const js = ["error.svelte-78cf5ae7.js", "chunks/vendor-fb96af59.js"];
 const css = [];

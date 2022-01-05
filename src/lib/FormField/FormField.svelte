@@ -85,7 +85,7 @@
 <div class:title={title}>
     <label {disabled} for={id}> <Text {disabled} size="p" title {text}/></label>
 {#if form === "text"}
-    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {id} type="text" {placeholder} bind:value={value} />
+    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {id} type="text" {placeholder} bind:value={value} on:blur />
 {:else if form === "number"}
     <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {step} on:keydown={numField} {id} type="number" {placeholder}  bind:value={value} />
 {:else if form === "date"}

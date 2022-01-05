@@ -37,56 +37,44 @@
             items: [{
                 name: "",
                 quantity: 0,
-                price: 0,
-                total: 0
+                price:  0,
+                total:  0
             }],
             clientName: "",
             clientEmail: "",
-            paymentDue: "",
+            paymentDue: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`,
             status: "",
             paymentTerms: 30,
             description: "",
             total: 0,
         }
-        // USES THE VALIDATOR TO CHECK IF THAT FIELD IS VALID OR NOT //
-        $: isEmpty = {
-            clientAddress: {
-                city: validator(newInvoice.clientAddress.city),
-                country: validator(newInvoice.clientAddress.country),
-                postCode: validator(newInvoice.clientAddress.postCode),
-                street: validator(newInvoice.clientAddress.street),
-            },
-            senderAddress: {
-                city: validator(newInvoice.senderAddress.city),
-                country: validator(newInvoice.senderAddress.country),
-                postCode: validator(newInvoice.senderAddress.postCode),
-                street: validator(newInvoice.senderAddress.street),
-            },
-            clientEmail: validator(newInvoice.clientEmail),
-            clientName: validator(newInvoice.clientName),
-            description: validator(newInvoice.description),
-            items: newInvoice.items.map(item => {
-                return {
-                    name: strValid(item.name),
-                    quantity: numValid(item.quantity),
-                    price: numValid(item.price),
-                    total: true,
-                }
-            })
-        }
-        //IF THE FORM IS VALID, IT'S ALLOW THE FORM TO BE SUBMITTED //
-    $: if(isEmpty.clientAddress.city && isEmpty.clientAddress.country && isEmpty.clientAddress.postCode && isEmpty.clientAddress.street && isEmpty.clientEmail && isEmpty.clientName && isEmpty.description && isEmpty.items) {
-        valid = true
-        } else {
-            valid = false
-        }
-    // IF YOU CAN SEND THE FORM OR NOT //
-    $: valid = false
-    // SCSS FILES //
-    import "../../scss/styles.scss";
+        // CHECK IF EVERYTHING HAS A LENGTH GREATER THAN 5 //
+        $: if(
+            newInvoice.senderAddress.street.length > 5 
+            && newInvoice.senderAddress.city.length > 5 
+            && newInvoice.senderAddress.country.length > 5 
+            && newInvoice.senderAddress.postCode.length > 5 
+            && newInvoice.clientAddress.street.length > 5 
+            && newInvoice.clientAddress.city.length > 5 
+            && newInvoice.clientAddress.country.length > 5 
+            && newInvoice.clientAddress.postCode.length > 5 
+            && newInvoice.clientName.length > 5 
+            && newInvoice.clientEmail.length > 5 
+            && newInvoice.description.length > 5
+            && newInvoice.items[items.length - 1].name !== ""
+            && newInvoice.items[items.length - 1].quantity !== 0
+            && newInvoice.items[items.length - 1].price !== 0
+            ){
+            isValid = true;
+            } else {
+                isValid = false
+            }
+        // CHECK THE LENGTH OF newInvoice.items //
+        $: isValid = false;
+        
 
     // FUNCTIONS //
-    import {closeModal, strValid, numValid} from '../../store/functionStore';
+    import {closeModal, convertDate, numberWithCommas} from '../../store/functionStore';
     function addItem(){
         newInvoice.items = [...newInvoice.items, {
             name: "",
@@ -94,6 +82,7 @@
             price: 0,
             total: 0,
         }]
+
     }
     function discardInvoice(){
         closeModal()
@@ -113,14 +102,14 @@
             newInvoice.items = [
                 {
                     name: "",
-                    quantity: 0,
-                    price: 0,
-                    total: 0
+                    quantity: +0,
+                    price: +0,
+                    total: +0
                 }
             ]
             newInvoice.clientName = "";
             newInvoice.clientEmail = "";
-            newInvoice.paymentDue = ""
+            newInvoice.paymentDue = "";
             newInvoice.paymentTerms = 30;
             newInvoice.description = "";
             newInvoice.status = "";
@@ -143,20 +132,12 @@
         closeModal();
     }
     function filterItem(index){
-        newInvoice.items = newInvoice.items.filter((item, i) => i !== index)
+        newInvoice.items = newInvoice.items.filter((item, i) => i !== index)     
     }
-    function validator(value){
-        // CHECK IF THE LENGTH IS GREATER THAN 5 //
-        if(value.length >= 5){ return true}
-        if (value < 1 || value.length < 1 || value === "" || value ===  null  ){ return false}
-    }
-    function updateItems(e){
-        // REASSIGN THE VALUES OF isEmpty.items from e.detail //
-        isEmpty.items = e.detail;
-    }   
-
     // DESTRUCTURE THE INVOICE //
-    $: ({senderAddress, clientAddress, items, clientName, clientEmail, paymentDue, paymentTerms, description, total} = newInvoice)  
+    $: ({senderAddress, clientAddress, items, clientName, clientEmail, paymentDue, paymentTerms, description, total} = newInvoice)
+     // SCSS FILES //
+     import "../../scss/styles.scss";  
 </script>
 
 <style lang="scss">
@@ -277,6 +258,38 @@
             transform: translateY(-1rem);
         }
     }
+
+    
+    .itemList {
+        display: grid;
+        margin-bottom: 2rem;
+        gap: 10px;
+        @include mobileMaxUp {
+            display: grid;
+            grid-template-columns: 0.7fr 1.5fr;
+        }
+        .nameField {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .attributes {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        @include tabletUp {
+            grid-template-columns: 1fr 1fr 1.5fr .3fr;
+        }
+    }
+        i{
+        color: red;
+        font-size: 1.1rem;
+    }
+
+    button{
+        height: 5.5rem;
+    }
 </style>
 
 
@@ -294,14 +307,14 @@
         <div class="billFrom">
             <p>Bill From</p>    
             <div class="billFrom_information">
-                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderAddress.street} 
-                 invalidMessage="Please enter a valid street address" valid={isEmpty.senderAddress.street}/>
+                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderAddress.street} valid={senderAddress.street.trim().length >= 5}
+                 invalidMessage="Please enter a valid street address" on:blur />
 
                 <div class="billFrom_information-city">
-                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={senderAddress.city} valid={isEmpty.senderAddress.city} />
-                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderAddress.postCode} valid={isEmpty.senderAddress.postCode} />
+                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={senderAddress.city} valid={senderAddress.city.trim().length > 5} />
+                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderAddress.postCode}  valid={senderAddress.postCode.trim().length > 5} />
                     <div class="billFrom_information-country">
-                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={senderAddress.country} valid={isEmpty.senderAddress.country}/>
+                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={senderAddress.country} valid={senderAddress.country.trim().length > 5}/>
                     </div>
                 </div>
             </div>
@@ -310,39 +323,49 @@
 
     <div class="billTo">
         <p>Bill To</p>
-        <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={newInvoice.clientName} valid={isEmpty.clientName}/>
-        <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={newInvoice.clientEmail} valid={isEmpty.clientEmail}/>
-        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientAddress.street} valid={isEmpty.clientAddress.street}/>
+        <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={newInvoice.clientName} valid={newInvoice.clientName.trim().length > 5}/>
+        <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={newInvoice.clientEmail} valid={newInvoice.clientEmail.trim().length > 5}/>
+        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientAddress.street} valid={newInvoice.clientAddress.street.trim().length > 5}/>
 
         <div class="billTo_information">
             <div class="billTo_information-city">
-                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientAddress.city} valid={isEmpty.clientAddress.city} />
-                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={clientAddress.postCode} valid={isEmpty.clientAddress.postCode}/>
+                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientAddress.city} valid={newInvoice.clientAddress.city.trim().length > 5} />
+                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={clientAddress.postCode} valid={newInvoice.clientAddress.postCode.trim().length > 5}/>
                 <div class="billTo_information-country">
-                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={clientAddress.country} valid={isEmpty.clientAddress.country}/>
+                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={clientAddress.country} valid={newInvoice.clientAddress.country.trim().length > 5}/>
                 </div>
             </div>
         </div>
 
         <div class="billTo_invoiceInformation">
-            <FormField text="Invoice Date" id="paymentDue" disabled bind:value={newInvoice.paymentDue} valid={true}/>
+            <FormField text="Invoice Date" id="paymentDue" disabled value={convertDate(Date(), paymentTerms)} valid={true}/>
             <FormField form="select" text="Payment Terms" {options} id="paymentTerms" placeholder="Payment Terms" bind:value={newInvoice.paymentTerms} />
         </div>
-        <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={newInvoice.description} valid={isEmpty.description}/>
+        <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={newInvoice.description} valid={newInvoice.description.trim().length > 5}/>
     </div>
 
     <p>Item list</p>
     <div class="items">
         {#each items as item, i (i)}
-            <ItemList index={i} {item} on:click={() => filterItem(i)}  on:update-item={updateItems}/>
+            <div class="itemList">
+                <div class="nameField">
+                    <FormField title bind:value={item.name} id="Name{i}" text="Name" placeholder="Item" valid={item.name.length >= 5 }  invalidMessage={"Must be greater than 5 characters"}/>
+                </div>
+                <div class="attributes">
+                    <FormField title bind:value={item.quantity} id="qty{i}" form="number" text="Qty" valid={item.quantity >= 1} invalidMessage={"Must be greater than 0"}/>
+                    <FormField title bind:value={item.price} step={.1} id="price{i}" form="number" text="Price"  valid={item.price >= 1} invalidMessage={"Must be greater than 0"}/>
+                    <FormField title value="${numberWithCommas(item.quantity * item.price)}" valid={true}  id="total{i}" disabled text="Total"  placeholder="Total"/>
+                    <button on:click|preventDefault={() => filterItem(i)}><i class="fas fa-trash" on:click/>
+                </div>
+            </div>
         {/each}
         <Button rounded icon="plus" fluid text="Add Item" on:click={addItem}/>
     </div>
     <div class="btns">
         <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={discardInvoice}/>
         <div>
-            <Button type="secondary" icon="save" size="medium" disabled={!valid} rounded text="Save as Draft" on:click={draftInvoice}/>
-            <Button type="primary" size="medium" icon="paper-plane" disabled={!valid} rounded text="Save and Send"/>
+            <Button type="secondary" icon="save" size="medium" disabled={!isValid} rounded text="Save as Draft" on:click={draftInvoice}/>
+            <Button type="primary" size="medium" icon="paper-plane" disabled={!isValid} rounded text="Save and Send"/>
         </div>
         
     </div>
