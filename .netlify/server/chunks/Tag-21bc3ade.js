@@ -28,13 +28,16 @@ var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
 var import_functionStore_2bd81cb2 = __toModule(require("./functionStore-2bd81cb2.js"));
 var Tag_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "@media(min-width: 768px){div.svelte-20ag7m.svelte-20ag7m{margin:0}}div.svelte-20ag7m h3.svelte-20ag7m{display:flex;justify-content:center;align-items:center;text-transform:capitalize;height:3rem;border-radius:5px;width:8.75rem}div.svelte-20ag7m h3.paid.svelte-20ag7m{color:#1ab581;background-color:rgba(61, 179, 61, 0.17)}div.svelte-20ag7m h3.pending.svelte-20ag7m{color:#ca980d;background-color:rgba(221, 182, 6, 0.15)}div.svelte-20ag7m h3.draft.svelte-20ag7m{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}",
+  code: "@media(min-width: 768px){div.svelte-zkxwi1.svelte-zkxwi1{margin:0}}div.svelte-zkxwi1 h3.svelte-zkxwi1{display:flex;justify-content:center;align-items:center;text-transform:capitalize;height:3rem;border-radius:5px;width:8.75rem}div.svelte-zkxwi1 h3.Light.paid.svelte-zkxwi1{color:#189418;background-color:rgba(2, 172, 11, 0.2)}div.svelte-zkxwi1 h3.Light.pending.svelte-zkxwi1{color:#ca980d;background-color:rgba(221, 182, 6, 0.15)}div.svelte-zkxwi1 h3.Light.draft.svelte-zkxwi1{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}div.svelte-zkxwi1 h3.Dark.paid.svelte-zkxwi1{color:#18a777;background-color:rgba(61, 179, 61, 0.17)}div.svelte-zkxwi1 h3.Dark.pending.svelte-zkxwi1{color:#ca980d;background-color:rgba(221, 182, 6, 0.15)}div.svelte-zkxwi1 h3.Dark.draft.svelte-zkxwi1{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}",
   map: null
 };
 const Tag = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
+  let $globalStore, $$unsubscribe_globalStore;
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_2bd81cb2.g, (value) => $globalStore = value);
   let { status } = $$props;
   if ($$props.status === void 0 && $$bindings.status && status !== void 0)
     $$bindings.status(status);
   $$result.css.add(css);
-  return `<div class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)(status)) + " svelte-20ag7m"}"><h3 class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)(status)) + " svelte-20ag7m"}">${(0, import_index_6b830c0a.e)(status)}</h3></div>`;
+  $$unsubscribe_globalStore();
+  return `<div class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)(status)) + " svelte-zkxwi1"}"><h3 class="${(0, import_index_6b830c0a.e)($globalStore.theme) + " " + (0, import_index_6b830c0a.e)(status) + " svelte-zkxwi1"}">${(0, import_index_6b830c0a.e)(status)}</h3></div>`;
 });
