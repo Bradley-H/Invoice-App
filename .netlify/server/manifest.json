@@ -40,7 +40,7 @@
       "_index-6b830c0a.js",
       "_Button-bdd8baf3.js",
       "_functionStore-2bd81cb2.js",
-      "_Tag-21bc3ade.js"
+      "_Tag-51a61bd0.js"
     ],
     "css": [
       "assets/entries/pages/index.svelte-c747cb69.css"
@@ -54,7 +54,7 @@
       "_index-6b830c0a.js",
       "_functionStore-2bd81cb2.js",
       "_stores-ced9780d.js",
-      "_Tag-21bc3ade.js"
+      "_Tag-51a61bd0.js"
     ],
     "css": [
       "assets/entries/pages/_invoice_.svelte-84002275.css"
@@ -92,14 +92,14 @@
       "assets/stores-4f1b6882.css"
     ]
   },
-  "_Tag-21bc3ade.js": {
-    "file": "chunks/Tag-21bc3ade.js",
+  "_Tag-51a61bd0.js": {
+    "file": "chunks/Tag-51a61bd0.js",
     "imports": [
       "_index-6b830c0a.js",
       "_functionStore-2bd81cb2.js"
     ],
     "css": [
-      "assets/Tag-791e5558.css"
+      "assets/Tag-a4afd218.css"
     ]
   }
 }

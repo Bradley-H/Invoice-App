@@ -28,7 +28,7 @@ var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
 var import_functionStore_2bd81cb2 = __toModule(require("./functionStore-2bd81cb2.js"));
 var Tag_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "@media(min-width: 768px){div.svelte-zkxwi1.svelte-zkxwi1{margin:0}}div.svelte-zkxwi1 h3.svelte-zkxwi1{display:flex;justify-content:center;align-items:center;text-transform:capitalize;height:3rem;border-radius:5px;width:8.75rem}div.svelte-zkxwi1 h3.Light.paid.svelte-zkxwi1{color:#189418;background-color:rgba(2, 172, 11, 0.2)}div.svelte-zkxwi1 h3.Light.pending.svelte-zkxwi1{color:#ca980d;background-color:rgba(221, 182, 6, 0.15)}div.svelte-zkxwi1 h3.Light.draft.svelte-zkxwi1{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}div.svelte-zkxwi1 h3.Dark.paid.svelte-zkxwi1{color:#18a777;background-color:rgba(61, 179, 61, 0.17)}div.svelte-zkxwi1 h3.Dark.pending.svelte-zkxwi1{color:#ca980d;background-color:rgba(221, 182, 6, 0.15)}div.svelte-zkxwi1 h3.Dark.draft.svelte-zkxwi1{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}",
+  code: "@media(min-width: 768px){div.svelte-3uyvkz.svelte-3uyvkz{margin:0}}div.svelte-3uyvkz h3.svelte-3uyvkz{display:flex;justify-content:center;align-items:center;text-transform:capitalize;height:3rem;border-radius:5px;width:8.75rem}div.svelte-3uyvkz h3.Light.paid.svelte-3uyvkz{color:#189418;background-color:rgba(2, 172, 11, 0.2)}div.svelte-3uyvkz h3.Light.pending.svelte-3uyvkz{color:#a58428;background-color:rgba(199, 165, 15, 0.15)}div.svelte-3uyvkz h3.Light.draft.svelte-3uyvkz{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}div.svelte-3uyvkz h3.Dark.paid.svelte-3uyvkz{color:#18a777;background-color:rgba(61, 179, 61, 0.17)}div.svelte-3uyvkz h3.Dark.pending.svelte-3uyvkz{color:#ca980d;background-color:rgba(221, 182, 6, 0.15)}div.svelte-3uyvkz h3.Dark.draft.svelte-3uyvkz{color:#e6e6e6;background-color:rgba(41, 41, 41, 0.5)}",
   map: null
 };
 const Tag = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
@@ -39,5 +39,5 @@ const Tag = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) 
     $$bindings.status(status);
   $$result.css.add(css);
   $$unsubscribe_globalStore();
-  return `<div class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)(status)) + " svelte-zkxwi1"}"><h3 class="${(0, import_index_6b830c0a.e)($globalStore.theme) + " " + (0, import_index_6b830c0a.e)(status) + " svelte-zkxwi1"}">${(0, import_index_6b830c0a.e)(status)}</h3></div>`;
+  return `<div class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)(status)) + " svelte-3uyvkz"}"><h3 class="${(0, import_index_6b830c0a.e)($globalStore.theme) + " " + (0, import_index_6b830c0a.e)(status) + " svelte-3uyvkz"}">${(0, import_index_6b830c0a.e)(status)}</h3></div>`;
 });

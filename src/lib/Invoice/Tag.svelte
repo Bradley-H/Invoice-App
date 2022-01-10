@@ -28,8 +28,8 @@
                 background-color: rgba($color: rgb(2, 172, 11), $alpha: .2);
             }
             &.pending{
-                color: darken($color: rgb(240, 183, 26), $amount: 10);
-                background-color: rgba($color: rgb(221, 182, 6), $alpha: .15);
+                color: darken($color: rgb(206, 164, 50), $amount: 10);
+                background-color: rgba($color: rgb(199, 165, 15), $alpha: .15);
             }
             &.draft{
                 color: darken($color: rgb(255, 255, 255), $amount: 10);
