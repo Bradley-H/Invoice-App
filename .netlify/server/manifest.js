@@ -26,10 +26,10 @@ __export(exports, {
 });
 const manifest = {
   appDir: "_app",
-  assets: new Set(["data.json", "favicon.png"]),
+  assets: new Set(["data.json", "favicon.png", "noInvoice.svg"]),
   _: {
-    mime: { ".json": "application/json", ".png": "image/png" },
-    entry: { "file": "start-7c3472fd.js", "js": ["start-7c3472fd.js", "chunks/vendor-fb96af59.js"], "css": ["assets/start-61d1577b.css"] },
+    mime: { ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml" },
+    entry: { "file": "start-e8a46282.js", "js": ["start-e8a46282.js", "chunks/vendor-73704a0a.js"], "css": ["assets/start-61d1577b.css"] },
     nodes: [
       () => Promise.resolve().then(() => __toModule(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toModule(require("./nodes/1.js"))),

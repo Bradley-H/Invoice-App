@@ -25,16 +25,16 @@ __export(exports, {
   B: () => Button,
   F: () => FormField
 });
-var import_index_3930c651 = __toModule(require("./index-3930c651.js"));
-var import_functionStore_b30ced0b = __toModule(require("./functionStore-b30ced0b.js"));
+var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
+var import_functionStore_2bd81cb2 = __toModule(require("./functionStore-2bd81cb2.js"));
 var FormField_svelte_svelte_type_style_lang = "";
 const css$1 = {
   code: "div.svelte-jtnjs6.svelte-jtnjs6{width:100%}div.title.svelte-jtnjs6.svelte-jtnjs6{margin-bottom:0.7rem}div.svelte-jtnjs6 input.svelte-jtnjs6,div.svelte-jtnjs6 select.svelte-jtnjs6{padding:0.8rem;border-radius:5px;font-weight:bold;width:100%;height:3.5rem}div.svelte-jtnjs6 input.invalid.svelte-jtnjs6,div.svelte-jtnjs6 select.invalid.svelte-jtnjs6{border:1px solid #ec5757}div.svelte-jtnjs6 input.Dark.svelte-jtnjs6,div.svelte-jtnjs6 select.Dark.svelte-jtnjs6{background-color:#21243c;color:#fff}div.svelte-jtnjs6 input.Light.svelte-jtnjs6,div.svelte-jtnjs6 select.Light.svelte-jtnjs6{background-color:#b1b1d2;color:black}div.svelte-jtnjs6 input.svelte-jtnjs6:disabled,div.svelte-jtnjs6 select.svelte-jtnjs6:disabled{opacity:0.6}p.svelte-jtnjs6.svelte-jtnjs6{display:none;color:#ec5757;margin:0.3rem 0}p.invalid.svelte-jtnjs6.svelte-jtnjs6{display:block}select.svelte-jtnjs6.svelte-jtnjs6{border:none;margin:0;font-size:1.1rem;height:3.5rem}input[type=number].svelte-jtnjs6.svelte-jtnjs6{appearance:textfield}",
   map: null
 };
-const FormField = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
+const FormField = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_3930c651.a)(import_functionStore_b30ced0b.g, (value2) => $globalStore = value2);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_2bd81cb2.g, (value2) => $globalStore = value2);
   let { form = "text" } = $$props;
   let { title = false } = $$props;
   let { id = "" } = $$props;
@@ -46,6 +46,7 @@ const FormField = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, s
   let { placeholder = "" } = $$props;
   let { step = 0.1 } = $$props;
   let { invalidMessage = "" } = $$props;
+  let touched = false;
   if ($$props.form === void 0 && $$bindings.form && form !== void 0)
     $$bindings.form(form);
   if ($$props.title === void 0 && $$bindings.title && title !== void 0)
@@ -70,21 +71,21 @@ const FormField = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, s
     $$bindings.invalidMessage(invalidMessage);
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
-  return `<div class="${["svelte-jtnjs6", title ? "title" : ""].join(" ").trim()}"><label ${disabled ? "disabled" : ""}${(0, import_index_3930c651.g)("for", id, 0)}>${(0, import_index_3930c651.v)(import_functionStore_b30ced0b.T, "Text").$$render($$result, { disabled, size: "p", title: true, text }, {}, {})}</label>
+  return `<div class="${["svelte-jtnjs6", title ? "title" : ""].join(" ").trim()}"><label ${disabled ? "disabled" : ""}${(0, import_index_6b830c0a.h)("for", id, 0)}>${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, { disabled, size: "p", title: true, text }, {}, {})}</label>
 ${form === "text" ? `<input ${disabled ? "disabled" : ""} class="${[
-    (0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-jtnjs6",
-    !valid ? "invalid" : ""
-  ].join(" ").trim()}"${(0, import_index_3930c651.g)("id", id, 0)} type="${"text"}"${(0, import_index_3930c651.g)("placeholder", placeholder, 0)}${(0, import_index_3930c651.g)("value", value, 0)}>` : `${form === "number" ? `<input ${disabled ? "disabled" : ""} class="${[
-    (0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-jtnjs6",
-    !valid ? "invalid" : ""
-  ].join(" ").trim()}"${(0, import_index_3930c651.g)("step", step, 0)}${(0, import_index_3930c651.g)("id", id, 0)} type="${"number"}"${(0, import_index_3930c651.g)("placeholder", placeholder, 0)}${(0, import_index_3930c651.g)("value", value, 0)}>` : `${form === "date" ? `<input ${disabled ? "disabled" : ""}${(0, import_index_3930c651.g)("id", id, 0)} type="${"date"}"${(0, import_index_3930c651.g)("placeholder", placeholder, 0)} class="${["svelte-jtnjs6", !valid ? "invalid" : ""].join(" ").trim()}"${(0, import_index_3930c651.g)("value", value, 0)}>` : `${form === "select" ? `<select class="${(0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-jtnjs6"}">${(0, import_index_3930c651.b)(options, (val) => `<option${(0, import_index_3930c651.g)("value", val.value, 0)}>${(0, import_index_3930c651.e)(val.text)}</option>`)}</select>` : ``}`}`}`}
-${invalidMessage && !valid ? `<p class="${["svelte-jtnjs6", !valid ? "invalid" : ""].join(" ").trim()}">${(0, import_index_3930c651.e)(invalidMessage)}</p>` : ``}</div>`;
+    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-jtnjs6",
+    !valid && touched ? "invalid" : ""
+  ].join(" ").trim()}"${(0, import_index_6b830c0a.h)("id", id, 0)} type="${"text"}"${(0, import_index_6b830c0a.h)("placeholder", placeholder, 0)}${(0, import_index_6b830c0a.h)("value", value, 0)}>` : `${form === "number" ? `<input ${disabled ? "disabled" : ""} class="${[
+    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-jtnjs6",
+    !valid && touched ? "invalid" : ""
+  ].join(" ").trim()}"${(0, import_index_6b830c0a.h)("step", step, 0)}${(0, import_index_6b830c0a.h)("id", id, 0)} type="${"number"}"${(0, import_index_6b830c0a.h)("placeholder", placeholder, 0)}${(0, import_index_6b830c0a.h)("value", value, 0)}>` : `${form === "date" ? `<input ${disabled ? "disabled" : ""}${(0, import_index_6b830c0a.h)("id", id, 0)} type="${"date"}"${(0, import_index_6b830c0a.h)("placeholder", placeholder, 0)} class="${["svelte-jtnjs6", !valid ? "invalid" : ""].join(" ").trim()}"${(0, import_index_6b830c0a.h)("value", value, 0)}>` : `${form === "select" ? `<select class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-jtnjs6"}">${(0, import_index_6b830c0a.d)(options, (val) => `<option${(0, import_index_6b830c0a.h)("value", val.value, 0)}>${(0, import_index_6b830c0a.e)(val.text)}</option>`)}</select>` : ``}`}`}`}
+${invalidMessage && !valid && touched ? `<p class="${["svelte-jtnjs6", !valid ? "invalid" : ""].join(" ").trim()}">${(0, import_index_6b830c0a.e)(invalidMessage)}</p>` : ``}</div>`;
 });
 const css = {
-  code: "a.svelte-nnx8ug.svelte-nnx8ug,button.svelte-nnx8ug.svelte-nnx8ug{display:flex;justify-content:center;align-items:center;padding:0.5rem;font-weight:bold;min-width:5rem;font-size:0.875rem;min-height:2.5rem;max-height:5.5rem;cursor:pointer}a.primary.svelte-nnx8ug.svelte-nnx8ug,button.primary.svelte-nnx8ug.svelte-nnx8ug{background-color:#7C5DFAFF}a.secondary.svelte-nnx8ug.svelte-nnx8ug,button.secondary.svelte-nnx8ug.svelte-nnx8ug{background-color:#7078b2;color:white}a.accent.svelte-nnx8ug.svelte-nnx8ug,button.accent.svelte-nnx8ug.svelte-nnx8ug{background-color:#7e88C3}a.danger.svelte-nnx8ug.svelte-nnx8ug,button.danger.svelte-nnx8ug.svelte-nnx8ug{background-color:#ec5757}a.fluid.svelte-nnx8ug.svelte-nnx8ug,button.fluid.svelte-nnx8ug.svelte-nnx8ug{width:100% !important}a.svelte-nnx8ug i.svelte-nnx8ug,button.svelte-nnx8ug i.svelte-nnx8ug{margin-right:0.7rem;font-size:1.1rem}a.rounded.svelte-nnx8ug.svelte-nnx8ug,button.rounded.svelte-nnx8ug.svelte-nnx8ug{border-radius:17px}a.medium.svelte-nnx8ug.svelte-nnx8ug,button.medium.svelte-nnx8ug.svelte-nnx8ug{width:7rem}a.small.svelte-nnx8ug.svelte-nnx8ug,button.small.svelte-nnx8ug.svelte-nnx8ug{width:5rem}a.large.svelte-nnx8ug.svelte-nnx8ug,button.large.svelte-nnx8ug.svelte-nnx8ug{width:9rem}button[disabled].svelte-nnx8ug.svelte-nnx8ug{opacity:0.5}",
+  code: "a.svelte-1qedrgu.svelte-1qedrgu,button.svelte-1qedrgu.svelte-1qedrgu{display:flex;justify-content:center;align-items:center;padding:0.5rem;font-weight:bold;min-width:5rem;font-size:0.75rem;min-height:2.5rem;max-height:5.5rem;cursor:pointer}@media(min-width: 520px){a.svelte-1qedrgu.svelte-1qedrgu,button.svelte-1qedrgu.svelte-1qedrgu{font-size:0.875rem;min-width:6rem}}@media(min-width: 768px){a.svelte-1qedrgu.svelte-1qedrgu,button.svelte-1qedrgu.svelte-1qedrgu{font-size:1rem;min-width:8.25rem}}a.primary.svelte-1qedrgu.svelte-1qedrgu,button.primary.svelte-1qedrgu.svelte-1qedrgu{background-color:#7C5DFAFF}a.secondary.svelte-1qedrgu.svelte-1qedrgu,button.secondary.svelte-1qedrgu.svelte-1qedrgu{background-color:#7078b2;color:white}a.accent.svelte-1qedrgu.svelte-1qedrgu,button.accent.svelte-1qedrgu.svelte-1qedrgu{background-color:#7e88C3}a.danger.svelte-1qedrgu.svelte-1qedrgu,button.danger.svelte-1qedrgu.svelte-1qedrgu{background-color:#ec5757}a.fluid.svelte-1qedrgu.svelte-1qedrgu,button.fluid.svelte-1qedrgu.svelte-1qedrgu{width:100% !important}a.svelte-1qedrgu i.svelte-1qedrgu,button.svelte-1qedrgu i.svelte-1qedrgu{margin-right:0.7rem;font-size:1.1rem}a.rounded.svelte-1qedrgu.svelte-1qedrgu,button.rounded.svelte-1qedrgu.svelte-1qedrgu{border-radius:17px}a.medium.svelte-1qedrgu.svelte-1qedrgu,button.medium.svelte-1qedrgu.svelte-1qedrgu{width:7rem}a.small.svelte-1qedrgu.svelte-1qedrgu,button.small.svelte-1qedrgu.svelte-1qedrgu{width:5rem}a.large.svelte-1qedrgu.svelte-1qedrgu,button.large.svelte-1qedrgu.svelte-1qedrgu{width:9rem}button[disabled].svelte-1qedrgu.svelte-1qedrgu{opacity:0.5}",
   map: null
 };
-const Button = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
+const Button = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let { href = "" } = $$props;
   let { text = "" } = $$props;
   let { type = "primary" } = $$props;
@@ -111,7 +112,7 @@ const Button = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slot
     $$bindings.rounded(rounded);
   $$result.css.add(css);
   return `${!href ? `<button ${disabled ? "disabled" : ""} class="${[
-    (0, import_index_3930c651.e)(type) + " " + (0, import_index_3930c651.e)(size) + " svelte-nnx8ug",
+    (0, import_index_6b830c0a.e)(type) + " " + (0, import_index_6b830c0a.e)(size) + " svelte-1qedrgu",
     (rounded ? "rounded" : "") + " " + (fluid ? "fluid" : "")
-  ].join(" ").trim()}"><i class="${"fas fa-" + (0, import_index_3930c651.e)(icon) + " svelte-nnx8ug"}"></i>${(0, import_index_3930c651.e)(text)}</button>` : `<a class="${(0, import_index_3930c651.e)((0, import_index_3930c651.f)(type)) + " svelte-nnx8ug"}"${(0, import_index_3930c651.g)("href", href, 0)}><i class="${"fas fa-" + (0, import_index_3930c651.e)(icon) + " svelte-nnx8ug"}"></i>${(0, import_index_3930c651.e)(text)}</a>`}`;
+  ].join(" ").trim()}"><i class="${"fas fa-" + (0, import_index_6b830c0a.e)(icon) + " svelte-1qedrgu"}"></i>${(0, import_index_6b830c0a.e)(text)}</button>` : `<a class="${(0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)(type)) + " svelte-1qedrgu"}"${(0, import_index_6b830c0a.h)("href", href, 0)}><i class="${"fas fa-" + (0, import_index_6b830c0a.e)(icon) + " svelte-1qedrgu"}"></i>${(0, import_index_6b830c0a.e)(text)}</a>`}`;
 });

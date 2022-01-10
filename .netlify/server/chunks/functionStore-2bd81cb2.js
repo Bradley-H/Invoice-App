@@ -2,8 +2,22 @@ var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
   __markAsModule(target);
@@ -24,17 +38,18 @@ var __toModule = (module2) => {
 __export(exports, {
   C: () => Card,
   T: () => Text,
+  a: () => getInvoicesIndex,
   c: () => convertDate,
   g: () => globalStore,
   n: () => numberWithCommas
 });
-var import_index_3930c651 = __toModule(require("./index-3930c651.js"));
+var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
 const subscriber_queue = [];
-function writable(value, start = import_index_3930c651.n) {
+function writable(value, start = import_index_6b830c0a.n) {
   let stop;
   const subscribers = new Set();
   function set(new_value) {
-    if ((0, import_index_3930c651.d)(value, new_value)) {
+    if ((0, import_index_6b830c0a.f)(value, new_value)) {
       value = new_value;
       if (stop) {
         const run_queue = !subscriber_queue.length;
@@ -54,11 +69,11 @@ function writable(value, start = import_index_3930c651.n) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe2(run, invalidate = import_index_3930c651.n) {
+  function subscribe2(run, invalidate = import_index_6b830c0a.n) {
     const subscriber = [run, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
-      stop = start(set) || import_index_3930c651.n;
+      stop = start(set) || import_index_6b830c0a.n;
     }
     run(value);
     return () => {
@@ -84,9 +99,9 @@ const css$1 = {
   code: "div.inv.svelte-1dwcrx1,a.inv.svelte-1dwcrx1,div.svelte-1dwcrx1,a.svelte-1dwcrx1{display:flex}div.modal.svelte-1dwcrx1,a.modal.svelte-1dwcrx1{display:flex;flex-direction:column}div.svelte-1dwcrx1,a.svelte-1dwcrx1{position:relative;width:100%;padding:1rem}div.Dark.svelte-1dwcrx1,a.Dark.svelte-1dwcrx1{background-color:#242843}div.Light.svelte-1dwcrx1,a.Light.svelte-1dwcrx1{background-color:#d4d4e7}div.inv.svelte-1dwcrx1,a.inv.svelte-1dwcrx1{width:100%;border-radius:12px;margin:0.25rem 0;padding:0.75rem}div.modal.svelte-1dwcrx1,a.modal.svelte-1dwcrx1{height:100%;width:100%;z-index:2;overflow:auto;padding:1.5rem}div.modal.Dark.svelte-1dwcrx1,a.modal.Dark.svelte-1dwcrx1{background-color:#161828}div.modal.Light.svelte-1dwcrx1,a.modal.Light.svelte-1dwcrx1{background-color:#c7c7df}.round.svelte-1dwcrx1{border-radius:8px}",
   map: null
 };
-const Card = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
+const Card = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_3930c651.a)(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(globalStore, (value) => $globalStore = value);
   let { inv = false } = $$props;
   let { id = "" } = $$props;
   let { modal = false } = $$props;
@@ -102,22 +117,22 @@ const Card = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots)
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
   return `${!inv ? `<div class="${[
-    (0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-1dwcrx1",
+    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-1dwcrx1",
     (round ? "round" : "") + " " + (modal ? "modal" : "")
-  ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_3930c651.e)(id)}" class="${[
-    (0, import_index_3930c651.e)((0, import_index_3930c651.f)($globalStore.theme)) + " svelte-1dwcrx1",
+  ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_6b830c0a.e)(id)}" class="${[
+    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-1dwcrx1",
     inv ? "inv" : ""
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</a>`}`;
 });
 var Text_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "h1.disabled.svelte-bgfnvq,h2.disabled.svelte-bgfnvq,h3.disabled.svelte-bgfnvq,p.disabled.svelte-bgfnvq{color:grey}.title.svelte-bgfnvq{margin-bottom:0.3rem}",
+  code: 'h1.svelte-24ajjd,h2.svelte-24ajjd,h3.svelte-24ajjd,p.svelte-24ajjd{font-family:"Spartan", sans-serif}h1.disabled.svelte-24ajjd,h2.disabled.svelte-24ajjd,h3.disabled.svelte-24ajjd,p.disabled.svelte-24ajjd{color:grey}.title.svelte-24ajjd{margin-bottom:0.3rem}',
   map: null
 };
-const Text = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots) => {
+const Text = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let theme;
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_3930c651.a)(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(globalStore, (value) => $globalStore = value);
   let { text = "Hello World" } = $$props;
   let { size = "h1" } = $$props;
   let { title = false } = $$props;
@@ -134,18 +149,18 @@ const Text = (0, import_index_3930c651.c)(($$result, $$props, $$bindings, slots)
   theme = $globalStore.theme;
   $$unsubscribe_globalStore();
   return `${size === "h1" ? `<h1 class="${[
-    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
+    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</h1>` : `${size === "h2" ? `<h2 class="${[
-    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
+  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</h1>` : `${size === "h2" ? `<h2 class="${[
+    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</h2>` : `${size === "h3" ? `<h3 class="${[
-    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
+  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</h2>` : `${size === "h3" ? `<h3 class="${[
+    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</h3>` : `<p class="${[
-    "txtColor" + (0, import_index_3930c651.e)(theme) + " svelte-bgfnvq",
+  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</h3>` : `<p class="${[
+    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_3930c651.e)(text)}</p>`}`}`}`;
+  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</p>`}`}`}`;
 });
 var Button_svelte_svelte_type_style_lang = "";
 function convertDate(date, term = 30) {
@@ -158,4 +173,20 @@ function convertDate(date, term = 30) {
 }
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+async function getInvoicesIndex() {
+  if (localStorage.getItem("invoices"))
+    globalStore.update(($store) => {
+      $store.invoices = JSON.parse(localStorage.getItem("invoices"));
+      return __spreadValues({}, $store);
+    });
+  else {
+    const response = await fetch("./data.json");
+    const data = await response.json();
+    globalStore.update(($store) => {
+      localStorage.setItem("invoices", JSON.stringify(data));
+      $store.invoices = JSON.parse(localStorage.getItem("invoices"));
+      return __spreadValues({}, $store);
+    });
+  }
 }

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     // COMPONENTS //
     import Card from "$lib/Card/Card.svelte";
     import InnerCard from "$lib/Card/InnerCard.svelte";
@@ -6,37 +6,59 @@
     import Button from "$lib/Button/Button.svelte";
     import BackButton from "$lib/Button/BackButton.svelte";
     import Tag from "$lib/Invoice/Tag.svelte";
-     // STORES //
-     import { page } from "$app/stores";
+    import ModalPrompt from "$lib/Modal/ModalPrompt.svelte";
     // VARIABLES //
-    let innerWidth;
+        let innerWidth;
+        let prompt;
     // PROPS //
-    export let status;
-    export let id;
-    export let description;
-    export let createdAt;
-    export let paymentDue;
-    export let clientName;
-    export let clientCity;
-    export let clientCountry;
-    export let clientAddress;
-    export let clientEmail;
-    export let clientPostCode;
-    export let senderAddress;
-    export let senderCity;
-    export let senderCountry;
-    export let senderPostCode;
-    export let items = [];
-    export let total;
+        export let status;
+        export let id;
+        export let description;
+        export let createdAt;
+        export let paymentDue;
+        export let clientName;
+        export let clientAddress;
+        export let clientEmail;
+        export let senderAddress;
+        export let items = [];
+        export let total;
     // FUNCTIONS //
     import {numberWithCommas, convertDate } from "../../store/functionStore";
-    // FUNCTIONS //
-    async function editInvoice(){
-        let res = await fetch('./json/data.json');
-        let data = await res.json();
+    // STORES //
+    import {page} from '$app/stores';
+    import { globalStore } from "../../store/globalStore";
+    function editInvoice(){
+       let invoice = $globalStore.invoices.find(invoice => invoice.id === $page.params.invoice);
+       $globalStore.modalStatus = "edit";
+       $globalStore.editedInvoice = invoice;
+    }
+
+    function markAsPaid(){
+        let invoice = $globalStore.invoices.find(invoice => invoice.id === $page.params.invoice);
+        $globalStore.editedInvoice = invoice;
+        globalStore.update($store => {
+            $store.editedInvoice.status = "paid";
+            return {...$store}
+        })
+        localStorage.setItem("invoices", JSON.stringify($globalStore.invoices));
+        location.reload()
+    }
+    function deleteInvoice(){
+        let invoice = $globalStore.invoices.find(invoice => invoice.id === $page.params.invoice);
+        $globalStore.editedInvoice = invoice;
+        globalStore.update($store => {
+            $store.invoices.splice($store.invoices.indexOf($store.editedInvoice), 1);
+            return {...$store}
+        })
+        localStorage.setItem("invoices", JSON.stringify($globalStore.invoices));
+        history.back()
+    }
+    function showPrompt(status){
+        prompt = status
     }
     // SASS DEFINITIONS //
      import "../../store/globalStore";
+
 </script>
 
 <style lang="scss">
@@ -133,7 +155,7 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 35px;
                 @include tabletUp{
-                    grid-template-columns: 1fr 1fr 0fr;
+                    grid-template-columns: 1fr 1fr .25fr;
                 }
                 &-invoices{
                     @extend %grid;
@@ -200,8 +222,8 @@
             {#if innerWidth >= 768}
             <div class="topCard_btns">
                 <Button size="medium" on:click={editInvoice} text="Edit" type="secondary" icon="pen" rounded/>
-                <Button size="medium" text="Delete" type="danger" icon="trash" rounded/>
-                <Button text="Mark as Paid" icon="check" rounded/>
+                <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={() => showPrompt("delete")}/>
+                <Button text="Mark as Paid" icon="check" rounded on:click={() => showPrompt("paid")}/>
             </div>
             {/if}
         </Card>
@@ -219,10 +241,10 @@
                     </div> 
     
                     <div class="bottomCard_invoiceInfo-senderInfo">
-                        <Text size="p" text="{senderAddress}"/>
-                        <Text size="p" text="{senderCity}"/>
-                        <Text size="p" text="{senderPostCode}"/>
-                        <Text size="p" text="{senderCountry}"/>
+                        <Text size="p" text="{senderAddress.street}"/>
+                        <Text size="p" text="{senderAddress.city}"/>
+                        <Text size="p" text="{senderAddress.postCode}"/>
+                        <Text size="p" text="{senderAddress.country}"/>
                     </div>
                 </div>
             
@@ -232,12 +254,12 @@
                     <div class="bottomCard_invoiceInfo-billTo-invoices">
                         <div class="bottomCard_invoiceInfo-billTo-invoiceDate">
                             <Text size="p" text="Invoice Date"/>
-                            <Text size="h3" text="{convertDate(createdAt)}"/>
+                            <Text size="h3" text="{convertDate(createdAt, 0)}"/>
                         </div>
     
                         <div class="bottomCard_invoiceInfo-billTo-invoiceDue">
                             <Text size="p" text="Payment Due"/>
-                            <Text size="h3" text="{convertDate(paymentDue)}"/>
+                            <Text size="h3" text="{convertDate(paymentDue, 0)}"/>
                         </div>
                     </div>
 
@@ -247,10 +269,10 @@
                             <Text size="h3" text="{clientName}"/>
                         </div>
                         <div class="bottomCard_invoiceInfo-billTo-client-information">
-                            <Text size="p" text="{clientAddress}"/>
-                            <Text size="p" text="{clientCity}"/>
-                            <Text size="p" text="{clientPostCode}"/>
-                            <Text size="p" text="{clientCountry}"/>
+                            <Text size="p" text="{clientAddress.street}"/>
+                            <Text size="p" text="{clientAddress.city}"/>
+                            <Text size="p" text="{clientAddress.postCode}"/>
+                            <Text size="p" text="{clientAddress.country}"/>
                         </div>
                     </div>
                 
@@ -266,10 +288,10 @@
                         {#each items as item, i (i)}
                             <div class="bottomCard_invoiceInfo-itemList-items">
                                 <div class="bottomCard_invoiceInfo-itemList-items-description">
-                                    <Text size="h3" text="{item.itemName}"/>
-                                    <Text size="p" text="${numberWithCommas(item.itemPrice.toFixed(2))} x {item.itemQuantity} "/>
+                                    <Text size="h3" text="{item.name}"/>
+                                    <Text size="p" text="${numberWithCommas(item.price.toFixed(2))} x {item.quantity} "/>
                                 </div>
-                                <Text size="h3" text="${numberWithCommas((item.itemQuantity * item.itemPrice).toFixed(2) )}"/>
+                                <Text size="h3" text="${numberWithCommas((item.quantity * item.price).toFixed(2) )}"/>
                             </div>
                         {/each}
                     </InnerCard>
@@ -294,4 +316,14 @@
                 <Button text="Mark as Paid" icon="check" rounded/>
             </div>
         </Card>
+{/if}
+
+
+{#if prompt === "delete"}
+    <ModalPrompt on:decline={() => prompt = null} on:accept={deleteInvoice} text={"You want to delete this invoice? This cannot be reversed."}/>
+{/if}
+
+
+{#if prompt === "paid"}
+    <ModalPrompt on:decline={() => prompt = null} on:accept={markAsPaid} text={"You want to make this invoice as paid?"}/>
 {/if}

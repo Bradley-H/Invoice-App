@@ -16,6 +16,7 @@ import "../../scss/styles.scss";
 @import "../../scss/util/index";
 
 h1,h2,h3,p{
+    font-family: $primaryFont;
     &.disabled{
         color: grey;
     }

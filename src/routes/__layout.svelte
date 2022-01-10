@@ -1,13 +1,15 @@
 <script lang="ts">
-    // STORES //
+// STORES //
 import {globalStore} from '../store/globalStore';
 // COMPONENTS //
 import Navigation from "$lib/Navigation/Navigation.svelte";
-import InvoiceModal from '$lib/Modal/InvoiceModal.svelte'
+import NewInvoiceModal from "$lib/Modal/NewInvoiceModal.svelte";
+import EditInvoiceModal from "$lib/Modal/EditInvoiceModal.svelte";
 // VARIABLES //
 $: theme = $globalStore.theme;
 // SASS DEFINITIONS //
 import "../scss/styles.scss"
+
 </script>
 
 
@@ -27,9 +29,14 @@ main{
 }
 </style>
 
+{#if $globalStore.modalStatus === "add"}
+<NewInvoiceModal/>
+{/if}
 
+{#if $globalStore.modalStatus === "edit"}
+<EditInvoiceModal/>
+{/if}
 <Navigation/>
-<InvoiceModal/>
 <main class="bgColor{theme}">
     <slot/>
 </main>

@@ -128,7 +128,7 @@ import {convertDate, numberWithCommas} from '../../store/functionStore'
         <div class="dueInformation">
             <Text size="h3" text="#{id}"/>
             <div>
-                <Text size="p" text="Due: {convertDate(paymentDue)}"/>
+                <Text size="p" text="Due: {convertDate(paymentDue, 0)}"/>
                 <Text size="h3" text="${numberWithCommas(total.toFixed(2))}"/>
             </div>
         </div>

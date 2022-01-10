@@ -27,7 +27,7 @@
     }
     import "../../scss/styles.scss";
 
-   
+   let touched = false;
 </script>
 
 <style lang="scss">
@@ -85,9 +85,9 @@
 <div class:title={title}>
     <label {disabled} for={id}> <Text {disabled} size="p" title {text}/></label>
 {#if form === "text"}
-    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {id} type="text" {placeholder} bind:value={value} on:blur />
+    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} {id} type="text" {placeholder} bind:value={value} on:blur={() => touched = true} />
 {:else if form === "number"}
-    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid} {step} on:keydown={numField} {id} type="number" {placeholder}  bind:value={value} />
+    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} {step} on:keydown={numField} {id} type="number" {placeholder} on:blur={() => touched = true}  bind:value={value} />
 {:else if form === "date"}
     <input {disabled} {id} type="date" {placeholder} class:invalid={!valid}  bind:value={value}/>
     {:else if form === "select"}
@@ -97,7 +97,7 @@
         {/each}
     </select>
 {/if}
-{#if invalidMessage && !valid}
+{#if invalidMessage && !valid && touched}
 <p class:invalid={!valid}>{invalidMessage}</p>
 {/if}
 </div>

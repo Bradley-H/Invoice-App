@@ -4,7 +4,7 @@
     "src": ".svelte-kit/build/app.js",
     "isEntry": true,
     "imports": [
-      "_index-3930c651.js"
+      "_index-6b830c0a.js"
     ],
     "css": [
       "assets/app-6009617f.css"
@@ -15,13 +15,13 @@
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-3930c651.js",
-      "_functionStore-b30ced0b.js",
-      "_Button-15a9fb03.js",
-      "_BackButton-56ddd62b.js"
+      "_index-6b830c0a.js",
+      "_functionStore-2bd81cb2.js",
+      "_Button-bdd8baf3.js",
+      "_stores-ced9780d.js"
     ],
     "css": [
-      "assets/entries/pages/__layout.svelte-8e0b6c58.css"
+      "assets/entries/pages/__layout.svelte-256d8113.css"
     ]
   },
   ".svelte-kit/build/components/error.svelte": {
@@ -29,7 +29,7 @@
     "src": ".svelte-kit/build/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-3930c651.js"
+      "_index-6b830c0a.js"
     ]
   },
   "src/routes/index.svelte": {
@@ -37,13 +37,13 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-3930c651.js",
-      "_Button-15a9fb03.js",
-      "_functionStore-b30ced0b.js",
-      "_Tag-d5d0e364.js"
+      "_index-6b830c0a.js",
+      "_Button-bdd8baf3.js",
+      "_functionStore-2bd81cb2.js",
+      "_Tag-7ecead46.js"
     ],
     "css": [
-      "assets/entries/pages/index.svelte-959ed830.css"
+      "assets/entries/pages/index.svelte-c747cb69.css"
     ]
   },
   "src/routes/[invoice].svelte": {
@@ -51,55 +51,55 @@
     "src": "src/routes/[invoice].svelte",
     "isEntry": true,
     "imports": [
-      "_index-3930c651.js",
-      "_functionStore-b30ced0b.js",
-      "_BackButton-56ddd62b.js",
-      "_Tag-d5d0e364.js"
+      "_index-6b830c0a.js",
+      "_functionStore-2bd81cb2.js",
+      "_stores-ced9780d.js",
+      "_Tag-7ecead46.js"
     ],
     "css": [
-      "assets/entries/pages/_invoice_.svelte-99fd1852.css"
+      "assets/entries/pages/_invoice_.svelte-84002275.css"
     ]
   },
-  "_index-3930c651.js": {
-    "file": "chunks/index-3930c651.js"
+  "_index-6b830c0a.js": {
+    "file": "chunks/index-6b830c0a.js"
   },
-  "_functionStore-b30ced0b.js": {
-    "file": "chunks/functionStore-b30ced0b.js",
+  "_functionStore-2bd81cb2.js": {
+    "file": "chunks/functionStore-2bd81cb2.js",
     "imports": [
-      "_index-3930c651.js"
+      "_index-6b830c0a.js"
     ],
     "css": [
-      "assets/functionStore-923663ef.css"
+      "assets/functionStore-6f6ffea4.css"
     ]
   },
-  "_Button-15a9fb03.js": {
-    "file": "chunks/Button-15a9fb03.js",
+  "_Button-bdd8baf3.js": {
+    "file": "chunks/Button-bdd8baf3.js",
     "imports": [
-      "_index-3930c651.js",
-      "_functionStore-b30ced0b.js"
+      "_index-6b830c0a.js",
+      "_functionStore-2bd81cb2.js"
     ],
     "css": [
       "assets/Button-1c91f83a.css"
     ]
   },
-  "_BackButton-56ddd62b.js": {
-    "file": "chunks/BackButton-56ddd62b.js",
+  "_stores-ced9780d.js": {
+    "file": "chunks/stores-ced9780d.js",
     "imports": [
-      "_index-3930c651.js",
-      "_functionStore-b30ced0b.js"
+      "_index-6b830c0a.js",
+      "_functionStore-2bd81cb2.js"
     ],
     "css": [
-      "assets/BackButton-c9e30ace.css"
+      "assets/stores-4f1b6882.css"
     ]
   },
-  "_Tag-d5d0e364.js": {
-    "file": "chunks/Tag-d5d0e364.js",
+  "_Tag-7ecead46.js": {
+    "file": "chunks/Tag-7ecead46.js",
     "imports": [
-      "_index-3930c651.js",
-      "_functionStore-b30ced0b.js"
+      "_index-6b830c0a.js",
+      "_functionStore-2bd81cb2.js"
     ],
     "css": [
-      "assets/Tag-0b13a624.css"
+      "assets/Tag-84e63d61.css"
     ]
   }
 }

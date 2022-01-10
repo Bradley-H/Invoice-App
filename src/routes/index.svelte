@@ -17,13 +17,7 @@ import { globalStore } from '../store/globalStore';
 $: filter = "all";
 $: filteredInvoices = $globalStore.invoices.filter(invoice => invoice.status === filter || filter === "all");
 // FUNCTIONS //
-async function getInvoices(){
-    let res = await fetch('./data.json');
-    let data = await res.json();
-    $globalStore.invoices = data;
-    // GET LOCALSTORE INVOICES //
-    localStorage.getItem("invoices") ? $globalStore.invoices = JSON.parse(localStorage.getItem("invoices")) : null;
-}
+import {getInvoicesIndex} from '../store/functionStore';
 // SASS FILES //
     import "../scss/styles.scss";
 </script>
@@ -79,14 +73,26 @@ async function getInvoices(){
     .loading{
         height: 100vh;
         max-height: 100%;
+        @include centered;
     }
     }
+
+
+    .noInvoices{
+            @include centered;
+            flex-direction: column;
+            min-height: 50vh;
+            div{
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
    
 </style>
 
 
 <div class="container">
-    {#await getInvoices()}
+    {#await getInvoicesIndex()}
     <div class="loading">
         <Text size="h1" text="Getting invoices, please wait"/>
     </div>
@@ -97,14 +103,25 @@ async function getInvoices(){
             <Text size="p" text="{filteredInvoices.length} invoices"/>
         </div>
         <div class="settings">
-            <FormField id="filter" form="select" {options} bind:value={filter} text=""/>
+            <FormField id="filter" form="select" {options} bind:value={filter}/>
             <Button rounded icon="plus" text="Add Invoice" on:click={() => $globalStore.modalStatus = "add"}/>
         </div>
     </div>
+    {#if $globalStore.invoices.length > 0}
     <div class="invoices">
-        {#each filteredInvoices as {id, paymentDue, total, clientName, status}, i (i)}
+    {#each filteredInvoices as {id, paymentDue, total, clientName, status}, i (i)}
                 <Invoice {id} {paymentDue} {total} {clientName} {status} />
         {/each}
         </div>
+        {:else}
+        <div class="noInvoices">
+            <img src="./noinvoice.svg" alt="No invoice">
+            <div>
+                <Text title size="h2" text="No Invoices"/>
+                <Text title size="p" text="To Create an Invoice"/>
+                <Text title size="p" text="Click 'Add invoice' at the top"/>
+            </div>
+        </div>
+        {/if}
     {/await}
 </div>

@@ -1,9 +1,9 @@
 import { globalStore } from './globalStore';
 
-export  function convertDate(date, term = 30) {
+export  function convertDate(date, term = 30 ) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let newDate = new Date(date);
-    let month = ( months[newDate.getMonth() + (term / 30)]   );
+    let month = ( months[newDate.getMonth() + (term/ 30)]   );
     let day = (newDate.getDate());
     let year = newDate.getFullYear();
     return `${month} ${day}, ${year}`;
@@ -35,4 +35,23 @@ export function strValid(str){
 export function emailValid(str){
 let REGEX = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 if(REGEX.test(str)){ return true }
+}
+
+export async function getInvoicesIndex(){
+    // IF LOCALSTORE INVOICES EXIST, RETURN THE INVOICES OTHERWISE RETURN NULL //
+    if(localStorage.getItem('invoices'))
+        globalStore.update($store => {
+        $store.invoices = JSON.parse(localStorage.getItem('invoices'));
+        return {...$store}
+    })
+    else {
+        // IF THERE NO LOCALSTORE INVOICES, GET INVOICES AND SAVE AS LOCAL STORAGE //
+        const response = await fetch('./data.json');
+        const data = await response.json();
+        globalStore.update($store => {
+            localStorage.setItem('invoices', JSON.stringify(data));
+            $store.invoices = JSON.parse(localStorage.getItem('invoices'));
+            return {...$store}
+        })
+    }
 }

@@ -18,9 +18,17 @@
         padding: .5rem;
         font-weight: bold;
         min-width: 5rem;
-        font-size: toRem(14);
+        font-size: toRem(12);
         min-height: 2.5rem;
         max-height: 5.5rem;
+        @include mobileMaxUp{
+            font-size: toRem(14);
+            min-width: 6rem;
+        }
+        @include tabletUp{
+            font-size: toRem(16);
+            min-width: 8.25rem;
+        }
         cursor: pointer;
         &.primary{
             background-color: $colorLight;

@@ -9,13 +9,9 @@
     function themeSwitch(){
         if($globalStore.theme === "Dark"){
             $globalStore.theme = "Light";
-            document.querySelector("body").classList.remove("bgColorDark");
-            document.querySelector("body").classList.add("bgColorLight");
             icon = "sun";
         } else {
             $globalStore.theme = "Dark";            
-            document.querySelector("body").classList.add("bgColorDark");
-            document.querySelector("body").classList.remove("bgColorLight");
             icon = "moon";
         }
     }    
