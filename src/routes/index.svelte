@@ -71,9 +71,9 @@ import {getInvoicesIndex} from '../store/functionStore';
         }
     }
     .loading{
-        height: 100vh;
-        max-height: 100%;
         @include centered;
+        min-height: 100vh;
+        max-height: 100%;
     }
     }
 
@@ -87,14 +87,13 @@ import {getInvoicesIndex} from '../store/functionStore';
                 margin-top: 1rem;
             }
         }
-   
 </style>
 
 
 <div class="container">
     {#await getInvoicesIndex()}
     <div class="loading">
-        <Text size="h1" text="Getting invoices, please wait"/>
+        <Text size="h2" text="Getting invoices, please wait"/>
     </div>
     {:then} 
     <div class="helperBar">

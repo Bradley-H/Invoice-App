@@ -223,7 +223,7 @@ import { afterUpdate } from "svelte";
             </div>
             {#if innerWidth >= 768}
             <div class="topCard_btns">
-                <Button size="medium" on:click={editInvoice} text="Edit" type="secondary" icon="pen" rounded/>
+                <Button size="medium"  text="Edit" type="secondary" icon="pen" rounded on:click={editInvoice}/>
                 <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={() => showPrompt("delete")}/>
                 <Button text="Mark as Paid" icon="check" rounded on:click={() => showPrompt("paid")}/>
             </div>
@@ -310,12 +310,13 @@ import { afterUpdate } from "svelte";
 
 </div>
 
+<!-- IF THE WIDTH IS MOBILE SHOW THE BUTTONS ON THE BOTTOM OF THE INVOICE PAGE -->
 {#if innerWidth <= 768}
         <Card>
             <div class="btns">
-                <Button size="medium" text="Edit" type="secondary" icon="pen" rounded/>
-                <Button size="medium" text="Delete" type="danger" icon="trash" rounded/>
-                <Button text="Mark as Paid" icon="check" rounded/>
+                <Button size="medium" text="Edit" type="secondary" icon="pen" rounded on:click={editInvoice}/>
+                <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={deleteInvoice}/>
+                <Button text="Mark as Paid" icon="check" rounded on:click={markAsPaid}/>
             </div>
         </Card>
 {/if}

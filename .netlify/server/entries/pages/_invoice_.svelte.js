@@ -135,6 +135,7 @@ const InvoiceInformation = (0, import_index_6b830c0a.c)(($$result, $$props, $$bi
                         <h3 class="${"svelte-10es1dh"}">$${(0, import_index_6b830c0a.e)((0, import_functionStore_2bd81cb2.n)(total.toFixed(2)))}</h3></div></div></div>`
   })}</div></div>
 
+
 ${``}
 
 

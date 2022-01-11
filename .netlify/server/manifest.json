@@ -43,7 +43,7 @@
       "_Tag-51a61bd0.js"
     ],
     "css": [
-      "assets/entries/pages/index.svelte-c747cb69.css"
+      "assets/entries/pages/index.svelte-a465b205.css"
     ]
   },
   "src/routes/[invoice].svelte": {
@@ -69,7 +69,7 @@
       "_index-6b830c0a.js"
     ],
     "css": [
-      "assets/functionStore-6f6ffea4.css"
+      "assets/functionStore-e97b55a6.css"
     ]
   },
   "_Button-bdd8baf3.js": {

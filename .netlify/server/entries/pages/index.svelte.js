@@ -66,7 +66,7 @@ const Invoice = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slo
 });
 var index_svelte_svelte_type_style_lang = "";
 const css = {
-  code: ".container.svelte-hhzkmx.svelte-hhzkmx{display:flex;flex-direction:column;width:100%;max-width:81.25rem}@media(min-width: 1200px){.container.svelte-hhzkmx.svelte-hhzkmx{display:grid;grid-template-columns:1fr;max-width:100rem}}.container.svelte-hhzkmx div.invoices.svelte-hhzkmx{display:flex;flex-direction:column;width:100%;max-width:81.25rem;margin-top:1.5rem}@media(min-width: 992px) and (max-width: 1199px){.container.svelte-hhzkmx div.invoices.svelte-hhzkmx{display:grid;place-items:center}}@media(min-width: 1200px){.container.svelte-hhzkmx div.invoices.svelte-hhzkmx{display:grid;grid-template-columns:1fr 1fr;gap:7px;justify-self:center;max-width:100rem}}.container.svelte-hhzkmx .helperBar.svelte-hhzkmx{display:flex;justify-content:space-between}.container.svelte-hhzkmx .helperBar_invoice.svelte-hhzkmx{display:flex;flex-direction:column;justify-content:center;margin-right:1rem}.container.svelte-hhzkmx .helperBar .settings.svelte-hhzkmx{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width: 768px){.container.svelte-hhzkmx .helperBar .settings.svelte-hhzkmx{place-items:initial}}.container.svelte-hhzkmx .loading.svelte-hhzkmx{height:100vh;max-height:100%;display:flex;justify-content:center;align-items:center}.noInvoices.svelte-hhzkmx.svelte-hhzkmx{display:flex;justify-content:center;align-items:center;flex-direction:column;min-height:50vh}.noInvoices.svelte-hhzkmx div.svelte-hhzkmx{text-align:center;margin-top:1rem}",
+  code: ".container.svelte-1jxcbue.svelte-1jxcbue{display:flex;flex-direction:column;width:100%;max-width:81.25rem}@media(min-width: 1200px){.container.svelte-1jxcbue.svelte-1jxcbue{display:grid;grid-template-columns:1fr;max-width:100rem}}.container.svelte-1jxcbue div.invoices.svelte-1jxcbue{display:flex;flex-direction:column;width:100%;max-width:81.25rem;margin-top:1.5rem}@media(min-width: 992px) and (max-width: 1199px){.container.svelte-1jxcbue div.invoices.svelte-1jxcbue{display:grid;place-items:center}}@media(min-width: 1200px){.container.svelte-1jxcbue div.invoices.svelte-1jxcbue{display:grid;grid-template-columns:1fr 1fr;gap:7px;justify-self:center;max-width:100rem}}.container.svelte-1jxcbue .helperBar.svelte-1jxcbue{display:flex;justify-content:space-between}.container.svelte-1jxcbue .helperBar_invoice.svelte-1jxcbue{display:flex;flex-direction:column;justify-content:center;margin-right:1rem}.container.svelte-1jxcbue .helperBar .settings.svelte-1jxcbue{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width: 768px){.container.svelte-1jxcbue .helperBar .settings.svelte-1jxcbue{place-items:initial}}.container.svelte-1jxcbue .loading.svelte-1jxcbue{display:flex;justify-content:center;align-items:center;min-height:100vh;max-height:100%}.noInvoices.svelte-1jxcbue.svelte-1jxcbue{display:flex;justify-content:center;align-items:center;flex-direction:column;min-height:50vh}.noInvoices.svelte-1jxcbue div.svelte-1jxcbue{text-align:center;margin-top:1rem}",
   map: null
 };
 const Routes = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
@@ -87,24 +87,24 @@ const Routes = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slot
     $$settled = true;
     filter = "all";
     filteredInvoices = $globalStore.invoices.filter((invoice) => invoice.status === filter || filter === "all");
-    $$rendered = `<div class="${"container svelte-hhzkmx"}">${function(__value) {
+    $$rendered = `<div class="${"container svelte-1jxcbue"}">${function(__value) {
       if ((0, import_index_6b830c0a.j)(__value)) {
         __value.then(null, import_index_6b830c0a.n);
         return `
-    <div class="${"loading svelte-hhzkmx"}">${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, {
-          size: "h1",
+    <div class="${"loading svelte-1jxcbue"}">${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, {
+          size: "h2",
           text: "Getting invoices, please wait"
         }, {}, {})}</div>
     `;
       }
       return function() {
         return ` 
-    <div class="${"helperBar svelte-hhzkmx"}"><div class="${"helperBar_invoice svelte-hhzkmx"}">${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, { size: "h2", text: "Invoices" }, {}, {})}
+    <div class="${"helperBar svelte-1jxcbue"}"><div class="${"helperBar_invoice svelte-1jxcbue"}">${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, { size: "h2", text: "Invoices" }, {}, {})}
             ${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, {
           size: "p",
           text: filteredInvoices.length + " invoices"
         }, {}, {})}</div>
-        <div class="${"settings svelte-hhzkmx"}">${(0, import_index_6b830c0a.v)(import_Button_bdd8baf3.F, "FormField").$$render($$result, {
+        <div class="${"settings svelte-1jxcbue"}">${(0, import_index_6b830c0a.v)(import_Button_bdd8baf3.F, "FormField").$$render($$result, {
           id: "filter",
           form: "select",
           options,
@@ -120,14 +120,14 @@ const Routes = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slot
           icon: "plus",
           text: "Add Invoice"
         }, {}, {})}</div></div>
-    ${$globalStore.invoices.length > 0 ? `<div class="${"invoices svelte-hhzkmx"}">${(0, import_index_6b830c0a.d)(filteredInvoices, ({ id, paymentDue, total, clientName, status }, i) => `${(0, import_index_6b830c0a.v)(Invoice, "Invoice").$$render($$result, {
+    ${$globalStore.invoices.length > 0 ? `<div class="${"invoices svelte-1jxcbue"}">${(0, import_index_6b830c0a.d)(filteredInvoices, ({ id, paymentDue, total, clientName, status }, i) => `${(0, import_index_6b830c0a.v)(Invoice, "Invoice").$$render($$result, {
           id,
           paymentDue,
           total,
           clientName,
           status
-        }, {}, {})}`)}</div>` : `<div class="${"noInvoices svelte-hhzkmx"}"><img src="${"./noinvoice.svg"}" alt="${"No invoice"}">
-            <div class="${"svelte-hhzkmx"}">${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, {
+        }, {}, {})}`)}</div>` : `<div class="${"noInvoices svelte-1jxcbue"}"><img src="${"./noinvoice.svg"}" alt="${"No invoice"}">
+            <div class="${"svelte-1jxcbue"}">${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, {
           title: true,
           size: "h2",
           text: "No Invoices"
