@@ -44,20 +44,22 @@
         location.reload()
     }
     function deleteInvoice(){
-        let invoice = $globalStore.invoices.find(invoice => invoice.id === $page.params.invoice);
-        $globalStore.editedInvoice = invoice;
+        // REMOVE FROM STORE //
         globalStore.update($store => {
-            $store.invoices.splice($store.invoices.indexOf($store.editedInvoice), 1);
+            $store.invoices = $store.invoices.filter(invoice => invoice.id !== $page.params.invoice);
             return {...$store}
         })
+        // UPDATE LOCALSTORAGE //
         localStorage.setItem("invoices", JSON.stringify($globalStore.invoices));
-        history.back()
+        // REDIRECT //
+        location.href = "/";
     }
     function showPrompt(status){
         prompt = status
     }
     // SASS DEFINITIONS //
      import "../../store/globalStore";
+import { afterUpdate } from "svelte";
 
 </script>
 
