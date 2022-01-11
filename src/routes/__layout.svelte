@@ -21,7 +21,7 @@ main{
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
     overflow: auto;
     @include laptopUp{
         padding: 1rem 2rem 2rem 6.5rem;

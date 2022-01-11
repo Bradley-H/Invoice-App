@@ -753,7 +753,7 @@ ${prompt === "pending" ? `${(0, import_index_6b830c0a.v)(ModalPrompt, "ModalProm
 });
 var __layout_svelte_svelte_type_style_lang = "";
 const css = {
-  code: "main.svelte-1q82shh{display:flex;align-items:center;flex-direction:column;height:100vh;width:100%;padding:2rem 1.5rem;overflow:auto}@media(min-width: 992px){main.svelte-1q82shh{padding:1rem 2rem 2rem 6.5rem}}",
+  code: "main.svelte-17tl8y2{display:flex;align-items:center;flex-direction:column;height:100vh;width:100%;padding:1rem 1.5rem;overflow:auto}@media(min-width: 992px){main.svelte-17tl8y2{padding:1rem 2rem 2rem 6.5rem}}",
   map: null
 };
 const _layout = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
@@ -767,5 +767,5 @@ const _layout = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slo
 
 ${$globalStore.modalStatus === "edit" ? `${(0, import_index_6b830c0a.v)(EditInvoiceModal, "EditInvoiceModal").$$render($$result, {}, {}, {})}` : ``}
 ${(0, import_index_6b830c0a.v)(Navigation, "Navigation").$$render($$result, {}, {}, {})}
-<main class="${"bgColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-1q82shh"}">${slots.default ? slots.default({}) : ``}</main>`;
+<main class="${"bgColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-17tl8y2"}">${slots.default ? slots.default({}) : ``}</main>`;
 });
