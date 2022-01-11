@@ -35,6 +35,7 @@
         width: 100%;
         max-width: 600px;
         z-index: 5;
+        padding: 1.5rem;
         text-align: center;
     }
 

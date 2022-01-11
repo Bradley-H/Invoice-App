@@ -315,8 +315,8 @@ import { afterUpdate } from "svelte";
         <Card>
             <div class="btns">
                 <Button size="medium" text="Edit" type="secondary" icon="pen" rounded on:click={editInvoice}/>
-                <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={deleteInvoice}/>
-                <Button text="Mark as Paid" icon="check" rounded on:click={markAsPaid}/>
+                <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={() => showPrompt("delete")}/>
+                <Button text="Mark as Paid" icon="check" rounded on:click={() => showPrompt("paid")}/>
             </div>
         </Card>
 {/if}
@@ -328,5 +328,5 @@ import { afterUpdate } from "svelte";
 
 
 {#if prompt === "paid"}
-    <ModalPrompt on:decline={() => prompt = null} on:accept={markAsPaid} text={"You want to make this invoice as paid?"}/>
+    <ModalPrompt on:decline={() => prompt = null} on:accept={markAsPaid} text={"You want to mark this invoice as paid?"}/>
 {/if}

@@ -45,7 +45,7 @@ const Navigation = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, 
         <div class="${"avatar svelte-cy09dy"}"><i class="${"fas fa-user-circle svelte-cy09dy"}"></i></div></div></nav>`;
 });
 const css$3 = {
-  code: ".prompt.svelte-1x127ie{display:flex;justify-content:center;align-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:100%;max-width:600px;z-index:5;text-align:center}.overlay.svelte-1x127ie{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:4}.btns.svelte-1x127ie{display:flex;justify-content:space-around;margin-top:20px}",
+  code: ".prompt.svelte-1vb4462{display:flex;justify-content:center;align-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:100%;max-width:600px;z-index:5;padding:1.5rem;text-align:center}.overlay.svelte-1vb4462{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:4}.btns.svelte-1vb4462{display:flex;justify-content:space-around;margin-top:20px}",
   map: null
 };
 const ModalPrompt = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
@@ -54,13 +54,13 @@ const ModalPrompt = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings,
   if ($$props.text === void 0 && $$bindings.text && text !== void 0)
     $$bindings.text(text);
   $$result.css.add(css$3);
-  return `<div class="${"prompt svelte-1x127ie"}">${(0, import_index_6b830c0a.v)(import_stores_ced9780d.I, "InnerCard").$$render($$result, { modal: true }, {}, {
+  return `<div class="${"prompt svelte-1vb4462"}">${(0, import_index_6b830c0a.v)(import_stores_ced9780d.I, "InnerCard").$$render($$result, { modal: true }, {}, {
     default: () => `${(0, import_index_6b830c0a.v)(import_functionStore_2bd81cb2.T, "Text").$$render($$result, { size: "h3", text }, {}, {})}
-       <div class="${"btns svelte-1x127ie"}">${(0, import_index_6b830c0a.v)(import_Button_bdd8baf3.B, "Button").$$render($$result, { type: "secondary", text: "Yes" }, {}, {})}
+       <div class="${"btns svelte-1vb4462"}">${(0, import_index_6b830c0a.v)(import_Button_bdd8baf3.B, "Button").$$render($$result, { type: "secondary", text: "Yes" }, {}, {})}
            ${(0, import_index_6b830c0a.v)(import_Button_bdd8baf3.B, "Button").$$render($$result, { type: "danger", text: "No" }, {}, {})}</div>`
   })}</div>
 
-<div class="${"overlay svelte-1x127ie"}"></div>`;
+<div class="${"overlay svelte-1vb4462"}"></div>`;
 });
 var NewInvoiceModal_svelte_svelte_type_style_lang = "";
 const css$2 = {
