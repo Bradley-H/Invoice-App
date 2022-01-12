@@ -82,8 +82,7 @@
         width: $navWidth;
         height: $navHeight;
         font-size: toRem(25);
-        border-radius: 0 12px 12px 0;
-        transition: transform 0.7s ease-in-out;
+        transition: transform 0.4s ease-in-out;
         &:hover {
             transform: scale(1.1);
         }

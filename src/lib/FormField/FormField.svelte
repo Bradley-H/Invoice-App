@@ -42,7 +42,7 @@
             border-radius: 5px;
             font-weight: bold;
             width: 100%;
-            height: 3.5rem;
+            height: 3.8rem;
             &.invalid{
                 border: 1px solid $colorDanger;
             }

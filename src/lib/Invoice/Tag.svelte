@@ -24,8 +24,8 @@
             width: toRem(140);
             &.Light{
             &.paid{
-                color: darken($color: rgb(73, 226, 73), $amount: 25);
-                background-color: rgba($color: rgb(2, 172, 11), $alpha: .2);
+                color: rgb(43, 148, 43);
+                background-color: rgba($color: rgb(24, 109, 28), $alpha: .2);
             }
             &.pending{
                 color: darken($color: rgb(206, 164, 50), $amount: 10);
@@ -39,8 +39,8 @@
 
             &.Dark{
             &.paid{
-                color: darken($color: rgb(35, 223, 160), $amount: 13);
-                background-color: rgba($color: rgb(61, 179, 61), $alpha: .17);
+                color: darken($color: rgb(37, 241, 173), $amount: 13);
+                background-color: rgba($color: rgb(45, 100, 45), $alpha: .17);
             }
             &.pending{
                 color: darken($color: rgb(240, 183, 26), $amount: 10);

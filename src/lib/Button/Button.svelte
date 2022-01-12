@@ -51,7 +51,7 @@
             font-size: 1.1rem;
         }
         &.rounded{
-            border-radius: 17px;
+            border-radius: 20px;
         }
         &.medium{
             width: 7rem;

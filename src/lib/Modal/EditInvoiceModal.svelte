@@ -244,7 +244,7 @@ import { page } from "$app/stores";
     }
 </style>
 
-<div class="modal" transition:fly={{duration: 888, x:-555}}>
+<div class="modal" transition:fly={{duration: 650, x:-555}}>
 <Card modal>
         <form>
         <div class="title">
