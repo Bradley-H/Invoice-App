@@ -14,24 +14,26 @@
             { id: 1, text: "Within 60 Days", value: 60 },
         ];
     // DESTRUCTURE THE INVOICE //
-        $: ({senderAddress, id, clientAddress, createdAt, items, clientEmail, clientName ,description, paymentTerms, paymentDue, total} = $globalStore.editedInvoice)
+        $: ({senderAddress, id, clientAddress, createdAt, items, clientEmail, clientName, description, paymentTerms, paymentDue, total} = $globalStore.editedInvoice)
     // SVELTE IMPORTS //
+    $: console.log($globalStore.editedInvoice);
+    
     import { fade, fly } from "svelte/transition";
     // VARIABLES //
     $:terms = 30;
         // CHECK IF EVERYTHING HAS A LENGTH GREATER THAN 5 //
         $: if(
-            senderAddress.street.length > 5 
-            && senderAddress.city.length > 5 
-            && senderAddress.country.length > 5 
-            && senderAddress.postCode.length > 5 
-            && clientAddress.street.length > 5 
-            && clientAddress.city.length > 5 
-            && clientAddress.country.length > 5 
-            && clientAddress.postCode.length > 5 
-            && clientName.length > 5 
-            && clientEmail.length > 5 
-            && description.length > 5
+            strValid(senderAddress.street)
+            && strValid(senderAddress.city)
+            && strValid(senderAddress.country) 
+            && strValid(senderAddress.postCode) 
+            && strValid(clientAddress.street)
+            && strValid(clientAddress.city)
+            && strValid(clientAddress.country)
+            && strValid(clientAddress.postCode)
+            && strValid(clientName)
+            && emailValid(clientEmail)
+            && strValid(description)
             && items[items.length - 1].name !== ""
             && items[items.length - 1].quantity !== 0
             && items[items.length - 1].price !== 0){
@@ -45,7 +47,7 @@
         $: prompt = null
             
     // FUNCTIONS //
-    import {closeModal, convertDate, numberWithCommas} from '../../store/functionStore';
+    import {closeModal, convertDate, numberWithCommas, strValid, emailValid} from '../../store/functionStore';
     function discardInvoice(){
         prompt = null
         closeModal()
@@ -255,14 +257,14 @@ import { page } from "$app/stores";
         <div class="billFrom">
             <p>Bill From</p>    
             <div class="billFrom_information">
-                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderAddress.street} valid={senderAddress.street.trim().length >= 5}
+                <FormField title text="Street Address" id="senderStreet" placeholder="Street Address" bind:value={senderAddress.street} valid={strValid(senderAddress.street)}
                  invalidMessage="Please enter a valid street address"/>
 
                 <div class="billFrom_information-city">
-                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={senderAddress.city} valid={senderAddress.city.trim().length > 5} invalidMessage="Please enter a valid City"/>
-                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderAddress.postCode}  valid={senderAddress.postCode.trim().length > 5} invalidMessage="Please enter a valid postCode"/>
+                    <FormField title text="City" id="senderCity" placeholder="City" bind:value={senderAddress.city} valid={strValid(senderAddress.city)} invalidMessage="Please enter a valid City"/>
+                    <FormField title text="Postal Code" id="senderPostCode" placeholder="Postal code" bind:value={senderAddress.postCode} valid={strValid(senderAddress.postCode)} invalidMessage="Please enter a valid postCode"/>
                     <div class="billFrom_information-country">
-                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={senderAddress.country} valid={senderAddress.country.trim().length > 5} invalidMessage="Please enter a valid Country"/>
+                        <FormField title id="senderCountry" text="Country" placeholder="Country" bind:value={senderAddress.country} valid={strValid(senderAddress.country)} invalidMessage="Please enter a valid Country"/>
                     </div>
                 </div>
             </div>
@@ -271,16 +273,16 @@ import { page } from "$app/stores";
 
     <div class="billTo">
         <p>Bill To</p>
-        <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={$globalStore.editedInvoice.clientName} valid={clientName.trim().length > 5} invalidMessage="Please enter a valid Name"/>
-        <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={$globalStore.editedInvoice.clientEmail} valid={clientEmail.trim().length > 5} invalidMessage="Please enter a valid Email"/>
-        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientAddress.street} valid={clientAddress.street.trim().length > 5} invalidMessage="Please enter a valid Street"/>
+        <FormField text="Client's Name" id="clientName" placeholder="Name" bind:value={$globalStore.editedInvoice.clientName} valid={strValid($globalStore.editedInvoice.clientName)} invalidMessage="Please enter a valid Name"/>
+        <FormField text="Client's Email" id="clientEmail" placeholder="Email" bind:value={$globalStore.editedInvoice.clientEmail} valid={emailValid($globalStore.editedInvoice.clientEmail)} invalidMessage="Please enter a valid Email"/>
+        <FormField text="Street Address" id="clientStreet" placeholder="Street Address" bind:value={clientAddress.street} valid={strValid(clientAddress.street)} invalidMessage="Please enter a valid Street"/>
 
         <div class="billTo_information">
             <div class="billTo_information-city">
-                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientAddress.city} valid={clientAddress.city.trim().length > 5} invalidMessage="Please enter a valid City"/>
-                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={clientAddress.postCode} valid={clientAddress.postCode.trim().length > 5} invalidMessage="Please enter a valid postal code"/>
+                <FormField text="City" id="clientCity" placeholder="City" bind:value={clientAddress.city} valid={strValid(clientAddress.city)} invalidMessage="Please enter a valid City"/>
+                <FormField text="Postal Code" id="clientPostCode" placeholder="Postal code" bind:value={clientAddress.postCode} valid={strValid(clientAddress.postCode)} invalidMessage="Please enter a valid postal code"/>
                 <div class="billTo_information-country">
-                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={clientAddress.country} valid={clientAddress.country.trim().length > 5} invalidMessage="Please enter a valid Country"/>
+                    <FormField id="clientCountry" text="Country" placeholder="Country" bind:value={clientAddress.country} valid={strValid(clientAddress.country)} invalidMessage="Please enter a valid Country"/>
                 </div>
             </div>
         </div>
@@ -289,7 +291,7 @@ import { page } from "$app/stores";
             <FormField text="Payment Due" id="paymentDue" disabled value={convertDate(new Date(), terms ) } valid={true}/>
             <FormField form="select" text="Payment Terms" {options} id="paymentTerms" bind:value={terms} />
         </div>
-        <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={description} valid={description.trim().length > 5} invalidMessage="Please enter a valid Description"/>
+        <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={$globalStore.editedInvoice.description} valid={strValid($globalStore.editedInvoice.description)} invalidMessage="Please enter a valid Description"/>
     </div>
 
     <p>Item list</p>
@@ -310,7 +312,7 @@ import { page } from "$app/stores";
         <Button rounded icon="plus" fluid text="Add Item" on:click={addItem}/>
     </div>
     <div class="btns">
-        <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={showPrompt}/>
+        <Button type="danger" icon="trash" size="medium" rounded text="Discard" on:click={() => showPrompt("discard")}/>
         <div>
             <Button type="secondary" icon="save" size="medium" disabled={!isValid}  rounded text="Save as Draft" on:click={() => showPrompt("draft")}/>
             <Button type="primary" size="medium" icon="paper-plane" disabled={!isValid} rounded text="Save and Send" on:click={() => showPrompt("pending")}/>
@@ -323,7 +325,7 @@ import { page } from "$app/stores";
 </div>
 
 
-<div class="overlay" in:fade={{duration: 555}} out:fade={{duration: 300}} on:click={showPrompt}/>
+<div class="overlay" in:fade={{duration: 555}} out:fade={{duration: 300}} on:click={() => showPrompt("discard")}/>
 
 
 <!-- IF PROMPT === DISCARD/DRAFT/PENDING, ASK FOR CONFIRMATION -->

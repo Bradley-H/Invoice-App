@@ -26,7 +26,7 @@ __export(exports, {
   F: () => FormField
 });
 var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
-var import_functionStore_aea32d8f = __toModule(require("./functionStore-aea32d8f.js"));
+var import_functionStore_fa90724c = __toModule(require("./functionStore-fa90724c.js"));
 var FormField_svelte_svelte_type_style_lang = "";
 const css$1 = {
   code: "div.svelte-1b38cb9.svelte-1b38cb9{width:100%}div.title.svelte-1b38cb9.svelte-1b38cb9{margin-bottom:0.7rem}div.svelte-1b38cb9 input.svelte-1b38cb9,div.svelte-1b38cb9 select.svelte-1b38cb9{padding:0.8rem;border-radius:5px;font-weight:bold;width:100%;height:3.8rem}div.svelte-1b38cb9 input.invalid.svelte-1b38cb9,div.svelte-1b38cb9 select.invalid.svelte-1b38cb9{border:1px solid #ec5757}div.svelte-1b38cb9 input.Dark.svelte-1b38cb9,div.svelte-1b38cb9 select.Dark.svelte-1b38cb9{background-color:#21243c;color:#fff}div.svelte-1b38cb9 input.Light.svelte-1b38cb9,div.svelte-1b38cb9 select.Light.svelte-1b38cb9{background-color:#b1b1d2;color:black}div.svelte-1b38cb9 input.svelte-1b38cb9:disabled,div.svelte-1b38cb9 select.svelte-1b38cb9:disabled{opacity:0.6}p.svelte-1b38cb9.svelte-1b38cb9{display:none;color:#ec5757;margin:0.3rem 0}p.invalid.svelte-1b38cb9.svelte-1b38cb9{display:block}select.svelte-1b38cb9.svelte-1b38cb9{border:none;margin:0;font-size:1.1rem;height:3.5rem}input[type=number].svelte-1b38cb9.svelte-1b38cb9{appearance:textfield}",
@@ -34,7 +34,7 @@ const css$1 = {
 };
 const FormField = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_aea32d8f.g, (value2) => $globalStore = value2);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_fa90724c.g, (value2) => $globalStore = value2);
   let { form = "text" } = $$props;
   let { title = false } = $$props;
   let { id = "" } = $$props;
@@ -71,7 +71,7 @@ const FormField = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, s
     $$bindings.invalidMessage(invalidMessage);
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
-  return `<div class="${["svelte-1b38cb9", title ? "title" : ""].join(" ").trim()}"><label ${disabled ? "disabled" : ""}${(0, import_index_6b830c0a.h)("for", id, 0)}>${(0, import_index_6b830c0a.v)(import_functionStore_aea32d8f.T, "Text").$$render($$result, { disabled, size: "p", title: true, text }, {}, {})}</label>
+  return `<div class="${["svelte-1b38cb9", title ? "title" : ""].join(" ").trim()}"><label ${disabled ? "disabled" : ""}${(0, import_index_6b830c0a.h)("for", id, 0)}>${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.T, "Text").$$render($$result, { disabled, size: "p", title: true, text }, {}, {})}</label>
 ${form === "text" ? `<input ${disabled ? "disabled" : ""} class="${[
     (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-1b38cb9",
     !valid && touched ? "invalid" : ""

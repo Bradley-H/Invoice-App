@@ -1,6 +1,8 @@
 <script lang="ts">
     // STORES //
     import { globalStore } from "../../store/globalStore";
+    // SVELTE IMPORTS //
+    import {onMount} from 'svelte';
     // SCSS DEFINITIONS //
     import "../../scss/styles.scss";
     // VARIABLES //
@@ -14,7 +16,15 @@
             $globalStore.theme = "Dark";            
             icon = "moon";
         }
+        // SAVE THEME TO LOCAL STORAGE //
+        localStorage.setItem("theme", $globalStore.theme);
     }    
+    onMount(() => {
+        // IF LOCALSTORAGE HAS A THEME SET, SET THE STORE TO THAT THEME //
+        if(localStorage.getItem("theme") !== null){
+            $globalStore.theme = localStorage.getItem("theme");
+        }
+    })
 </script>
 
 <style lang="scss">

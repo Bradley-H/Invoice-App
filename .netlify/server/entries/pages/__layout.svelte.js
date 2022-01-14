@@ -25,9 +25,9 @@ __export(exports, {
   default: () => _layout
 });
 var import_index_6b830c0a = __toModule(require("../../chunks/index-6b830c0a.js"));
-var import_functionStore_aea32d8f = __toModule(require("../../chunks/functionStore-aea32d8f.js"));
-var import_Button_5afc206d = __toModule(require("../../chunks/Button-5afc206d.js"));
-var import_stores_cb49be3a = __toModule(require("../../chunks/stores-cb49be3a.js"));
+var import_functionStore_fa90724c = __toModule(require("../../chunks/functionStore-fa90724c.js"));
+var import_Button_bc878c0c = __toModule(require("../../chunks/Button-bc878c0c.js"));
+var import_stores_c5ecb896 = __toModule(require("../../chunks/stores-c5ecb896.js"));
 var import_uid = __toModule(require("uid"));
 var Navigation_svelte_svelte_type_style_lang = "";
 const css$4 = {
@@ -36,7 +36,7 @@ const css$4 = {
 };
 const Navigation = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_aea32d8f.g, (value) => value);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_fa90724c.g, (value) => value);
   let icon = "moon";
   $$result.css.add(css$4);
   $$unsubscribe_globalStore();
@@ -54,10 +54,10 @@ const ModalPrompt = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings,
   if ($$props.text === void 0 && $$bindings.text && text !== void 0)
     $$bindings.text(text);
   $$result.css.add(css$3);
-  return `<div class="${"prompt svelte-1vb4462"}">${(0, import_index_6b830c0a.v)(import_stores_cb49be3a.I, "InnerCard").$$render($$result, { modal: true }, {}, {
-    default: () => `${(0, import_index_6b830c0a.v)(import_functionStore_aea32d8f.T, "Text").$$render($$result, { size: "h3", text }, {}, {})}
-       <div class="${"btns svelte-1vb4462"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, { type: "secondary", text: "Yes" }, {}, {})}
-           ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, { type: "danger", text: "No" }, {}, {})}</div>`
+  return `<div class="${"prompt svelte-1vb4462"}">${(0, import_index_6b830c0a.v)(import_stores_c5ecb896.I, "InnerCard").$$render($$result, { modal: true }, {}, {
+    default: () => `${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.T, "Text").$$render($$result, { size: "h3", text }, {}, {})}
+       <div class="${"btns svelte-1vb4462"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, { type: "secondary", text: "Yes" }, {}, {})}
+           ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, { type: "danger", text: "No" }, {}, {})}</div>`
   })}</div>
 
 <div class="${"overlay svelte-1vb4462"}"></div>`;
@@ -68,25 +68,23 @@ const css$2 = {
   map: null
 };
 const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
-  let terms;
   let newInvoice;
-  let isValid;
-  let prompt;
   let senderAddress;
   let clientAddress;
   let items;
   let $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_aea32d8f.g, (value) => value);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_fa90724c.g, (value) => value);
   const options = [
     { id: 0, text: "Within 30 Days", value: 30 },
     { id: 1, text: "Within 60 Days", value: 60 }
   ];
+  let terms = 30;
+  let isValid = false;
   $$result.css.add(css$2);
   let $$settled;
   let $$rendered;
   do {
     $$settled = true;
-    terms = 30;
     newInvoice = {
       id: (0, import_uid.uid)(6),
       senderAddress: {
@@ -111,7 +109,7 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
       ],
       clientName: "",
       clientEmail: "",
-      paymentDue: (0, import_functionStore_aea32d8f.c)(new Date()),
+      paymentDue: (0, import_functionStore_fa90724c.c)(new Date()),
       createdAt: "",
       status: "",
       paymentTerms: terms,
@@ -120,29 +118,27 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
     };
     ({ senderAddress, clientAddress, items } = newInvoice);
     {
-      if (newInvoice.senderAddress.street.length > 5 && newInvoice.senderAddress.city.length > 5 && newInvoice.senderAddress.country.length > 5 && newInvoice.senderAddress.postCode.length > 5 && newInvoice.clientAddress.street.length > 5 && newInvoice.clientAddress.city.length > 5 && newInvoice.clientAddress.country.length > 5 && newInvoice.clientAddress.postCode.length > 5 && newInvoice.clientName.length > 5 && newInvoice.clientEmail.length > 5 && newInvoice.description.length > 5 && newInvoice.items[items.length - 1].name !== "" && newInvoice.items[items.length - 1].quantity !== 0 && newInvoice.items[items.length - 1].price !== 0) {
+      if ((0, import_functionStore_fa90724c.s)(newInvoice.senderAddress.street) && (0, import_functionStore_fa90724c.s)(newInvoice.senderAddress.city) && (0, import_functionStore_fa90724c.s)(newInvoice.senderAddress.country) && (0, import_functionStore_fa90724c.s)(newInvoice.senderAddress.postCode) && (0, import_functionStore_fa90724c.s)(newInvoice.clientAddress.street) && (0, import_functionStore_fa90724c.s)(newInvoice.clientAddress.city) && (0, import_functionStore_fa90724c.s)(newInvoice.clientAddress.country) && (0, import_functionStore_fa90724c.s)(newInvoice.clientAddress.postCode) && (0, import_functionStore_fa90724c.s)(newInvoice.clientName) && (0, import_functionStore_fa90724c.e)(newInvoice.clientEmail) && (0, import_functionStore_fa90724c.s)(newInvoice.description) && (0, import_functionStore_fa90724c.s)(newInvoice.items[items.length - 1].name) && newInvoice.items[items.length - 1].quantity !== 0 && newInvoice.items[items.length - 1].price !== 0) {
         isValid = true;
       } else {
         isValid = false;
       }
     }
-    isValid = false;
-    prompt = null;
-    $$rendered = `<div class="${"modal svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_aea32d8f.C, "Card").$$render($$result, { modal: true }, {}, {
-      default: () => `<form class="${"svelte-1eyjac7"}"><div class="${"title svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_aea32d8f.T, "Text").$$render($$result, {
+    $$rendered = `<div class="${"modal svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.C, "Card").$$render($$result, { modal: true }, {}, {
+      default: () => `<form class="${"svelte-1eyjac7"}"><div class="${"title svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.T, "Text").$$render($$result, {
         title: true,
         size: "h2",
         text: "Add New Invoice"
       }, {}, {})}
-        ${(0, import_index_6b830c0a.v)(import_stores_cb49be3a.B, "BackButton").$$render($$result, {}, {}, {})}</div>
+        ${(0, import_index_6b830c0a.v)(import_stores_c5ecb896.B, "BackButton").$$render($$result, {}, {}, {})}</div>
 
         <div class="${"billFrom svelte-1eyjac7"}"><p class="${"svelte-1eyjac7"}">Bill From</p>    
-            <div class="${"billFrom_information svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+            <div class="${"billFrom_information svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         text: "Street Address",
         id: "senderStreet",
         placeholder: "Street Address",
-        valid: senderAddress.street.trim().length >= 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.street),
         invalidMessage: "Please enter a valid street address",
         value: newInvoice.senderAddress.street
       }, {
@@ -152,12 +148,12 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
         }
       }, {})}
 
-                <div class="${"billFrom_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                <div class="${"billFrom_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         text: "City",
         id: "senderCity",
         placeholder: "City",
-        valid: senderAddress.city.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.city),
         invalidMessage: "Please enter a valid City",
         value: senderAddress.city
       }, {
@@ -166,12 +162,12 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-                    ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         text: "Postal Code",
         id: "senderPostCode",
         placeholder: "Postal code",
-        valid: senderAddress.postCode.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.postCode),
         invalidMessage: "Please enter a valid postCode",
         value: senderAddress.postCode
       }, {
@@ -180,12 +176,12 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-                    <div class="${"billFrom_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    <div class="${"billFrom_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         id: "senderCountry",
         text: "Country",
         placeholder: "Country",
-        valid: senderAddress.country.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.country),
         invalidMessage: "Please enter a valid Country",
         value: senderAddress.country
       }, {
@@ -197,11 +193,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
     
 
     <div class="${"billTo svelte-1eyjac7"}"><p class="${"svelte-1eyjac7"}">Bill To</p>
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Client's Name",
         id: "clientName",
         placeholder: "Name",
-        valid: newInvoice.clientName.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(newInvoice.clientName),
         invalidMessage: "Please enter a valid Name",
         value: newInvoice.clientName
       }, {
@@ -210,11 +206,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Client's Email",
         id: "clientEmail",
         placeholder: "Email",
-        valid: newInvoice.clientEmail.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.e)(newInvoice.clientEmail),
         invalidMessage: "Please enter a valid Email",
         value: newInvoice.clientEmail
       }, {
@@ -223,11 +219,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Street Address",
         id: "clientStreet",
         placeholder: "Street Address",
-        valid: newInvoice.clientAddress.street.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.street),
         invalidMessage: "Please enter a valid Street",
         value: clientAddress.street
       }, {
@@ -237,11 +233,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
         }
       }, {})}
 
-        <div class="${"billTo_information svelte-1eyjac7"}"><div class="${"billTo_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        <div class="${"billTo_information svelte-1eyjac7"}"><div class="${"billTo_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "City",
         id: "clientCity",
         placeholder: "City",
-        valid: newInvoice.clientAddress.city.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.city),
         invalidMessage: "Please enter a valid City",
         value: clientAddress.city
       }, {
@@ -250,11 +246,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-                ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Postal Code",
         id: "clientPostCode",
         placeholder: "Postal code",
-        valid: newInvoice.clientAddress.postCode.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.postCode),
         invalidMessage: "Please enter a valid postal code",
         value: clientAddress.postCode
       }, {
@@ -263,11 +259,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-                <div class="${"billTo_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                <div class="${"billTo_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         id: "clientCountry",
         text: "Country",
         placeholder: "Country",
-        valid: newInvoice.clientAddress.country.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.country),
         invalidMessage: "Please enter a valid Country",
         value: clientAddress.country
       }, {
@@ -277,14 +273,14 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
         }
       }, {})}</div></div></div>
 
-        <div class="${"billTo_invoiceInformation svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        <div class="${"billTo_invoiceInformation svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Payment Due",
         id: "paymentDue",
         disabled: true,
-        value: (0, import_functionStore_aea32d8f.c)(new Date(), newInvoice.paymentTerms),
+        value: (0, import_functionStore_fa90724c.c)(new Date(), newInvoice.paymentTerms),
         valid: true
       }, {}, {})}
-            ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+            ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         form: "select",
         text: "Payment Terms",
         options,
@@ -296,11 +292,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}</div>
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Project Description",
         id: "description",
         placeholder: "Project Description",
-        valid: newInvoice.description.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(newInvoice.description),
         invalidMessage: "Please enter a valid Description",
         value: newInvoice.description
       }, {
@@ -311,12 +307,12 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
       }, {})}</div>
 
     <p class="${"svelte-1eyjac7"}">Item list</p>
-    <div class="${"items svelte-1eyjac7"}">${(0, import_index_6b830c0a.d)(items, (item, i) => `<div class="${"itemList svelte-1eyjac7"}"><div class="${"nameField svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+    <div class="${"items svelte-1eyjac7"}">${(0, import_index_6b830c0a.d)(items, (item, i) => `<div class="${"itemList svelte-1eyjac7"}"><div class="${"nameField svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         id: "Name" + i,
         text: "Name",
         placeholder: "Item",
-        valid: item.name.length >= 5,
+        valid: (0, import_functionStore_fa90724c.s)(item.name),
         invalidMessage: "Must be greater than 5 characters",
         value: item.name
       }, {
@@ -325,7 +321,7 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}</div>
-                <div class="${"attributes svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                <div class="${"attributes svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         id: "qty" + i,
         form: "number",
@@ -339,7 +335,7 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-                    ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         step: 0.1,
         id: "price" + i,
@@ -354,9 +350,9 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
           $$settled = false;
         }
       }, {})}
-                    ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
-        value: "$" + (0, import_functionStore_aea32d8f.n)(item.quantity * item.price),
+        value: "$" + (0, import_functionStore_fa90724c.n)(item.quantity * item.price),
         valid: true,
         id: "total" + i,
         disabled: true,
@@ -366,20 +362,20 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
                     <button class="${"svelte-1eyjac7"}"><i class="${"fas fa-trash svelte-1eyjac7"}"></i>
                 </button></div>
             </div>`)}
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         rounded: true,
         icon: "plus",
         fluid: true,
         text: "Add Item"
       }, {}, {})}</div>
-    <div class="${"btns svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+    <div class="${"btns svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         type: "danger",
         icon: "trash",
         size: "medium",
         rounded: true,
         text: "Discard"
       }, {}, {})}
-        <div class="${"svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+        <div class="${"svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         type: "secondary",
         icon: "save",
         size: "medium",
@@ -387,7 +383,7 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
         rounded: true,
         text: "Save as Draft"
       }, {}, {})}
-            ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+            ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         type: "primary",
         size: "medium",
         icon: "paper-plane",
@@ -402,17 +398,11 @@ const NewInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindi
 
 
 
-${prompt == "discard" ? `${(0, import_index_6b830c0a.v)(ModalPrompt, "ModalPrompt").$$render($$result, {
-      text: "You want to discard this invoice?"
-    }, {}, {})}` : ``}
+${``}
 
-${prompt === "draft" ? `${(0, import_index_6b830c0a.v)(ModalPrompt, "ModalPrompt").$$render($$result, {
-      text: "You want to Save this invoice as draft?"
-    }, {}, {})}` : ``}
+${``}
 
-${prompt === "pending" ? `${(0, import_index_6b830c0a.v)(ModalPrompt, "ModalPrompt").$$render($$result, {
-      text: "You want to Save this invoice as pending?"
-    }, {}, {})}` : ``}`;
+${``}`;
   } while (!$$settled);
   $$unsubscribe_globalStore();
   return $$rendered;
@@ -439,8 +429,8 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
   let prompt;
   let $globalStore, $$unsubscribe_globalStore;
   let $$unsubscribe_page;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_aea32d8f.g, (value) => $globalStore = value);
-  $$unsubscribe_page = (0, import_index_6b830c0a.a)(import_stores_cb49be3a.p, (value) => value);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_fa90724c.g, (value) => $globalStore = value);
+  $$unsubscribe_page = (0, import_index_6b830c0a.a)(import_stores_c5ecb896.p, (value) => value);
   const options = [
     { id: 0, text: "Within 30 Days", value: 30 },
     { id: 1, text: "Within 60 Days", value: 60 }
@@ -451,9 +441,12 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
   do {
     $$settled = true;
     ({ senderAddress, id, clientAddress, createdAt, items, clientEmail, clientName, description, paymentTerms, paymentDue, total } = $globalStore.editedInvoice);
+    {
+      console.log($globalStore.editedInvoice);
+    }
     terms = 30;
     {
-      if (senderAddress.street.length > 5 && senderAddress.city.length > 5 && senderAddress.country.length > 5 && senderAddress.postCode.length > 5 && clientAddress.street.length > 5 && clientAddress.city.length > 5 && clientAddress.country.length > 5 && clientAddress.postCode.length > 5 && clientName.length > 5 && clientEmail.length > 5 && description.length > 5 && items[items.length - 1].name !== "" && items[items.length - 1].quantity !== 0 && items[items.length - 1].price !== 0) {
+      if ((0, import_functionStore_fa90724c.s)(senderAddress.street) && (0, import_functionStore_fa90724c.s)(senderAddress.city) && (0, import_functionStore_fa90724c.s)(senderAddress.country) && (0, import_functionStore_fa90724c.s)(senderAddress.postCode) && (0, import_functionStore_fa90724c.s)(clientAddress.street) && (0, import_functionStore_fa90724c.s)(clientAddress.city) && (0, import_functionStore_fa90724c.s)(clientAddress.country) && (0, import_functionStore_fa90724c.s)(clientAddress.postCode) && (0, import_functionStore_fa90724c.s)(clientName) && (0, import_functionStore_fa90724c.e)(clientEmail) && (0, import_functionStore_fa90724c.s)(description) && items[items.length - 1].name !== "" && items[items.length - 1].quantity !== 0 && items[items.length - 1].price !== 0) {
         isValid = true;
       } else {
         isValid = false;
@@ -461,21 +454,21 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
     }
     isValid = false;
     prompt = null;
-    $$rendered = `<div class="${"modal svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_aea32d8f.C, "Card").$$render($$result, { modal: true }, {}, {
-      default: () => `<form class="${"svelte-1eyjac7"}"><div class="${"title svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_aea32d8f.T, "Text").$$render($$result, {
+    $$rendered = `<div class="${"modal svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.C, "Card").$$render($$result, { modal: true }, {}, {
+      default: () => `<form class="${"svelte-1eyjac7"}"><div class="${"title svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.T, "Text").$$render($$result, {
         title: true,
         size: "h2",
         text: "Editing #" + id
       }, {}, {})}
-        ${(0, import_index_6b830c0a.v)(import_stores_cb49be3a.B, "BackButton").$$render($$result, {}, {}, {})}</div>
+        ${(0, import_index_6b830c0a.v)(import_stores_c5ecb896.B, "BackButton").$$render($$result, {}, {}, {})}</div>
 
         <div class="${"billFrom svelte-1eyjac7"}"><p class="${"svelte-1eyjac7"}">Bill From</p>    
-            <div class="${"billFrom_information svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+            <div class="${"billFrom_information svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         text: "Street Address",
         id: "senderStreet",
         placeholder: "Street Address",
-        valid: senderAddress.street.trim().length >= 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.street),
         invalidMessage: "Please enter a valid street address",
         value: senderAddress.street
       }, {
@@ -485,12 +478,12 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
         }
       }, {})}
 
-                <div class="${"billFrom_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                <div class="${"billFrom_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         text: "City",
         id: "senderCity",
         placeholder: "City",
-        valid: senderAddress.city.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.city),
         invalidMessage: "Please enter a valid City",
         value: senderAddress.city
       }, {
@@ -499,12 +492,12 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-                    ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         text: "Postal Code",
         id: "senderPostCode",
         placeholder: "Postal code",
-        valid: senderAddress.postCode.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.postCode),
         invalidMessage: "Please enter a valid postCode",
         value: senderAddress.postCode
       }, {
@@ -513,12 +506,12 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-                    <div class="${"billFrom_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    <div class="${"billFrom_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         id: "senderCountry",
         text: "Country",
         placeholder: "Country",
-        valid: senderAddress.country.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(senderAddress.country),
         invalidMessage: "Please enter a valid Country",
         value: senderAddress.country
       }, {
@@ -530,11 +523,11 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
     
 
     <div class="${"billTo svelte-1eyjac7"}"><p class="${"svelte-1eyjac7"}">Bill To</p>
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Client's Name",
         id: "clientName",
         placeholder: "Name",
-        valid: clientName.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)($globalStore.editedInvoice.clientName),
         invalidMessage: "Please enter a valid Name",
         value: $globalStore.editedInvoice.clientName
       }, {
@@ -543,11 +536,11 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Client's Email",
         id: "clientEmail",
         placeholder: "Email",
-        valid: clientEmail.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.e)($globalStore.editedInvoice.clientEmail),
         invalidMessage: "Please enter a valid Email",
         value: $globalStore.editedInvoice.clientEmail
       }, {
@@ -556,11 +549,11 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Street Address",
         id: "clientStreet",
         placeholder: "Street Address",
-        valid: clientAddress.street.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.street),
         invalidMessage: "Please enter a valid Street",
         value: clientAddress.street
       }, {
@@ -570,11 +563,11 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
         }
       }, {})}
 
-        <div class="${"billTo_information svelte-1eyjac7"}"><div class="${"billTo_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        <div class="${"billTo_information svelte-1eyjac7"}"><div class="${"billTo_information-city svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "City",
         id: "clientCity",
         placeholder: "City",
-        valid: clientAddress.city.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.city),
         invalidMessage: "Please enter a valid City",
         value: clientAddress.city
       }, {
@@ -583,11 +576,11 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-                ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Postal Code",
         id: "clientPostCode",
         placeholder: "Postal code",
-        valid: clientAddress.postCode.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.postCode),
         invalidMessage: "Please enter a valid postal code",
         value: clientAddress.postCode
       }, {
@@ -596,11 +589,11 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-                <div class="${"billTo_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                <div class="${"billTo_information-country svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         id: "clientCountry",
         text: "Country",
         placeholder: "Country",
-        valid: clientAddress.country.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)(clientAddress.country),
         invalidMessage: "Please enter a valid Country",
         value: clientAddress.country
       }, {
@@ -610,14 +603,14 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
         }
       }, {})}</div></div></div>
 
-        <div class="${"billTo_invoiceInformation svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        <div class="${"billTo_invoiceInformation svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Payment Due",
         id: "paymentDue",
         disabled: true,
-        value: (0, import_functionStore_aea32d8f.c)(new Date(), terms),
+        value: (0, import_functionStore_fa90724c.c)(new Date(), terms),
         valid: true
       }, {}, {})}
-            ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+            ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         form: "select",
         text: "Payment Terms",
         options,
@@ -629,22 +622,22 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}</div>
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         text: "Project Description",
         id: "description",
         placeholder: "Project Description",
-        valid: description.trim().length > 5,
+        valid: (0, import_functionStore_fa90724c.s)($globalStore.editedInvoice.description),
         invalidMessage: "Please enter a valid Description",
-        value: description
+        value: $globalStore.editedInvoice.description
       }, {
         value: ($$value) => {
-          description = $$value;
+          $globalStore.editedInvoice.description = $$value;
           $$settled = false;
         }
       }, {})}</div>
 
     <p class="${"svelte-1eyjac7"}">Item list</p>
-    <div class="${"items svelte-1eyjac7"}">${(0, import_index_6b830c0a.d)(items, (item, i) => `<div class="${"itemList svelte-1eyjac7"}"><div class="${"nameField svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+    <div class="${"items svelte-1eyjac7"}">${(0, import_index_6b830c0a.d)(items, (item, i) => `<div class="${"itemList svelte-1eyjac7"}"><div class="${"nameField svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         id: "Name" + i,
         text: "Name",
@@ -658,7 +651,7 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}</div>
-                <div class="${"attributes svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                <div class="${"attributes svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         id: "qty" + i,
         form: "number",
@@ -672,7 +665,7 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-                    ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
         step: 0.1,
         id: "price" + i,
@@ -687,9 +680,9 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
           $$settled = false;
         }
       }, {})}
-                    ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.F, "FormField").$$render($$result, {
+                    ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
-        value: "$" + (0, import_functionStore_aea32d8f.n)(item.quantity * item.price),
+        value: "$" + (0, import_functionStore_fa90724c.n)(item.quantity * item.price),
         valid: true,
         id: "total" + i,
         disabled: true,
@@ -699,20 +692,20 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
                     <button class="${"svelte-1eyjac7"}"><i class="${"fas fa-trash svelte-1eyjac7"}"></i>
                 </button></div>
             </div>`)}
-        ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+        ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         rounded: true,
         icon: "plus",
         fluid: true,
         text: "Add Item"
       }, {}, {})}</div>
-    <div class="${"btns svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+    <div class="${"btns svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         type: "danger",
         icon: "trash",
         size: "medium",
         rounded: true,
         text: "Discard"
       }, {}, {})}
-        <div class="${"svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+        <div class="${"svelte-1eyjac7"}">${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         type: "secondary",
         icon: "save",
         size: "medium",
@@ -720,7 +713,7 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
         rounded: true,
         text: "Save as Draft"
       }, {}, {})}
-            ${(0, import_index_6b830c0a.v)(import_Button_5afc206d.B, "Button").$$render($$result, {
+            ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.B, "Button").$$render($$result, {
         type: "primary",
         size: "medium",
         icon: "paper-plane",
@@ -759,7 +752,7 @@ const css = {
 const _layout = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
   let theme;
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_aea32d8f.g, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(import_functionStore_fa90724c.g, (value) => $globalStore = value);
   $$result.css.add(css);
   theme = $globalStore.theme;
   $$unsubscribe_globalStore();

@@ -40,8 +40,10 @@ __export(exports, {
   T: () => Text,
   a: () => getInvoicesIndex,
   c: () => convertDate,
+  e: () => emailValid,
   g: () => globalStore,
-  n: () => numberWithCommas
+  n: () => numberWithCommas,
+  s: () => strValid
 });
 var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
 const subscriber_queue = [];
@@ -90,13 +92,12 @@ let globalStore = writable({
   theme: "Dark",
   modalStatus: null,
   editedInvoice: {},
-  invoices: [],
-  deletePrompt: false
+  invoices: []
 });
 var styles = "";
 var Card_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: "div.inv.svelte-1dwcrx1,a.inv.svelte-1dwcrx1,div.svelte-1dwcrx1,a.svelte-1dwcrx1{display:flex}div.modal.svelte-1dwcrx1,a.modal.svelte-1dwcrx1{display:flex;flex-direction:column}div.svelte-1dwcrx1,a.svelte-1dwcrx1{position:relative;width:100%;padding:1rem}div.Dark.svelte-1dwcrx1,a.Dark.svelte-1dwcrx1{background-color:#242843}div.Light.svelte-1dwcrx1,a.Light.svelte-1dwcrx1{background-color:#d4d4e7}div.inv.svelte-1dwcrx1,a.inv.svelte-1dwcrx1{width:100%;border-radius:12px;margin:0.25rem 0;padding:0.75rem}div.modal.svelte-1dwcrx1,a.modal.svelte-1dwcrx1{height:100%;width:100%;z-index:2;overflow:auto;padding:1.5rem}div.modal.Dark.svelte-1dwcrx1,a.modal.Dark.svelte-1dwcrx1{background-color:#161828}div.modal.Light.svelte-1dwcrx1,a.modal.Light.svelte-1dwcrx1{background-color:#c7c7df}.round.svelte-1dwcrx1{border-radius:8px}",
+  code: "div.inv.svelte-73fq0y,a.inv.svelte-73fq0y,div.svelte-73fq0y,a.svelte-73fq0y{display:flex}div.modal.svelte-73fq0y,a.modal.svelte-73fq0y{display:flex;flex-direction:column}div.svelte-73fq0y,a.svelte-73fq0y{position:relative;width:100%;padding:1rem;margin-top:0.5rem}div.Dark.svelte-73fq0y,a.Dark.svelte-73fq0y{background-color:#242843}div.Light.svelte-73fq0y,a.Light.svelte-73fq0y{background-color:#d4d4e7}div.inv.svelte-73fq0y,a.inv.svelte-73fq0y{width:100%;border-radius:12px;margin:0.25rem 0;padding:0.75rem}div.modal.svelte-73fq0y,a.modal.svelte-73fq0y{height:100%;width:100%;z-index:2;overflow:auto;padding:1.5rem;margin:0}div.modal.Dark.svelte-73fq0y,a.modal.Dark.svelte-73fq0y{background-color:#161828}div.modal.Light.svelte-73fq0y,a.modal.Light.svelte-73fq0y{background-color:#c7c7df}.round.svelte-73fq0y{border-radius:8px}",
   map: null
 };
 const Card = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
@@ -117,10 +118,10 @@ const Card = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots)
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
   return `${!inv ? `<div class="${[
-    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-1dwcrx1",
+    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-73fq0y",
     (round ? "round" : "") + " " + (modal ? "modal" : "")
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_6b830c0a.e)(id)}" class="${[
-    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-1dwcrx1",
+    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-73fq0y",
     inv ? "inv" : ""
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</a>`}`;
 });
@@ -173,6 +174,17 @@ function convertDate(date, term = 30) {
 }
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function strValid(str) {
+  if (str.length >= 5) {
+    return true;
+  }
+}
+function emailValid(str) {
+  let REGEX = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (REGEX.test(str)) {
+    return true;
+  }
 }
 async function getInvoicesIndex() {
   if (localStorage.getItem("invoices"))

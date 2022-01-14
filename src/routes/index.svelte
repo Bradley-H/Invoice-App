@@ -55,6 +55,7 @@ import {getInvoicesIndex} from '../store/functionStore';
     .helperBar{
         display: flex;
         justify-content: space-between;
+        margin-top: toRem(20);
         &_invoice{
             display: flex;
             flex-direction: column;
@@ -67,13 +68,13 @@ import {getInvoicesIndex} from '../store/functionStore';
             gap: 10px;
             @include tabletUp{
                 place-items: initial;
+                gap: 30px;
             }
         }
     }
     .loading{
         @include centered;
-        min-height: 100vh;
-        max-height: 100%;
+        height: 80vh;
     }
     }
 

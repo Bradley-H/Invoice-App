@@ -17,6 +17,7 @@
         position: relative;
         width: 100%;
         padding: 1rem;
+        margin-top: .5rem;
         &.Dark {
             background-color: lighten($color: $bgColorDark, $amount: 9);
         }
@@ -37,6 +38,7 @@
             z-index: 2;
             overflow: auto;
             padding: 1.5rem;
+            margin: 0;
             &.Dark {
                 background-color: lighten($color: $bgColorDark, $amount: 1);
             }

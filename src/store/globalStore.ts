@@ -5,5 +5,4 @@ export let globalStore = writable({
     modalStatus: null, // status of modal //
     editedInvoice: {}, //invoice being edited //
     invoices: [], // all invoices,
-    deletePrompt: false, //if the prompt is showing or not
 })

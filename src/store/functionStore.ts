@@ -28,8 +28,7 @@ export function numValid(val){
 }
 export function strValid(str){
     // USE REGEX TO CHECK IS THE STR IS GREATER THAN 5 CHARACTERS //
-    let REGEX = /^s[a-zA-Z0-9]{6,}$/;
-    if(REGEX.test(str)){ return true }
+    if(str.length >= 5){ return true }
 }
 
 export function emailValid(str){
