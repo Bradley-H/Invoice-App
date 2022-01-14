@@ -92,7 +92,7 @@ const Routes = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slot
         __value.then(null, import_index_6b830c0a.n);
         return `
     <div class="${"loading svelte-8qukzm"}">${(0, import_index_6b830c0a.v)(import_functionStore_fa90724c.T, "Text").$$render($$result, {
-          size: "h2",
+          size: "h3",
           text: "Getting invoices, please wait"
         }, {}, {})}</div>
     `;

@@ -94,7 +94,7 @@ import {getInvoicesIndex} from '../store/functionStore';
 <div class="container">
     {#await getInvoicesIndex()}
     <div class="loading">
-        <Text size="h2" text="Getting invoices, please wait"/>
+        <Text size="h3" text="Getting invoices, please wait"/>
     </div>
     {:then} 
     <div class="helperBar">
