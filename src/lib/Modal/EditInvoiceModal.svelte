@@ -61,13 +61,16 @@
     function saveInvoice(status){
         // AUTOMATICALLY FILL IN FIELDS IN INVOICE //
         calculateTotal()        
-        status = status;
         paymentDue = `${new Date().getFullYear()}-${new Date().getMonth() + 1 + (paymentTerms / 30)}-${new Date().getDate()}`
         createdAt = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
         //FIND INVOICE IN THE INVOICES AND SAVE IT //    
         let findInvoice = $globalStore.invoices.find(invoice => invoice.id === $page.params.invoices);
         findInvoice = $globalStore.editedInvoice
-        
+        if(prompt === "draft" || prompt === "pending"){
+            $globalStore.editedInvoice.status = prompt;
+        } else {
+            $globalStore.editedInvoice.status = "paid";
+        }
         // SAVE $globalStore TO LOCAL STOREAGE //
         localStorage.setItem("invoices", JSON.stringify($globalStore.invoices));
         // closeModal //

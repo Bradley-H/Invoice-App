@@ -59,8 +59,6 @@
     }
     // SASS DEFINITIONS //
      import "../../store/globalStore";
-import { afterUpdate } from "svelte";
-
 </script>
 
 <style lang="scss">
@@ -225,7 +223,7 @@ import { afterUpdate } from "svelte";
             <div class="topCard_btns">
                 <Button size="medium"  text="Edit" type="secondary" icon="pen" rounded on:click={editInvoice}/>
                 <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={() => showPrompt("delete")}/>
-                <Button text="Mark as Paid" icon="check" rounded on:click={() => showPrompt("paid")}/>
+                <Button text="Mark as Paid" disabled={status === "paid"} icon="check" rounded on:click={() => showPrompt("paid")}/>
             </div>
             {/if}
         </Card>
@@ -316,7 +314,7 @@ import { afterUpdate } from "svelte";
             <div class="btns">
                 <Button size="medium" text="Edit" type="secondary" icon="pen" rounded on:click={editInvoice}/>
                 <Button size="medium" text="Delete" type="danger" icon="trash" rounded on:click={() => showPrompt("delete")}/>
-                <Button text="Mark as Paid" icon="check" rounded on:click={() => showPrompt("paid")}/>
+                <Button text="Mark as Paid" icon="check" disabled={status === "paid"} rounded on:click={() => showPrompt("paid")}/>
             </div>
         </Card>
 {/if}
