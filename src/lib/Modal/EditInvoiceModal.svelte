@@ -36,8 +36,8 @@
             && strValid(description)
             && items.length > 0
             && items.every(item => item.name.length > 5)
-            && items.every(item => item.price >= 5)
-            && items.every(item => item.quantity >= 5) ){
+            && items.every(item => item.price >= 4.9)
+            && items.every(item => item.quantity >= 4.9) ){
                 isValid = true;
             } else {
                 isValid = false;
@@ -308,9 +308,9 @@ import { page } from "$app/stores";
                     <FormField title bind:value={item.name} id="Name{i}" text="Name" placeholder="Item" valid={item.name.length >= 5 }  invalidMessage={"Must be greater than 5 characters"}/>
                 </div>
                 <div class="attributes">
-                    <FormField title bind:value={item.quantity} id="qty{i}" form="number" text="Qty" valid={item.quantity >= 5} invalidMessage={"Must be greater than 4"}/>
-                    <FormField title bind:value={item.price} step={.1} id="price{i}" form="number" text="Price"  valid={item.price >= 5} invalidMessage={"Must be greater than 4"}/>
-                    <FormField title value="${numberWithCommas(item.quantity * item.price)}" valid={true}  id="total{i}" disabled text="Total"  placeholder="Total"/>
+                    <FormField title bind:value={item.quantity} id="qty{i}" form="number" text="Qty" valid={item.quantity > Number(4.9)} invalidMessage={"Must be greater than 4.9"}/>
+                    <FormField title bind:value={item.price} step={Number(0.1)} id="price{i}" form="number" text="Price"  valid={item.price > Number(4.9)} invalidMessage={"Must be greater than 4.9"}/>
+                    <FormField title value="${numberWithCommas(item.quantity * item.price)}" valid={true}  id="total{i}" disabled text="Total" placeholder="Total"/>
                     <button on:click|preventDefault={() => filterItem(i)}><i class="fas fa-trash" on:click/>
                 </div>
             </div>

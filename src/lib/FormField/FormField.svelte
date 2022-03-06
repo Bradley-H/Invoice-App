@@ -20,10 +20,14 @@
         if (e.target.value.match(/^[0-9]*$/)) {
             // IF IT IS, SET VALUE //
             value = e.target.value;
-            // IF IT'S NOT, SET VALUE TO 0 //
+            // SEE IF IT'S A STRING WITH A FLOATING POITN NUMBER //
+        } else if (e.target.value.match(/^[0-9]*\.[0-9]*$/)) {
+            // IF IT IS, SET VALUE //
+            value = e.target.value;
+            // IF IT'S NOT A NUMBER, SET VALUE TO 0 //
         } else {
-            invalidMessage = "Please enter a number";
-        }
+            value = 0;
+        } 
     }
     import "../../scss/styles.scss";
 

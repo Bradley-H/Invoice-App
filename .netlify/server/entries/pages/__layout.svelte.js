@@ -444,7 +444,7 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
     isValid = false;
     prompt = null;
     {
-      if ((0, import_functionStore_fa90724c.s)(senderAddress.street) && (0, import_functionStore_fa90724c.s)(senderAddress.city) && (0, import_functionStore_fa90724c.s)(senderAddress.country) && (0, import_functionStore_fa90724c.s)(senderAddress.postCode) && (0, import_functionStore_fa90724c.s)(clientAddress.street) && (0, import_functionStore_fa90724c.s)(clientAddress.city) && (0, import_functionStore_fa90724c.s)(clientAddress.country) && (0, import_functionStore_fa90724c.s)(clientAddress.postCode) && (0, import_functionStore_fa90724c.s)(clientName) && (0, import_functionStore_fa90724c.e)(clientEmail) && (0, import_functionStore_fa90724c.s)(description) && items.length > 0 && items.every((item) => item.name.length > 5) && items.every((item) => item.price >= 5) && items.every((item) => item.quantity >= 5)) {
+      if ((0, import_functionStore_fa90724c.s)(senderAddress.street) && (0, import_functionStore_fa90724c.s)(senderAddress.city) && (0, import_functionStore_fa90724c.s)(senderAddress.country) && (0, import_functionStore_fa90724c.s)(senderAddress.postCode) && (0, import_functionStore_fa90724c.s)(clientAddress.street) && (0, import_functionStore_fa90724c.s)(clientAddress.city) && (0, import_functionStore_fa90724c.s)(clientAddress.country) && (0, import_functionStore_fa90724c.s)(clientAddress.postCode) && (0, import_functionStore_fa90724c.s)(clientName) && (0, import_functionStore_fa90724c.e)(clientEmail) && (0, import_functionStore_fa90724c.s)(description) && items.length > 0 && items.every((item) => item.name.length > 5) && items.every((item) => item.price >= 4.9) && items.every((item) => item.quantity >= 4.9)) {
         isValid = true;
       } else {
         isValid = false;
@@ -652,8 +652,8 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
         id: "qty" + i,
         form: "number",
         text: "Qty",
-        valid: item.quantity >= 5,
-        invalidMessage: "Must be greater than 4",
+        valid: item.quantity > Number(4.9),
+        invalidMessage: "Must be greater than 4.9",
         value: item.quantity
       }, {
         value: ($$value) => {
@@ -663,12 +663,12 @@ const EditInvoiceModal = (0, import_index_6b830c0a.c)(($$result, $$props, $$bind
       }, {})}
                     ${(0, import_index_6b830c0a.v)(import_Button_bc878c0c.F, "FormField").$$render($$result, {
         title: true,
-        step: 0.1,
+        step: Number(0.1),
         id: "price" + i,
         form: "number",
         text: "Price",
-        valid: item.price >= 5,
-        invalidMessage: "Must be greater than 4",
+        valid: item.price > Number(4.9),
+        invalidMessage: "Must be greater than 4.9",
         value: item.price
       }, {
         value: ($$value) => {
