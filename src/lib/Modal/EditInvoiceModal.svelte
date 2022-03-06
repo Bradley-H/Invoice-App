@@ -16,11 +16,11 @@
     // DESTRUCTURE THE INVOICE //
         $: ({senderAddress, id, clientAddress, createdAt, items, clientEmail, clientName, description, paymentTerms, paymentDue, total} = $globalStore.editedInvoice)
     // SVELTE IMPORTS //
-    $: console.log($globalStore.editedInvoice);
-    
     import { fade, fly } from "svelte/transition";
     // VARIABLES //
     $:terms = 30;
+    $: isValid = false;
+    $: prompt = null
         // CHECK IF EVERYTHING HAS A LENGTH GREATER THAN 5 //
         $: if(
             strValid(senderAddress.street)
@@ -34,17 +34,15 @@
             && strValid(clientName)
             && emailValid(clientEmail)
             && strValid(description)
-            && items[items.length - 1].name !== ""
-            && items[items.length - 1].quantity !== 0
-            && items[items.length - 1].price !== 0){
-            isValid = true;
+            && items.length > 0
+            && items.every(item => item.name.length > 5)
+            && items.every(item => item.price >= 5)
+            && items.every(item => item.quantity >= 5) ){
+                isValid = true;
             } else {
-                isValid = false
+                isValid = false;
             }
-            // IF THE FORM IS VALID //
-        $: isValid = false;
-        // IF PROMPT IS SHOWING //
-        $: prompt = null
+      
             
     // FUNCTIONS //
     import {closeModal, convertDate, numberWithCommas, strValid, emailValid} from '../../store/functionStore';
@@ -58,7 +56,7 @@
             $globalStore.editedInvoice.total += item.quantity * item.price;
         });
     }
-    function saveInvoice(status){
+    function saveInvoice(){
         // AUTOMATICALLY FILL IN FIELDS IN INVOICE //
         calculateTotal()        
         paymentDue = `${new Date().getFullYear()}-${new Date().getMonth() + 1 + (paymentTerms / 30)}-${new Date().getDate()}`
@@ -78,7 +76,12 @@
         location.reload();
     }
     function filterItem(index){
-        items = items.filter((item, i) => i !== index)     
+        // REMVOE ITEM FROM THE ITEMS ARRAY //
+        globalStore.update($store => {
+            $store.editedInvoice.items.splice(index, 1);
+            return $store;
+        });
+        return true;
     }
     function addItem(){
         $globalStore.editedInvoice.items = [...$globalStore.editedInvoice.items, {
@@ -305,8 +308,8 @@ import { page } from "$app/stores";
                     <FormField title bind:value={item.name} id="Name{i}" text="Name" placeholder="Item" valid={item.name.length >= 5 }  invalidMessage={"Must be greater than 5 characters"}/>
                 </div>
                 <div class="attributes">
-                    <FormField title bind:value={item.quantity} id="qty{i}" form="number" text="Qty" valid={item.quantity >= 1} invalidMessage={"Must be greater than 0"}/>
-                    <FormField title bind:value={item.price} step={.1} id="price{i}" form="number" text="Price"  valid={item.price >= 1} invalidMessage={"Must be greater than 0"}/>
+                    <FormField title bind:value={item.quantity} id="qty{i}" form="number" text="Qty" valid={item.quantity >= 5} invalidMessage={"Must be greater than 4"}/>
+                    <FormField title bind:value={item.price} step={.1} id="price{i}" form="number" text="Price"  valid={item.price >= 5} invalidMessage={"Must be greater than 4"}/>
                     <FormField title value="${numberWithCommas(item.quantity * item.price)}" valid={true}  id="total{i}" disabled text="Total"  placeholder="Total"/>
                     <button on:click|preventDefault={() => filterItem(i)}><i class="fas fa-trash" on:click/>
                 </div>
@@ -337,9 +340,9 @@ import { page } from "$app/stores";
 {/if}
 
 {#if prompt === "draft"}
-    <ModalPrompt on:decline={() => prompt = null} on:accept={() => saveInvoice("draft")} text={"You want to Save this invoice as draft?"}/>
+    <ModalPrompt on:decline={() => prompt = null} on:accept={() => saveInvoice()} text={"You want to Save this invoice as draft?"}/>
 {/if}
 
 {#if prompt === "pending"}
-    <ModalPrompt on:decline={() => prompt = null} on:accept={() => saveInvoice("pending")} text={"You want to Save this invoice as pending?"}/>
+    <ModalPrompt on:decline={() => prompt = null} on:accept={() => saveInvoice()} text={"You want to Save this invoice as pending?"}/>
 {/if}

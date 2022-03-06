@@ -289,7 +289,7 @@
                             <div class="bottomCard_invoiceInfo-itemList-items">
                                 <div class="bottomCard_invoiceInfo-itemList-items-description">
                                     <Text size="h3" text="{item.name}"/>
-                                    <Text size="p" text="${numberWithCommas(item.price.toFixed(2))} x {item.quantity} "/>
+                                    <Text size="p" text="${Number(items[i].price).toFixed(2)} x {items[i].quantity}"/>
                                 </div>
                                 <Text size="h3" text="${numberWithCommas((item.quantity * item.price).toFixed(2) )}"/>
                             </div>

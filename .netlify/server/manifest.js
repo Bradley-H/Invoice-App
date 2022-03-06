@@ -29,7 +29,7 @@ const manifest = {
   assets: new Set(["data.json", "favicon.png", "noInvoice.svg"]),
   _: {
     mime: { ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml" },
-    entry: { "file": "start-2f6911c4.js", "js": ["start-2f6911c4.js", "chunks/vendor-73704a0a.js"], "css": ["assets/start-61d1577b.css"] },
+    entry: { "file": "start-70353cf1.js", "js": ["start-70353cf1.js", "chunks/vendor-73704a0a.js"], "css": ["assets/start-61d1577b.css"] },
     nodes: [
       () => Promise.resolve().then(() => __toModule(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toModule(require("./nodes/1.js"))),

@@ -31,9 +31,11 @@
             && strValid(newInvoice.clientName)
             && emailValid(newInvoice.clientEmail)
             && strValid(newInvoice.description)
-            && strValid(newInvoice.items[items.length - 1].name)
-            && newInvoice.items[items.length - 1].quantity !== 0
-            && newInvoice.items[items.length - 1].price !== 0){
+            && newInvoice.items.length > 0
+            && newInvoice.items.every(item => strValid(item.name))
+            && newInvoice.items.every(item => item.quantity > 5)
+            && newInvoice.items.every(item => item.price > 5))
+            {
             isValid = true;
             } else {
                 isValid = false
@@ -63,7 +65,6 @@
                     paymentDue:  convertDate(new Date()),
                     createdAt:  "",
                     status: "",
-                    paymentTerms:  terms,
                     description:  "",
                     total:  0,
         }
@@ -109,7 +110,7 @@
             newInvoice.clientName = "";
             newInvoice.clientEmail = "";
             newInvoice.paymentDue = "";
-            newInvoice.paymentTerms = 30;
+            terms = 30;
             newInvoice.description = "";
             newInvoice.status = "";
             newInvoice.total = 0;
@@ -125,7 +126,7 @@
         // AUTOMATICALLY CALCULATE TOTAL FILL IN DATES FIELDS AND GET A UNIQUE ID IN INVOICE //
         calculateTotal()        
         newInvoice.status = status;
-        newInvoice.paymentDue = `${new Date().getFullYear()}-${new Date().getMonth() + 1 + (newInvoice.paymentTerms / 30)}-${new Date().getDate()}`
+        newInvoice.paymentDue = `${new Date().getFullYear()}-${new Date().getMonth() + 1 + (terms / 30)}-${new Date().getDate()}`
         newInvoice.createdAt = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`
         newInvoice.id = uid(6).toUpperCase();
         // SAVE TO INVOICES //
@@ -341,7 +342,7 @@
         </div>
 
         <div class="billTo_invoiceInformation">
-            <FormField text="Payment Due" id="paymentDue" disabled value={convertDate(new Date(), newInvoice.paymentTerms ) } valid={true}/>
+            <FormField text="Payment Due" id="paymentDue" disabled value={convertDate(new Date(), terms ) } valid={true}/>
             <FormField form="select" text="Payment Terms" {options} id="paymentTerms" bind:value={terms} />
         </div>
         <FormField text="Project Description" id="description" placeholder="Project Description" bind:value={newInvoice.description} valid={strValid(newInvoice.description)} invalidMessage="Please enter a valid Description"/>
