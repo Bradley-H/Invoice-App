@@ -117,7 +117,7 @@
             }
             &-senderInfo{
                 @extend %flexCol;
-                gap: toRem(4);
+                gap: toRem(6);
                 margin: 2rem 0;
                 @include mobileMaxUp{
                     margin: 0;
@@ -147,6 +147,11 @@
                         h3{
                             color: white
                         }
+                    }
+                    &-description{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px
                     }
                 }
             }
@@ -178,7 +183,9 @@
                     justify-content: flex-end;
                 }
                 &-information{
-                        line-height: 1.6;
+                    display: flex;
+                    flex-direction: column;
+                        gap: toRem(7);
                     }
             }
             &-invoiceDate,
