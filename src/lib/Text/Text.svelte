@@ -15,7 +15,7 @@ import "../../scss/styles.scss";
 <style lang="scss">
 @import "../../scss/util/index";
 
-h1,h2,h3,p{
+*{
     font-family: $primaryFont;
     &.disabled{
         color: grey;
@@ -30,12 +30,5 @@ h1,h2,h3,p{
 </style>
 
 
-{#if size === "h1"}
-    <h1 class:disabled={disabled}  class:title={title} class="txtColor{theme}">{text}</h1>
-{:else if size === "h2"}
-    <h2 class:disabled={disabled} class:title={title} class="txtColor{theme}">{text}</h2>
-{:else if size === "h3"}
-    <h3 class:disabled={disabled} class:title={title} class="txtColor{theme}">{text}</h3>
-{:else}
-    <p class:disabled={disabled} class:title={title} class="txtColor{theme}">{text}</p>
-{/if}
+
+    <svelte:element this={size} class:disabled={disabled} class:title={title} class="txtColor{theme}">{text}</svelte:element>

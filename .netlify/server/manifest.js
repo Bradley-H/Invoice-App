@@ -4,55 +4,63 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
-  __markAsModule(target);
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __reExport = (target, module2, desc) => {
-  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
-  return target;
+  return to;
 };
-var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
-};
-__export(exports, {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var stdin_exports = {};
+__export(stdin_exports, {
   manifest: () => manifest
 });
+module.exports = __toCommonJS(stdin_exports);
 const manifest = {
   appDir: "_app",
-  assets: new Set(["data.json", "favicon.png", "noInvoice.svg"]),
+  assets: /* @__PURE__ */ new Set(["data.json", "favicon.png", "noInvoice.svg"]),
+  mimeTypes: { ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml" },
   _: {
-    mime: { ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml" },
-    entry: { "file": "start-9026b9e4.js", "js": ["start-9026b9e4.js", "chunks/vendor-73704a0a.js"], "css": ["assets/start-61d1577b.css"] },
+    entry: { "file": "start-66757aa6.js", "js": ["start-66757aa6.js", "chunks/index-322d0d15.js", "chunks/index-6d8f5e96.js"], "css": [] },
     nodes: [
-      () => Promise.resolve().then(() => __toModule(require("./nodes/0.js"))),
-      () => Promise.resolve().then(() => __toModule(require("./nodes/1.js"))),
-      () => Promise.resolve().then(() => __toModule(require("./nodes/2.js"))),
-      () => Promise.resolve().then(() => __toModule(require("./nodes/3.js")))
+      () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/2.js")))
     ],
     routes: [
       {
         type: "page",
+        id: "",
         pattern: /^\/$/,
-        params: null,
+        names: [],
+        types: [],
         path: "/",
+        shadow: null,
         a: [0, 2],
         b: [1]
       },
       {
         type: "page",
+        id: "[invoice]",
         pattern: /^\/([^/]+?)\/?$/,
-        params: (m) => ({ invoice: m[1] }),
+        names: ["invoice"],
+        types: [null],
         path: null,
+        shadow: null,
         a: [0, 3],
         b: [1]
       }
-    ]
+    ],
+    matchers: async () => {
+      return {};
+    }
   }
 };

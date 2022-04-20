@@ -66,6 +66,7 @@ import {convertDate, numberWithCommas} from '../../store/functionStore'
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            gap: 5px;
             @include mobileMax{
                 display: grid;
                 grid-template-columns: 1fr;

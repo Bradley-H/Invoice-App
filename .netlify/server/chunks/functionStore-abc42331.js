@@ -1,9 +1,7 @@
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
@@ -18,24 +16,21 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
-  __markAsModule(target);
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __reExport = (target, module2, desc) => {
-  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
-  return target;
+  return to;
 };
-var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
-};
-__export(exports, {
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var stdin_exports = {};
+__export(stdin_exports, {
   C: () => Card,
   T: () => Text,
   a: () => getInvoicesIndex,
@@ -45,13 +40,14 @@ __export(exports, {
   n: () => numberWithCommas,
   s: () => strValid
 });
-var import_index_6b830c0a = __toModule(require("./index-6b830c0a.js"));
+module.exports = __toCommonJS(stdin_exports);
+var import_index_80978f94 = require("./index-80978f94.js");
 const subscriber_queue = [];
-function writable(value, start = import_index_6b830c0a.n) {
+function writable(value, start = import_index_80978f94.n) {
   let stop;
-  const subscribers = new Set();
+  const subscribers = /* @__PURE__ */ new Set();
   function set(new_value) {
-    if ((0, import_index_6b830c0a.f)(value, new_value)) {
+    if ((0, import_index_80978f94.f)(value, new_value)) {
       value = new_value;
       if (stop) {
         const run_queue = !subscriber_queue.length;
@@ -71,11 +67,11 @@ function writable(value, start = import_index_6b830c0a.n) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe2(run, invalidate = import_index_6b830c0a.n) {
+  function subscribe2(run, invalidate = import_index_80978f94.n) {
     const subscriber = [run, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
-      stop = start(set) || import_index_6b830c0a.n;
+      stop = start(set) || import_index_80978f94.n;
     }
     run(value);
     return () => {
@@ -100,9 +96,9 @@ const css$1 = {
   code: "div.inv.svelte-73fq0y,a.inv.svelte-73fq0y,div.svelte-73fq0y,a.svelte-73fq0y{display:flex}div.modal.svelte-73fq0y,a.modal.svelte-73fq0y{display:flex;flex-direction:column}div.svelte-73fq0y,a.svelte-73fq0y{position:relative;width:100%;padding:1rem;margin-top:0.5rem}div.Dark.svelte-73fq0y,a.Dark.svelte-73fq0y{background-color:#242843}div.Light.svelte-73fq0y,a.Light.svelte-73fq0y{background-color:#d4d4e7}div.inv.svelte-73fq0y,a.inv.svelte-73fq0y{width:100%;border-radius:12px;margin:0.25rem 0;padding:0.75rem}div.modal.svelte-73fq0y,a.modal.svelte-73fq0y{height:100%;width:100%;z-index:2;overflow:auto;padding:1.5rem;margin:0}div.modal.Dark.svelte-73fq0y,a.modal.Dark.svelte-73fq0y{background-color:#161828}div.modal.Light.svelte-73fq0y,a.modal.Light.svelte-73fq0y{background-color:#c7c7df}.round.svelte-73fq0y{border-radius:8px}",
   map: null
 };
-const Card = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
+const Card = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(globalStore, (value) => $globalStore = value);
   let { inv = false } = $$props;
   let { id = "" } = $$props;
   let { modal = false } = $$props;
@@ -118,22 +114,22 @@ const Card = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots)
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
   return `${!inv ? `<div class="${[
-    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-73fq0y",
+    (0, import_index_80978f94.e)((0, import_index_80978f94.g)($globalStore.theme)) + " svelte-73fq0y",
     (round ? "round" : "") + " " + (modal ? "modal" : "")
-  ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_6b830c0a.e)(id)}" class="${[
-    (0, import_index_6b830c0a.e)((0, import_index_6b830c0a.g)($globalStore.theme)) + " svelte-73fq0y",
+  ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</div>` : `<a href="${"/" + (0, import_index_80978f94.e)(id)}" class="${[
+    (0, import_index_80978f94.e)((0, import_index_80978f94.g)($globalStore.theme)) + " svelte-73fq0y",
     inv ? "inv" : ""
   ].join(" ").trim()}">${slots.default ? slots.default({}) : ``}</a>`}`;
 });
 var Text_svelte_svelte_type_style_lang = "";
 const css = {
-  code: 'h1.svelte-24ajjd,h2.svelte-24ajjd,h3.svelte-24ajjd,p.svelte-24ajjd{font-family:"Spartan", sans-serif}h1.disabled.svelte-24ajjd,h2.disabled.svelte-24ajjd,h3.disabled.svelte-24ajjd,p.disabled.svelte-24ajjd{color:grey}.title.svelte-24ajjd{margin-bottom:0.3rem}',
+  code: '.svelte-kpi967{font-family:"Spartan", sans-serif}*.disabled.svelte-kpi967{color:grey}.title.svelte-kpi967{margin-bottom:0.3rem}',
   map: null
 };
-const Text = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots) => {
+const Text = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
   let theme;
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_6b830c0a.a)(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(globalStore, (value) => $globalStore = value);
   let { text = "Hello World" } = $$props;
   let { size = "h1" } = $$props;
   let { title = false } = $$props;
@@ -149,19 +145,10 @@ const Text = (0, import_index_6b830c0a.c)(($$result, $$props, $$bindings, slots)
   $$result.css.add(css);
   theme = $globalStore.theme;
   $$unsubscribe_globalStore();
-  return `${size === "h1" ? `<h1 class="${[
-    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
+  return `<${size} class="${[
+    "txtColor" + (0, import_index_80978f94.e)(theme) + " svelte-kpi967",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</h1>` : `${size === "h2" ? `<h2 class="${[
-    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
-    (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</h2>` : `${size === "h3" ? `<h3 class="${[
-    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
-    (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</h3>` : `<p class="${[
-    "txtColor" + (0, import_index_6b830c0a.e)(theme) + " svelte-24ajjd",
-    (disabled ? "disabled" : "") + " " + (title ? "title" : "")
-  ].join(" ").trim()}">${(0, import_index_6b830c0a.e)(text)}</p>`}`}`}`;
+  ].join(" ").trim()}">${(0, import_index_80978f94.e)(text)}</${size}>`;
 });
 var Button_svelte_svelte_type_style_lang = "";
 function convertDate(date, term = 30) {

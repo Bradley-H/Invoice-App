@@ -61,6 +61,7 @@ import {getInvoicesIndex} from '../store/functionStore';
             flex-direction: column;
             justify-content: center;
             margin-right: 1rem;
+            gap: toRem(5);
         }
         .settings{
             display: grid;

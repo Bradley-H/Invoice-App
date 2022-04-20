@@ -1,13 +1,13 @@
 {
-  ".svelte-kit/build/app.js": {
-    "file": "app.js",
-    "src": ".svelte-kit/build/app.js",
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-6b830c0a.js"
+      "_index-80978f94.js"
     ],
-    "css": [
-      "assets/app-6009617f.css"
+    "dynamicImports": [
+      ".svelte-kit/build/hooks.js"
     ]
   },
   "src/routes/__layout.svelte": {
@@ -15,35 +15,21 @@
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-6b830c0a.js",
-      "_functionStore-495b3dd7.js",
-      "_Button-f1a09eb8.js",
-      "_stores-2b8a15c5.js"
+      "_index-80978f94.js",
+      "_functionStore-abc42331.js",
+      "_Button-901930a1.js",
+      "_stores-5de73f26.js"
     ],
     "css": [
-      "assets/entries/pages/__layout.svelte-67e6f271.css"
+      "assets/entries/pages/__layout.svelte-0cdb1fe6.css"
     ]
   },
-  ".svelte-kit/build/components/error.svelte": {
-    "file": "entries/pages/error.svelte.js",
-    "src": ".svelte-kit/build/components/error.svelte",
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-6b830c0a.js"
-    ]
-  },
-  "src/routes/index.svelte": {
-    "file": "entries/pages/index.svelte.js",
-    "src": "src/routes/index.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-6b830c0a.js",
-      "_Button-f1a09eb8.js",
-      "_functionStore-495b3dd7.js",
-      "_Tag-e0cee0bc.js"
-    ],
-    "css": [
-      "assets/entries/pages/index.svelte-8d6eda6e.css"
+      "_index-80978f94.js"
     ]
   },
   "src/routes/[invoice].svelte": {
@@ -51,55 +37,74 @@
     "src": "src/routes/[invoice].svelte",
     "isEntry": true,
     "imports": [
-      "_index-6b830c0a.js",
-      "_functionStore-495b3dd7.js",
-      "_stores-2b8a15c5.js",
-      "_Tag-e0cee0bc.js"
+      "_index-80978f94.js",
+      "_functionStore-abc42331.js",
+      "_stores-5de73f26.js",
+      "_Tag-4abda796.js"
     ],
     "css": [
       "assets/entries/pages/_invoice_.svelte-05b5279b.css"
     ]
   },
-  "_index-6b830c0a.js": {
-    "file": "chunks/index-6b830c0a.js"
-  },
-  "_functionStore-495b3dd7.js": {
-    "file": "chunks/functionStore-495b3dd7.js",
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
     "imports": [
-      "_index-6b830c0a.js"
+      "_index-80978f94.js",
+      "_Button-901930a1.js",
+      "_functionStore-abc42331.js",
+      "_Tag-4abda796.js"
     ],
     "css": [
-      "assets/functionStore-b167905b.css"
+      "assets/entries/pages/index.svelte-19dfc329.css"
     ]
   },
-  "_Button-f1a09eb8.js": {
-    "file": "chunks/Button-f1a09eb8.js",
+  "_index-80978f94.js": {
+    "file": "chunks/index-80978f94.js"
+  },
+  "_functionStore-abc42331.js": {
+    "file": "chunks/functionStore-abc42331.js",
     "imports": [
-      "_index-6b830c0a.js",
-      "_functionStore-495b3dd7.js"
+      "_index-80978f94.js"
+    ],
+    "css": [
+      "assets/functionStore-e7996356.css"
+    ]
+  },
+  "_Button-901930a1.js": {
+    "file": "chunks/Button-901930a1.js",
+    "imports": [
+      "_index-80978f94.js",
+      "_functionStore-abc42331.js"
     ],
     "css": [
       "assets/Button-6eaeb623.css"
     ]
   },
-  "_stores-2b8a15c5.js": {
-    "file": "chunks/stores-2b8a15c5.js",
+  "_stores-5de73f26.js": {
+    "file": "chunks/stores-5de73f26.js",
     "imports": [
-      "_index-6b830c0a.js",
-      "_functionStore-495b3dd7.js"
+      "_index-80978f94.js",
+      "_functionStore-abc42331.js"
     ],
     "css": [
-      "assets/stores-ec1c0b06.css"
+      "assets/stores-55fdd111.css"
     ]
   },
-  "_Tag-e0cee0bc.js": {
-    "file": "chunks/Tag-e0cee0bc.js",
+  "_Tag-4abda796.js": {
+    "file": "chunks/Tag-4abda796.js",
     "imports": [
-      "_index-6b830c0a.js",
-      "_functionStore-495b3dd7.js"
+      "_index-80978f94.js",
+      "_functionStore-abc42331.js"
     ],
     "css": [
-      "assets/Tag-6775a2f3.css"
+      "assets/Tag-5658cd79.css"
     ]
+  },
+  ".svelte-kit/build/hooks.js": {
+    "file": "chunks/hooks-1c45ba0b.js",
+    "src": ".svelte-kit/build/hooks.js",
+    "isDynamicEntry": true
   }
 }

@@ -1,11 +1,22 @@
 var __defProp = Object.defineProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
-  __markAsModule(target);
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-__export(exports, {
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var stdin_exports = {};
+__export(stdin_exports, {
   a: () => subscribe,
   b: () => createEventDispatcher,
   c: () => create_ssr_component,
@@ -21,6 +32,7 @@ __export(exports, {
   s: () => setContext,
   v: () => validate_component
 });
+module.exports = __toCommonJS(stdin_exports);
 function noop() {
 }
 function is_promise(value) {
@@ -30,7 +42,7 @@ function run(fn) {
   return fn();
 }
 function blank_object() {
-  return Object.create(null);
+  return /* @__PURE__ */ Object.create(null);
 }
 function run_all(fns) {
   fns.forEach(run);
@@ -91,6 +103,9 @@ const escaped = {
 function escape(html) {
   return String(html).replace(/["'&<>]/g, (match) => escaped[match]);
 }
+function escape_attribute_value(value) {
+  return typeof value === "string" ? escape(value) : value;
+}
 function each(items, fn) {
   let str = "";
   for (let i = 0; i < items.length; i += 1) {
@@ -127,9 +142,9 @@ function create_ssr_component(fn) {
     return html;
   }
   return {
-    render: (props = {}, { $$slots = {}, context = new Map() } = {}) => {
+    render: (props = {}, { $$slots = {}, context = /* @__PURE__ */ new Map() } = {}) => {
       on_destroy = [];
-      const result = { title: "", head: "", css: new Set() };
+      const result = { title: "", head: "", css: /* @__PURE__ */ new Set() };
       const html = $$render(result, props, {}, $$slots, context);
       run_all(on_destroy);
       return {
@@ -147,5 +162,6 @@ function create_ssr_component(fn) {
 function add_attribute(name, value, boolean) {
   if (value == null || boolean && !value)
     return "";
-  return ` ${name}${value === true ? "" : `=${typeof value === "string" ? JSON.stringify(escape(value)) : `"${value}"`}`}`;
+  const assignment = boolean && value === true ? "" : `="${escape_attribute_value(value.toString())}"`;
+  return ` ${name}${assignment}`;
 }

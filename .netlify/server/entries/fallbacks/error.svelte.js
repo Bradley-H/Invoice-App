@@ -1,8 +1,6 @@
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -16,17 +14,30 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  css: () => css,
-  entry: () => entry,
-  js: () => js,
-  module: () => module2
+  default: () => Error2,
+  load: () => load
 });
 module.exports = __toCommonJS(stdin_exports);
-var module2 = __toESM(require("../entries/pages/index.svelte.js"));
-const entry = "pages/index.svelte-70e30089.js";
-const js = ["pages/index.svelte-70e30089.js", "chunks/index-322d0d15.js", "chunks/functionStore-89c9ceb1.js", "chunks/index-6d8f5e96.js", "chunks/Tag-778efb18.js", "chunks/FormField-bd5a131c.js"];
-const css = ["assets/pages/index.svelte-93f845c6.css", "assets/functionStore-ba42f0b8.css", "assets/Tag-dcf708ac.css", "assets/FormField-1cf116ce.css"];
+var import_index_80978f94 = require("../../chunks/index-80978f94.js");
+function load({ error, status }) {
+  return { props: { error, status } };
+}
+const Error2 = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
+  let { status } = $$props;
+  let { error } = $$props;
+  if ($$props.status === void 0 && $$bindings.status && status !== void 0)
+    $$bindings.status(status);
+  if ($$props.error === void 0 && $$bindings.error && error !== void 0)
+    $$bindings.error(error);
+  return `<h1>${(0, import_index_80978f94.e)(status)}</h1>
+
+<pre>${(0, import_index_80978f94.e)(error.message)}</pre>
+
+
+
+${error.frame ? `<pre>${(0, import_index_80978f94.e)(error.frame)}</pre>` : ``}
+${error.stack ? `<pre>${(0, import_index_80978f94.e)(error.stack)}</pre>` : ``}`;
+});
