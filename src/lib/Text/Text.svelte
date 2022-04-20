@@ -15,12 +15,10 @@ import "../../scss/styles.scss";
 <style lang="scss">
 @import "../../scss/util/index";
 
-*{
-    font-family: $primaryFont;
-    &.disabled{
+.disabled{
         color: grey;
     }
-}
+
 
 .title{
     margin-bottom: .3rem;

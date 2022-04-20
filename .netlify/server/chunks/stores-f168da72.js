@@ -23,7 +23,7 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_80978f94 = require("./index-80978f94.js");
-var import_functionStore_abc42331 = require("./functionStore-abc42331.js");
+var import_functionStore_c189635e = require("./functionStore-c189635e.js");
 var BackButton_svelte_svelte_type_style_lang = "";
 const css$1 = {
   code: "a.svelte-mjdnc8,button.svelte-mjdnc8{display:flex;justify-content:center;font-size:1rem;margin:1.5rem 0;cursor:pointer}i.svelte-mjdnc8{color:#7c5dfa;font-weight:bold;margin-right:0.5rem;font-size:1.2rem}",
@@ -34,7 +34,7 @@ const BackButton = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, 
   if ($$props.href === void 0 && $$bindings.href && href !== void 0)
     $$bindings.href(href);
   $$result.css.add(css$1);
-  return `${href ? `<a href="${"/"}" class="${"svelte-mjdnc8"}"><i class="${"fas fa-chevron-left svelte-mjdnc8"}"></i>${(0, import_index_80978f94.v)(import_functionStore_abc42331.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</a>` : `<button class="${"svelte-mjdnc8"}"><i class="${"fas fa-chevron-left svelte-mjdnc8"}"></i>${(0, import_index_80978f94.v)(import_functionStore_abc42331.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</button>`}`;
+  return `${href ? `<a href="${"/"}" class="${"svelte-mjdnc8"}"><i class="${"fas fa-chevron-left svelte-mjdnc8"}"></i>${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</a>` : `<button class="${"svelte-mjdnc8"}"><i class="${"fas fa-chevron-left svelte-mjdnc8"}"></i>${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: "Go back" }, {}, {})}</button>`}`;
 });
 var InnerCard_svelte_svelte_type_style_lang = "";
 const css = {
@@ -43,7 +43,7 @@ const css = {
 };
 const InnerCard = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(import_functionStore_abc42331.g, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(import_functionStore_c189635e.g, (value) => $globalStore = value);
   let { modal = false } = $$props;
   if ($$props.modal === void 0 && $$bindings.modal && modal !== void 0)
     $$bindings.modal(modal);

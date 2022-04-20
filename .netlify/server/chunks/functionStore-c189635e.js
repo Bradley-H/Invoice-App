@@ -123,7 +123,7 @@ const Card = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots)
 });
 var Text_svelte_svelte_type_style_lang = "";
 const css = {
-  code: '.svelte-kpi967{font-family:"Spartan", sans-serif}*.disabled.svelte-kpi967{color:grey}.title.svelte-kpi967{margin-bottom:0.3rem}',
+  code: ".disabled.svelte-zyf5ro{color:grey}.title.svelte-zyf5ro{margin-bottom:0.3rem}",
   map: null
 };
 const Text = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
@@ -146,7 +146,7 @@ const Text = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots)
   theme = $globalStore.theme;
   $$unsubscribe_globalStore();
   return `<${size} class="${[
-    "txtColor" + (0, import_index_80978f94.e)(theme) + " svelte-kpi967",
+    "txtColor" + (0, import_index_80978f94.e)(theme) + " svelte-zyf5ro",
     (disabled ? "disabled" : "") + " " + (title ? "title" : "")
   ].join(" ").trim()}">${(0, import_index_80978f94.e)(text)}</${size}>`;
 });
