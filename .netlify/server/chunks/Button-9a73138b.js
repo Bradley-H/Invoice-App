@@ -40,7 +40,6 @@ const FormField = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, s
   let { valid = false } = $$props;
   let { disabled = false } = $$props;
   let { placeholder = "" } = $$props;
-  let { step = 0.1 } = $$props;
   let { invalidMessage = "" } = $$props;
   let touched = false;
   if ($$props.form === void 0 && $$bindings.form && form !== void 0)
@@ -61,8 +60,6 @@ const FormField = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, s
     $$bindings.disabled(disabled);
   if ($$props.placeholder === void 0 && $$bindings.placeholder && placeholder !== void 0)
     $$bindings.placeholder(placeholder);
-  if ($$props.step === void 0 && $$bindings.step && step !== void 0)
-    $$bindings.step(step);
   if ($$props.invalidMessage === void 0 && $$bindings.invalidMessage && invalidMessage !== void 0)
     $$bindings.invalidMessage(invalidMessage);
   $$result.css.add(css$1);
@@ -74,7 +71,7 @@ ${form === "text" ? `<input ${disabled ? "disabled" : ""} class="${[
   ].join(" ").trim()}"${(0, import_index_80978f94.h)("id", id, 0)} type="${"text"}"${(0, import_index_80978f94.h)("placeholder", placeholder, 0)}${(0, import_index_80978f94.h)("value", value, 0)}>` : `${form === "number" ? `<input ${disabled ? "disabled" : ""} class="${[
     (0, import_index_80978f94.e)((0, import_index_80978f94.g)($globalStore.theme)) + " svelte-1b38cb9",
     !valid && touched ? "invalid" : ""
-  ].join(" ").trim()}"${(0, import_index_80978f94.h)("step", step, 0)}${(0, import_index_80978f94.h)("id", id, 0)} type="${"number"}"${(0, import_index_80978f94.h)("placeholder", placeholder, 0)}${(0, import_index_80978f94.h)("value", value, 0)}>` : `${form === "date" ? `<input ${disabled ? "disabled" : ""}${(0, import_index_80978f94.h)("id", id, 0)} type="${"date"}"${(0, import_index_80978f94.h)("placeholder", placeholder, 0)} class="${["svelte-1b38cb9", !valid ? "invalid" : ""].join(" ").trim()}"${(0, import_index_80978f94.h)("value", value, 0)}>` : `${form === "select" ? `<select class="${(0, import_index_80978f94.e)((0, import_index_80978f94.g)($globalStore.theme)) + " svelte-1b38cb9"}">${(0, import_index_80978f94.d)(options, (val) => {
+  ].join(" ").trim()}"${(0, import_index_80978f94.h)("id", id, 0)} type="${"number"}"${(0, import_index_80978f94.h)("placeholder", placeholder, 0)}${(0, import_index_80978f94.h)("value", value, 0)}>` : `${form === "date" ? `<input ${disabled ? "disabled" : ""}${(0, import_index_80978f94.h)("id", id, 0)} type="${"date"}"${(0, import_index_80978f94.h)("placeholder", placeholder, 0)} class="${["svelte-1b38cb9", !valid ? "invalid" : ""].join(" ").trim()}"${(0, import_index_80978f94.h)("value", value, 0)}>` : `${form === "select" ? `<select class="${(0, import_index_80978f94.e)((0, import_index_80978f94.g)($globalStore.theme)) + " svelte-1b38cb9"}">${(0, import_index_80978f94.d)(options, (val) => {
     return `<option${(0, import_index_80978f94.h)("value", val.value, 0)}>${(0, import_index_80978f94.e)(val.text)}</option>`;
   })}</select>` : ``}`}`}`}
 ${invalidMessage && !valid && touched ? `<p class="${["svelte-1b38cb9", !valid ? "invalid" : ""].join(" ").trim()}">${(0, import_index_80978f94.e)(invalidMessage)}</p>` : ``}</div>`;

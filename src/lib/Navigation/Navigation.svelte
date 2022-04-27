@@ -36,6 +36,7 @@
         width: 100%;
         background-color: $colorDarker;
         z-index: 3;
+        border-top-right-radius: 15px;
         @include laptopUp {
             flex-direction: column;
             height: 100%;
@@ -93,6 +94,7 @@
         height: $navHeight;
         font-size: toRem(25);
         transition: transform 0.4s ease-in-out;
+        border-top-right-radius: 15px;
         &:hover {
             transform: scale(1.1);
         }

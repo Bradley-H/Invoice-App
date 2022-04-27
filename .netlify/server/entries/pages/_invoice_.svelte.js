@@ -200,12 +200,12 @@ ${function(__value) {
       __value.then(null, import_index_80978f94.n);
       return `
     <div class="${"loader svelte-1v7wm0g"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h2", text: msg }, {}, {})}</div>
-    `;
+`;
     }
     return function(inv) {
       return `
-  ${(0, import_index_80978f94.v)(InvoiceInformation, "InvoiceInformation").$$render($$result, Object.assign(inv), {}, {})}
-  `;
+    ${(0, import_index_80978f94.v)(InvoiceInformation, "InvoiceInformation").$$render($$result, Object.assign(inv), {}, {})}
+`;
     }(__value);
   }(getInvoiceInformation($page.params.invoice))}`;
 });

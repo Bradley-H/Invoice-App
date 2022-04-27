@@ -48,10 +48,10 @@
     <div class="loader">
         <Text size="h2" text={msg} />
     </div>
-    {:then inv}
-  <InvoiceInformation {...inv}/>
-  {:catch error}
-  <div class="loader">
-    <Text size="h2" text={error} />
-</div>
+{:then inv}
+    <InvoiceInformation {...inv} />
+{:catch error}
+    <div class="loader">
+        <Text size="h2" text={error} />
+    </div>
 {/await}

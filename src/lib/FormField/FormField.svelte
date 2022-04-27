@@ -13,7 +13,6 @@
     export let valid: boolean = false;
     export let disabled: boolean = false;
     export let placeholder: string = "";
-    export let step: number = .1;
     export let invalidMessage: string = "";
     function numField(e) {
         // CHECK IF IT'S A NUMBER //
@@ -91,7 +90,7 @@
 {#if form === "text"}
     <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} {id} type="text" {placeholder} bind:value={value} on:blur={() => touched = true} />
 {:else if form === "number"}
-    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} {step} on:keydown={numField} {id} type="number" {placeholder} on:blur={() => touched = true}  bind:value={value} />
+    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} on:keydown={numField} {id} type="number" {placeholder} on:blur={() => touched = true}  bind:value={value} />
 {:else if form === "date"}
     <input {disabled} {id} type="date" {placeholder} class:invalid={!valid}  bind:value={value}/>
     {:else if form === "select"}
