@@ -37,6 +37,7 @@ const Navigation = (0, import_index_d2589f30.c)(($$result, $$props, $$bindings, 
   $$result.css.add(css$3);
   $$unsubscribe_globalStore();
   return `<nav class="${"svelte-bj8hib"}"><a href="${"/"}" class="${"svelte-bj8hib"}"><i class="${"fas fa-home svelte-bj8hib"}"></i></a>
+        
     <div class="${"settings svelte-bj8hib"}"><div class="${"themeSwitcher svelte-bj8hib"}"><i class="${"fas fa-" + (0, import_index_d2589f30.e)(icon) + " svelte-bj8hib"}"></i></div>
         <div class="${"avatar svelte-bj8hib"}"><i class="${"fas fa-user-circle svelte-bj8hib"}"></i></div></div>
 </nav>`;

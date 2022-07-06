@@ -20,15 +20,15 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  css: () => css,
-  entry: () => entry,
+  file: () => file,
+  imports: () => imports,
   index: () => index,
-  js: () => js,
-  module: () => module2
+  module: () => module2,
+  stylesheets: () => stylesheets
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/fallbacks/error.svelte.js"));
 const index = 1;
-const entry = "error.svelte-4ee9c2b6.js";
-const js = ["error.svelte-4ee9c2b6.js", "chunks/index-073ef55e.js"];
-const css = [];
+const file = "error.svelte-4ee9c2b6.js";
+const imports = ["error.svelte-4ee9c2b6.js", "chunks/index-073ef55e.js"];
+const stylesheets = [];

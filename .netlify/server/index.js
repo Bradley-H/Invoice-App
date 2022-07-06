@@ -837,6 +837,7 @@ async function render_response({
   resolve_opts,
   stuff
 }) {
+  var _a;
   if (state.prerendering) {
     if (options.csp.mode === "nonce") {
       throw new Error('Cannot use prerendering if config.kit.csp.mode === "nonce"');
@@ -845,9 +846,10 @@ async function render_response({
       throw new Error("Cannot use prerendering if page template contains %sveltekit.nonce%");
     }
   }
-  const stylesheets = new Set(options.manifest._.entry.css);
-  const modulepreloads = new Set(options.manifest._.entry.js);
-  const styles = /* @__PURE__ */ new Map();
+  const { entry } = options.manifest._;
+  const stylesheets = new Set(entry.stylesheets);
+  const modulepreloads = new Set(entry.imports);
+  const inline_styles = /* @__PURE__ */ new Map();
   const serialized_data = [];
   let shadow_props;
   let rendered;
@@ -857,21 +859,23 @@ async function render_response({
     error2.stack = options.get_stack(error2);
   }
   if (resolve_opts.ssr) {
-    branch.forEach(({ node, props: props2, loaded, fetched, uses_credentials }) => {
-      var _a;
-      if (node.css)
-        node.css.forEach((url) => stylesheets.add(url));
-      if (node.js)
-        node.js.forEach((url) => modulepreloads.add(url));
-      if (node.styles)
-        Object.entries(node.styles).forEach(([k, v]) => styles.set(k, v));
+    for (const { node, props: props2, loaded, fetched, uses_credentials } of branch) {
+      if (node.imports) {
+        node.imports.forEach((url) => modulepreloads.add(url));
+      }
+      if (node.stylesheets) {
+        node.stylesheets.forEach((url) => stylesheets.add(url));
+      }
+      if (node.inline_styles) {
+        Object.entries(await node.inline_styles()).forEach(([k, v]) => inline_styles.set(k, v));
+      }
       if (fetched && page_config.hydrate)
         serialized_data.push(...fetched);
       if (props2)
         shadow_props = props2;
       cache = loaded == null ? void 0 : loaded.cache;
       is_private = (_a = cache == null ? void 0 : cache.private) != null ? _a : uses_credentials;
-    });
+    }
     const session = writable($session);
     const props = {
       stores: {
@@ -880,8 +884,8 @@ async function render_response({
         session: {
           ...session,
           subscribe: (fn) => {
-            var _a;
-            is_private = (_a = cache == null ? void 0 : cache.private) != null ? _a : true;
+            var _a2;
+            is_private = (_a2 = cache == null ? void 0 : cache.private) != null ? _a2 : true;
             return session.subscribe(fn);
           }
         },
@@ -915,7 +919,6 @@ async function render_response({
     rendered = { head: "", html: "", css: { code: "", map: null } };
   }
   let { head, html: body } = rendered;
-  const inlined_style = Array.from(styles.values()).join("\n");
   await csp_ready;
   const csp = new Csp(options.csp, {
     dev: options.dev,
@@ -924,7 +927,7 @@ async function render_response({
   });
   const target = hash(body);
   const init_app = `
-		import { start } from ${s(options.prefix + options.manifest._.entry.file)};
+		import { start } from ${s(options.prefix + entry.file)};
 		start({
 			target: document.querySelector('[data-sveltekit-hydrate="${target}"]').parentNode,
 			paths: ${s(options.paths)},
@@ -950,15 +953,16 @@ async function render_response({
 			});
 		}
 	`;
-  if (inlined_style) {
+  if (inline_styles.size > 0) {
+    const content = Array.from(inline_styles.values()).join("\n");
     const attributes = [];
     if (options.dev)
       attributes.push(" data-sveltekit");
     if (csp.style_needs_nonce)
       attributes.push(` nonce="${csp.nonce}"`);
-    csp.add_style(inlined_style);
+    csp.add_style(content);
     head += `
-	<style${attributes.join("")}>${inlined_style}</style>`;
+	<style${attributes.join("")}>${content}</style>`;
   }
   head += Array.from(stylesheets).map((dep) => {
     const attributes = [
@@ -968,7 +972,7 @@ async function render_response({
     if (csp.style_needs_nonce) {
       attributes.push(`nonce="${csp.nonce}"`);
     }
-    if (styles.has(dep)) {
+    if (inline_styles.has(dep)) {
       attributes.push("disabled", 'media="(max-width: 0)"');
     }
     return `
@@ -1605,7 +1609,7 @@ async function load_node({
     }
     loaded = await module2.load.call(null, load_input);
     if (!loaded) {
-      throw new Error(`load function must return a value${options.dev ? ` (${node.entry})` : ""}`);
+      throw new Error(`load function must return a value${options.dev ? ` (${node.file})` : ""}`);
     }
   } else if (shadow.body) {
     loaded = {

@@ -28,13 +28,12 @@
 </script>
 
 <nav>
-    <a
-        on:click={() =>
+    <a on:click={() =>
             ($globalStore.modalStatus = null
                 ? ""
                 : ($globalStore.modalStatus = null))}
-        href="/"><i class="fas fa-home" /></a
-    >
+        href="/"><i class="fas fa-home" /></a>
+        
     <div class="settings">
         <div class="themeSwitcher">
             <i on:click={themeSwitch} class="fas fa-{icon}" />
@@ -46,7 +45,7 @@
 </nav>
 
 <style lang="scss">
-    @import "../../scss/util/index";
+    @import "../../scss/util/index.scss";
 
     nav {
         display: flex;

@@ -8,12 +8,11 @@
     import Tag from "$lib/Invoice/Tag.svelte";
     import ModalPrompt from "$lib/Modal/ModalPrompt.svelte";
     // VARIABLES //
-    let innerWidth;
     let prompt;
     // PROPS //
     export let status: string = "";
     export let id: string = "";
-    export let description: string = "";
+    export let description: string = ""; 
     export let createdAt: string = "";
     export let paymentDue: string = "";
     export let clientName: string = "";

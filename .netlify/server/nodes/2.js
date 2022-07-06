@@ -20,15 +20,15 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  css: () => css,
-  entry: () => entry,
+  file: () => file,
+  imports: () => imports,
   index: () => index,
-  js: () => js,
-  module: () => module2
+  module: () => module2,
+  stylesheets: () => stylesheets
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/_invoice_.svelte.js"));
 const index = 2;
-const entry = "pages/_invoice_.svelte-876dec69.js";
-const js = ["pages/_invoice_.svelte-876dec69.js", "chunks/index-073ef55e.js", "chunks/functionStore-8c3b0ec3.js", "chunks/index-6dd8a33c.js", "chunks/stores-26cb4715.js", "chunks/Tag-88b84cf8.js"];
-const css = ["assets/pages/_invoice_.svelte-f55924ae.css", "assets/functionStore-27d95290.css", "assets/stores-36343c4a.css", "assets/Tag-efb70688.css"];
+const file = "pages/_invoice_.svelte-1d3e2268.js";
+const imports = ["pages/_invoice_.svelte-1d3e2268.js", "chunks/index-073ef55e.js", "chunks/functionStore-8c3b0ec3.js", "chunks/index-6dd8a33c.js", "chunks/stores-26cb4715.js", "chunks/Tag-88b84cf8.js"];
+const stylesheets = ["assets/pages/_invoice_.svelte-f55924ae.css", "assets/functionStore-27d95290.css", "assets/stores-36343c4a.css", "assets/Tag-efb70688.css"];
