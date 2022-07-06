@@ -20,15 +20,18 @@ __export(stdin_exports, {
   a: () => subscribe,
   b: () => createEventDispatcher,
   c: () => create_ssr_component,
-  d: () => each,
+  d: () => set_store_value,
   e: () => escape,
-  f: () => safe_not_equal,
-  g: () => null_to_empty,
-  h: () => add_attribute,
-  i: () => getContext,
-  j: () => is_promise,
+  f: () => each,
+  g: () => safe_not_equal,
+  h: () => null_to_empty,
+  i: () => is_void,
+  j: () => add_attribute,
+  k: () => getContext,
+  l: () => is_promise,
   m: () => missing_component,
   n: () => noop,
+  o: () => onDestroy,
   s: () => setContext,
   v: () => validate_component
 });
@@ -60,9 +63,13 @@ function subscribe(store, ...callbacks) {
 function null_to_empty(value) {
   return value == null ? "" : value;
 }
-function custom_event(type, detail, bubbles = false) {
+function set_store_value(store, ret, value) {
+  store.set(value);
+  return ret;
+}
+function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
   const e = document.createEvent("CustomEvent");
-  e.initCustomEvent(type, bubbles, false, detail);
+  e.initCustomEvent(type, bubbles, cancelable, detail);
   return e;
 }
 let current_component;
@@ -74,25 +81,35 @@ function get_current_component() {
     throw new Error("Function called outside component initialization");
   return current_component;
 }
+function onDestroy(fn) {
+  get_current_component().$$.on_destroy.push(fn);
+}
 function createEventDispatcher() {
   const component = get_current_component();
-  return (type, detail) => {
+  return (type, detail, { cancelable = false } = {}) => {
     const callbacks = component.$$.callbacks[type];
     if (callbacks) {
-      const event = custom_event(type, detail);
+      const event = custom_event(type, detail, { cancelable });
       callbacks.slice().forEach((fn) => {
         fn.call(component, event);
       });
+      return !event.defaultPrevented;
     }
+    return true;
   };
 }
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
+  return context;
 }
 function getContext(key) {
   return get_current_component().$$.context.get(key);
 }
 Promise.resolve();
+const void_element_names = /^(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)$/;
+function is_void(name) {
+  return void_element_names.test(name) || name.toLowerCase() === "!doctype";
+}
 const escaped = {
   '"': "&quot;",
   "'": "&#39;",

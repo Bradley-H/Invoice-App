@@ -3,7 +3,7 @@
     export let text:string = ""
     export let type:string = "primary";
     export let icon:string = "";
-    export let size:any = null
+    export let size:string = ""
     export let fluid:boolean = false;
     export let disabled: boolean = false;
     export let rounded: Boolean = false
@@ -19,8 +19,7 @@
         font-weight: bold;
         min-width: 5rem;
         font-size: toRem(12);
-        min-height: 2.5rem;
-        max-height: 5.5rem;
+        height: 100%;
         @include mobileMaxUp{
             font-size: toRem(14);
             min-width: 6rem;
@@ -34,7 +33,7 @@
             background-color: $colorLight;
         }
         &.secondary{
-            background-color: lighten($colorDark,36%);
+            background-color: lighten($colorDark, 36%);
             color: white
         }
         &.accent{
@@ -53,11 +52,13 @@
         &.rounded{
             border-radius: 20px;
         }
-        &.medium{
-            width: 7rem;
-        }
         &.small{
             width: 5rem;
+        }
+        &.medium{
+            min-width: 3rem;
+            max-width: 10rem;
+            height: 3rem;
         }
         &.large{
             width: 9rem;

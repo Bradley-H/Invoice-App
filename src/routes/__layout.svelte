@@ -3,13 +3,11 @@
 import {globalStore} from '../store/globalStore';
 // COMPONENTS //
 import Navigation from "$lib/Navigation/Navigation.svelte";
-import NewInvoiceModal from "$lib/Modal/NewInvoiceModal.svelte";
-import EditInvoiceModal from "$lib/Modal/EditInvoiceModal.svelte";
+import InvoiceModal from '$lib/Modal/InvoiceModal.svelte';
 // VARIABLES //
 $: theme = $globalStore.theme;
 // SASS DEFINITIONS //
 import "../scss/styles.scss"
-
 </script>
 
 
@@ -19,9 +17,9 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: toRem(20) toRem(17);
     overflow: auto;
     @include laptopUp{
         padding: 1rem 2rem 2rem 6.5rem;
@@ -29,13 +27,12 @@ main{
 }
 </style>
 
-{#if $globalStore.modalStatus === "add"}
-<NewInvoiceModal/>
+
+{#if $globalStore.modalStatus !== null}
+<InvoiceModal/>
 {/if}
 
-{#if $globalStore.modalStatus === "edit"}
-<EditInvoiceModal/>
-{/if}
+
 <Navigation/>
 <main class="bgColor{theme}">
     <slot/>

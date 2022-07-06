@@ -22,11 +22,13 @@ var stdin_exports = {};
 __export(stdin_exports, {
   css: () => css,
   entry: () => entry,
+  index: () => index,
   js: () => js,
   module: () => module2
 });
 module.exports = __toCommonJS(stdin_exports);
 var module2 = __toESM(require("../entries/pages/index.svelte.js"));
-const entry = "pages/index.svelte-9b9b46e2.js";
-const js = ["pages/index.svelte-9b9b46e2.js", "chunks/index-322d0d15.js", "chunks/functionStore-c077fe91.js", "chunks/index-6d8f5e96.js", "chunks/Tag-3c3d1292.js", "chunks/FormField-52508872.js"];
-const css = ["assets/pages/index.svelte-93f845c6.css", "assets/functionStore-efcb04ee.css", "assets/Tag-dcf708ac.css", "assets/FormField-1cf116ce.css"];
+const index = 3;
+const entry = "pages/index.svelte-1e4fff25.js";
+const js = ["pages/index.svelte-1e4fff25.js", "chunks/index-073ef55e.js", "chunks/functionStore-8c3b0ec3.js", "chunks/index-6dd8a33c.js", "chunks/Tag-88b84cf8.js", "chunks/InvoiceOptions-56065fa8.js"];
+const css = ["assets/pages/index.svelte-e197cffe.css", "assets/functionStore-27d95290.css", "assets/Tag-efb70688.css", "assets/InvoiceOptions-b071cc79.css"];

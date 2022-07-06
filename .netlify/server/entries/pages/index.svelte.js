@@ -20,17 +20,17 @@ __export(stdin_exports, {
   default: () => Routes
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_80978f94 = require("../../chunks/index-80978f94.js");
-var import_Button_9a73138b = require("../../chunks/Button-9a73138b.js");
-var import_functionStore_c189635e = require("../../chunks/functionStore-c189635e.js");
-var import_Tag_65981a06 = require("../../chunks/Tag-65981a06.js");
-var Invoice_svelte_svelte_type_style_lang = "";
+var import_index_d2589f30 = require("../../chunks/index-d2589f30.js");
+var import_functionStore_31d719cc = require("../../chunks/functionStore-31d719cc.js");
+var import_Tag_a0045b76 = require("../../chunks/Tag-a0045b76.js");
+var import_InvoiceOptions_4b5fe3d5 = require("../../chunks/InvoiceOptions-4b5fe3d5.js");
+var Invoice_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{display:flex;flex-direction:column}.container-invoice.svelte-1s6sk94.svelte-1s6sk94{display:grid;grid-template-columns:1fr 0fr;width:100%}@media(min-width: 992px){.container-invoice.svelte-1s6sk94.svelte-1s6sk94{grid-template-columns:2fr 1fr}}.container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{justify-content:end}@media(min-width: 768px) and (max-width: 991px){.container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{flex-direction:row;align-items:center}}@media(min-width: 768px){.container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{padding:1rem}}.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr;padding:1rem;gap:10px}@media(min-width: 520px) and (max-width: 767px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 2fr;place-items:center}}@media(min-width: 768px) and (max-width: 991px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 2fr;text-align:center;padding:0}}@media(min-width: 992px) and (max-width: 1199px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 70%;text-align:center;align-items:center}}@media(min-width: 1200px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 2fr;align-items:center;padding:0}}.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:flex;flex-direction:column;justify-content:space-around;gap:5px}@media(min-width: 520px) and (max-width: 767px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;grid-template-columns:1fr;align-items:center;gap:10px}}@media(min-width: 768px) and (max-width: 991px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;place-items:center;margin:0;grid-template-columns:1fr 1fr}}@media(min-width: 992px) and (max-width: 1199px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;grid-template-columns:2fr 1fr;align-items:center}}@media(min-width: 1200px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;text-align:center;gap:10px}}.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr;justify-content:center;text-align:center;align-items:center;padding:0.5rem;width:95%;margin-right:-1rem;gap:7px}@media(min-width: 520px) and (max-width: 767px){.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr 1fr;place-items:center;gap:16px;justify-content:center}}@media(min-width: 992px) and (max-width: 1199px){.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr 1fr}}@media(min-width: 1200px){.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:flex;justify-content:center;align-items:center;padding:0 0.5rem 0 0}}")();
 const css$1 = {
   code: ".container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{display:flex;flex-direction:column}.container-invoice.svelte-1s6sk94.svelte-1s6sk94{display:grid;grid-template-columns:1fr 0fr;width:100%}@media(min-width: 992px){.container-invoice.svelte-1s6sk94.svelte-1s6sk94{grid-template-columns:2fr 1fr}}.container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{justify-content:end}@media(min-width: 768px) and (max-width: 991px){.container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{flex-direction:row;align-items:center}}@media(min-width: 768px){.container-invoice.svelte-1s6sk94 div.svelte-1s6sk94{padding:1rem}}.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr;padding:1rem;gap:10px}@media(min-width: 520px) and (max-width: 767px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 2fr;place-items:center}}@media(min-width: 768px) and (max-width: 991px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 2fr;text-align:center;padding:0}}@media(min-width: 992px) and (max-width: 1199px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 70%;text-align:center;align-items:center}}@media(min-width: 1200px){.container-invoice.svelte-1s6sk94 .dueInformation.svelte-1s6sk94{grid-template-columns:1fr 2fr;align-items:center;padding:0}}.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:flex;flex-direction:column;justify-content:space-around;gap:5px}@media(min-width: 520px) and (max-width: 767px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;grid-template-columns:1fr;align-items:center;gap:10px}}@media(min-width: 768px) and (max-width: 991px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;place-items:center;margin:0;grid-template-columns:1fr 1fr}}@media(min-width: 992px) and (max-width: 1199px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;grid-template-columns:2fr 1fr;align-items:center}}@media(min-width: 1200px){.container-invoice.svelte-1s6sk94 .dueInformation div.svelte-1s6sk94{display:grid;text-align:center;gap:10px}}.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr;justify-content:center;text-align:center;align-items:center;padding:0.5rem;width:95%;margin-right:-1rem;gap:7px}@media(min-width: 520px) and (max-width: 767px){.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr 1fr;place-items:center;gap:16px;justify-content:center}}@media(min-width: 992px) and (max-width: 1199px){.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:grid;grid-template-columns:1fr 1fr}}@media(min-width: 1200px){.container-invoice.svelte-1s6sk94 .paymentInformation.svelte-1s6sk94{display:flex;justify-content:center;align-items:center;padding:0 0.5rem 0 0}}",
   map: null
 };
-const Invoice = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
-  let { id } = $$props;
+const Invoice = (0, import_index_d2589f30.c)(($$result, $$props, $$bindings, slots) => {
+  let { id = "" } = $$props;
   let { paymentDue = "" } = $$props;
   let { total = 0 } = $$props;
   let { clientName = "" } = $$props;
@@ -46,38 +46,32 @@ const Invoice = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slo
   if ($$props.status === void 0 && $$bindings.status && status !== void 0)
     $$bindings.status(status);
   $$result.css.add(css$1);
-  return `${(0, import_index_80978f94.v)(import_functionStore_c189635e.C, "Card").$$render($$result, { inv: true, id }, {}, {
+  return `${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.C, "Card").$$render($$result, { inv: true, id }, {}, {
     default: () => {
-      return `<div class="${"container-invoice svelte-1s6sk94"}"><div class="${"dueInformation svelte-1s6sk94"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: "#" + id }, {}, {})}
-            <div class="${"svelte-1s6sk94"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+      return `<div class="${"container-invoice svelte-1s6sk94"}"><div class="${"dueInformation svelte-1s6sk94"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h3", text: "#" + id }, {}, {})}
+            <div class="${"svelte-1s6sk94"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
         size: "p",
-        text: "Due: " + (0, import_functionStore_c189635e.c)(paymentDue, 0)
+        text: "Due: " + (0, import_functionStore_31d719cc.c)(paymentDue, 0)
       }, {}, {})}
-                ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+                ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
         size: "h3",
-        text: "$" + (0, import_functionStore_c189635e.n)(total.toFixed(2))
+        text: "$" + (0, import_functionStore_31d719cc.n)(total.toFixed(2))
       }, {}, {})}</div></div>
-    <div class="${"paymentInformation svelte-1s6sk94"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: clientName }, {}, {})}
-        ${(0, import_index_80978f94.v)(import_Tag_65981a06.T, "Tag").$$render($$result, { status }, {}, {})}</div></div>`;
+    <div class="${"paymentInformation svelte-1s6sk94"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: clientName }, {}, {})}
+        ${(0, import_index_d2589f30.v)(import_Tag_a0045b76.T, "Tag").$$render($$result, { status }, {}, {})}</div></div>`;
     }
   })}`;
 });
-var index_svelte_svelte_type_style_lang = "";
+var index_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".container.svelte-1h70dj0.svelte-1h70dj0{display:flex;flex-direction:column;width:100%;max-width:62.5rem}@media(min-width: 1200px){.container.svelte-1h70dj0.svelte-1h70dj0{display:grid;grid-template-columns:1fr;max-width:75rem}}.container.svelte-1h70dj0 div.invoices.svelte-1h70dj0{display:flex;flex-direction:column;width:100%;max-width:62.5rem;margin-top:1.5rem}@media(min-width: 992px) and (max-width: 1199px){.container.svelte-1h70dj0 div.invoices.svelte-1h70dj0{display:grid;place-items:center}}@media(min-width: 1200px){.container.svelte-1h70dj0 div.invoices.svelte-1h70dj0{display:grid;grid-template-columns:1fr 1fr;gap:7px;justify-self:center;max-width:75rem}}.container.svelte-1h70dj0 .helperBar.svelte-1h70dj0{display:flex;justify-content:space-between;margin-top:1.25rem}.container.svelte-1h70dj0 .helperBar_invoice.svelte-1h70dj0{display:flex;flex-direction:column;justify-content:center;margin-right:1rem;gap:0.3125rem}.container.svelte-1h70dj0 .helperBar .settings.svelte-1h70dj0{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width: 768px){.container.svelte-1h70dj0 .helperBar .settings.svelte-1h70dj0{place-items:initial;gap:30px}}.container.svelte-1h70dj0 .loading.svelte-1h70dj0{display:flex;justify-content:center;align-items:center;height:80vh}.noInvoices.svelte-1h70dj0.svelte-1h70dj0{display:flex;justify-content:center;align-items:center;flex-direction:column;height:60vh}.noInvoices.svelte-1h70dj0 div.svelte-1h70dj0{text-align:center;margin-top:1rem}")();
 const css = {
-  code: ".container.svelte-1uvekrk.svelte-1uvekrk{display:flex;flex-direction:column;width:100%;max-width:62.5rem}@media(min-width: 1200px){.container.svelte-1uvekrk.svelte-1uvekrk{display:grid;grid-template-columns:1fr;max-width:75rem}}.container.svelte-1uvekrk div.invoices.svelte-1uvekrk{display:flex;flex-direction:column;width:100%;max-width:62.5rem;margin-top:1.5rem}@media(min-width: 992px) and (max-width: 1199px){.container.svelte-1uvekrk div.invoices.svelte-1uvekrk{display:grid;place-items:center}}@media(min-width: 1200px){.container.svelte-1uvekrk div.invoices.svelte-1uvekrk{display:grid;grid-template-columns:1fr 1fr;gap:7px;justify-self:center;max-width:75rem}}.container.svelte-1uvekrk .helperBar.svelte-1uvekrk{display:flex;justify-content:space-between;margin-top:1.25rem}.container.svelte-1uvekrk .helperBar_invoice.svelte-1uvekrk{display:flex;flex-direction:column;justify-content:center;margin-right:1rem;gap:0.3125rem}.container.svelte-1uvekrk .helperBar .settings.svelte-1uvekrk{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width: 768px){.container.svelte-1uvekrk .helperBar .settings.svelte-1uvekrk{place-items:initial;gap:30px}}.container.svelte-1uvekrk .loading.svelte-1uvekrk{display:flex;justify-content:center;align-items:center;height:80vh}.noInvoices.svelte-1uvekrk.svelte-1uvekrk{display:flex;justify-content:center;align-items:center;flex-direction:column;min-height:50vh}.noInvoices.svelte-1uvekrk div.svelte-1uvekrk{text-align:center;margin-top:1rem}",
+  code: ".container.svelte-1h70dj0.svelte-1h70dj0{display:flex;flex-direction:column;width:100%;max-width:62.5rem}@media(min-width: 1200px){.container.svelte-1h70dj0.svelte-1h70dj0{display:grid;grid-template-columns:1fr;max-width:75rem}}.container.svelte-1h70dj0 div.invoices.svelte-1h70dj0{display:flex;flex-direction:column;width:100%;max-width:62.5rem;margin-top:1.5rem}@media(min-width: 992px) and (max-width: 1199px){.container.svelte-1h70dj0 div.invoices.svelte-1h70dj0{display:grid;place-items:center}}@media(min-width: 1200px){.container.svelte-1h70dj0 div.invoices.svelte-1h70dj0{display:grid;grid-template-columns:1fr 1fr;gap:7px;justify-self:center;max-width:75rem}}.container.svelte-1h70dj0 .helperBar.svelte-1h70dj0{display:flex;justify-content:space-between;margin-top:1.25rem}.container.svelte-1h70dj0 .helperBar_invoice.svelte-1h70dj0{display:flex;flex-direction:column;justify-content:center;margin-right:1rem;gap:0.3125rem}.container.svelte-1h70dj0 .helperBar .settings.svelte-1h70dj0{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(min-width: 768px){.container.svelte-1h70dj0 .helperBar .settings.svelte-1h70dj0{place-items:initial;gap:30px}}.container.svelte-1h70dj0 .loading.svelte-1h70dj0{display:flex;justify-content:center;align-items:center;height:80vh}.noInvoices.svelte-1h70dj0.svelte-1h70dj0{display:flex;justify-content:center;align-items:center;flex-direction:column;height:60vh}.noInvoices.svelte-1h70dj0 div.svelte-1h70dj0{text-align:center;margin-top:1rem}",
   map: null
 };
-const Routes = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
+const Routes = (0, import_index_d2589f30.c)(($$result, $$props, $$bindings, slots) => {
   let filter;
   let filteredInvoices;
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(import_functionStore_c189635e.g, (value) => $globalStore = value);
-  const options = [
-    { id: 0, text: "All", value: "all" },
-    { id: 1, text: "Paid", value: "paid" },
-    { id: 2, text: "Pending", value: "pending" },
-    { id: 3, text: "Draft", value: "draft" }
-  ];
+  $$unsubscribe_globalStore = (0, import_index_d2589f30.a)(import_functionStore_31d719cc.g, (value) => $globalStore = value);
   $$result.css.add(css);
   let $$settled;
   let $$rendered;
@@ -85,11 +79,11 @@ const Routes = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slot
     $$settled = true;
     filter = "all";
     filteredInvoices = $globalStore.invoices.filter((invoice) => invoice.status === filter || filter === "all");
-    $$rendered = `<div class="${"container svelte-1uvekrk"}">${function(__value) {
-      if ((0, import_index_80978f94.j)(__value)) {
-        __value.then(null, import_index_80978f94.n);
+    $$rendered = `<div class="${"container svelte-1h70dj0"}">${function(__value) {
+      if ((0, import_index_d2589f30.l)(__value)) {
+        __value.then(null, import_index_d2589f30.n);
         return `
-    <div class="${"loading svelte-1uvekrk"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+    <div class="${"loading svelte-1h70dj0"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
           size: "h3",
           text: "Getting invoices, please wait"
         }, {}, {})}</div>
@@ -97,15 +91,15 @@ const Routes = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slot
       }
       return function() {
         return ` 
-    <div class="${"helperBar svelte-1uvekrk"}"><div class="${"helperBar_invoice svelte-1uvekrk"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h2", text: "Invoices" }, {}, {})}
-            ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+    <div class="${"helperBar svelte-1h70dj0"}"><div class="${"helperBar_invoice svelte-1h70dj0"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h2", text: "Invoices" }, {}, {})}
+            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
           size: "p",
           text: filteredInvoices.length + " invoices"
         }, {}, {})}</div>
-        <div class="${"settings svelte-1uvekrk"}">${(0, import_index_80978f94.v)(import_Button_9a73138b.F, "FormField").$$render($$result, {
+        <div class="${"settings svelte-1h70dj0"}">${(0, import_index_d2589f30.v)(import_InvoiceOptions_4b5fe3d5.F, "FormField").$$render($$result, {
           id: "filter",
           form: "select",
-          options,
+          options: import_InvoiceOptions_4b5fe3d5.a,
           value: filter
         }, {
           value: ($$value) => {
@@ -113,38 +107,39 @@ const Routes = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slot
             $$settled = false;
           }
         }, {})}
-            ${(0, import_index_80978f94.v)(import_Button_9a73138b.B, "Button").$$render($$result, {
+            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
           rounded: true,
+          fluid: true,
           icon: "plus",
           text: "Add Invoice"
         }, {}, {})}</div></div>
-    ${$globalStore.invoices.length > 0 ? `<div class="${"invoices svelte-1uvekrk"}">${(0, import_index_80978f94.d)(filteredInvoices, ({ id, paymentDue, total, clientName, status }, i) => {
-          return `${(0, import_index_80978f94.v)(Invoice, "Invoice").$$render($$result, {
+    ${$globalStore.invoices.length > 0 ? `<div class="${"invoices svelte-1h70dj0"}">${(0, import_index_d2589f30.f)(filteredInvoices, ({ id, paymentDue, total, clientName, status }, i) => {
+          return `${(0, import_index_d2589f30.v)(Invoice, "Invoice").$$render($$result, {
             id,
             paymentDue,
             total,
             clientName,
             status
           }, {}, {})}`;
-        })}</div>` : `<div class="${"noInvoices svelte-1uvekrk"}"><img src="${"./noinvoice.svg"}" alt="${"No invoice"}">
-            <div class="${"svelte-1uvekrk"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+        })}</div>` : `<div class="${"noInvoices svelte-1h70dj0"}"><img src="${"/noInvoice.svg"}" alt="${"No invoice"}">
+            <div class="${"svelte-1h70dj0"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
           title: true,
           size: "h2",
           text: "No Invoices"
         }, {}, {})}
-                ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+                ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
           title: true,
           size: "p",
           text: "To Create an Invoice"
         }, {}, {})}
-                ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+                ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
           title: true,
           size: "p",
           text: "Click 'Add invoice' at the top"
         }, {}, {})}</div></div>`}
     `;
       }();
-    }((0, import_functionStore_c189635e.a)())}</div>`;
+    }((0, import_functionStore_31d719cc.b)())}</div>`;
   } while (!$$settled);
   $$unsubscribe_globalStore();
   return $$rendered;

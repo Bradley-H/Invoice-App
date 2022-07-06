@@ -1,9 +1,9 @@
 import { globalStore } from './globalStore';
 
-export  function convertDate(date, term = 30 ) {
+export  function convertDate(date, term ) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let newDate = new Date(date);
-    let month = ( months[newDate.getMonth() + (term/ 30)]   );
+    let month = ( months[newDate.getMonth() + (term / 30)]   );
     let day = (newDate.getDate());
     let year = newDate.getFullYear();
     return `${month} ${day}, ${year}`;

@@ -2,30 +2,48 @@
     // STORES //
     import { globalStore } from "../../store/globalStore";
     // SVELTE IMPORTS //
-    import {onMount} from 'svelte';
+    import { onMount } from "svelte";
     // SCSS DEFINITIONS //
     import "../../scss/styles.scss";
     // VARIABLES //
-    let icon = "moon"
+    let icon = "moon";
     // FUNCTIONS //
-    function themeSwitch(){
-        if($globalStore.theme === "Dark"){
+    function themeSwitch() {
+        if ($globalStore.theme === "Dark") {
             $globalStore.theme = "Light";
             icon = "sun";
         } else {
-            $globalStore.theme = "Dark";            
+            $globalStore.theme = "Dark";
             icon = "moon";
         }
         // SAVE THEME TO LOCAL STORAGE //
         localStorage.setItem("theme", $globalStore.theme);
-    }    
+    }
     onMount(() => {
         // IF LOCALSTORAGE HAS A THEME SET, SET THE STORE TO THAT THEME //
-        if(localStorage.getItem("theme") !== null){
+        if (localStorage.getItem("theme") !== null) {
             $globalStore.theme = localStorage.getItem("theme");
         }
-    })
+    });
 </script>
+
+<nav>
+    <a
+        on:click={() =>
+            ($globalStore.modalStatus = null
+                ? ""
+                : ($globalStore.modalStatus = null))}
+        href="/"><i class="fas fa-home" /></a
+    >
+    <div class="settings">
+        <div class="themeSwitcher">
+            <i on:click={themeSwitch} class="fas fa-{icon}" />
+        </div>
+        <div class="avatar">
+            <i class="fas fa-user-circle" />
+        </div>
+    </div>
+</nav>
 
 <style lang="scss">
     @import "../../scss/util/index";
@@ -52,7 +70,7 @@
             height: 100%;
             font-size: toRem(28);
             margin: 0 0 0 auto;
-            @include laptopUp{
+            @include laptopUp {
                 flex-direction: column;
                 width: $navWidth;
                 height: 100%;
@@ -67,8 +85,8 @@
             .themeSwitcher {
                 border-right: 2px solid rgba($color: grey, $alpha: 0.6);
                 height: 100%;
-                padding:0 toRem(25) 0 toRem(25);
-                @include laptopUp{
+                padding: 0 toRem(25) 0 toRem(25);
+                @include laptopUp {
                     border-bottom: 2px solid rgba($color: grey, $alpha: 0.6);
                     border-right: none;
                     width: $navWidth;
@@ -79,7 +97,7 @@
             }
             .avatar {
                 padding: 0 toRem(25);
-                @include laptopUp{
+                @include laptopUp {
                     padding: toRem(20) 0 toRem(15) 0;
                 }
             }
@@ -100,17 +118,3 @@
         }
     }
 </style>
-
-
-
-<nav>
-    <a on:click={() => $globalStore.modalStatus = null ? "" : $globalStore.modalStatus = null} href="/"><i class="fas fa-home"></i></a>
-    <div class="settings">
-        <div class="themeSwitcher">
-           <i on:click={themeSwitch} class="fas fa-{icon}">
-        </div>
-        <div class="avatar">
-            <i class="fas fa-user-circle"/>
-        </div>
-    </div>
-</nav>

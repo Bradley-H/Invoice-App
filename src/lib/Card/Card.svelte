@@ -16,7 +16,7 @@
         @extend %flex;
         position: relative;
         width: 100%;
-        padding: 1rem;
+        padding: .6rem;
         margin-top: .5rem;
         &.Dark {
             background-color: lighten($color: $bgColorDark, $amount: 9);

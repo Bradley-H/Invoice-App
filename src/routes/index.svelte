@@ -5,12 +5,7 @@ import Invoice from '$lib/Invoice/Invoice.svelte';
 import Text from '$lib/Text/Text.svelte';
 import FormField from '$lib/FormField/FormField.svelte';
 // CONSTANTS //
-const options = [
-    {id: 0, text: "All", value:"all"},
-    {id: 1, text: "Paid", value:"paid"},
-    {id: 2, text: "Pending", value:"pending"},
-    {id: 3, text: "Draft", value:"draft"},
-]
+import {options1} from '../constants/InvoiceOptions'
 // STORES //
 import { globalStore } from '../store/globalStore';
 // VARIABLES AND REACTIVE VALUES //
@@ -83,7 +78,7 @@ import {getInvoicesIndex} from '../store/functionStore';
     .noInvoices{
             @include centered;
             flex-direction: column;
-            min-height: 50vh;
+            height: 60vh;
             div{
                 text-align: center;
                 margin-top: 1rem;
@@ -104,8 +99,8 @@ import {getInvoicesIndex} from '../store/functionStore';
             <Text size="p" text="{filteredInvoices.length} invoices"/>
         </div>
         <div class="settings">
-            <FormField id="filter" form="select" {options} bind:value={filter}/>
-            <Button rounded icon="plus" text="Add Invoice" on:click={() => $globalStore.modalStatus = "add"}/>
+            <FormField id="filter" form="select" options={options1} bind:value={filter}/>
+            <Button rounded fluid icon="plus" text="Add Invoice" on:click={() => $globalStore.modalStatus = "add"}/>
         </div>
     </div>
     {#if $globalStore.invoices.length > 0}
@@ -116,7 +111,7 @@ import {getInvoicesIndex} from '../store/functionStore';
         </div>
         {:else}
         <div class="noInvoices">
-            <img src="./noinvoice.svg" alt="No invoice">
+            <img src="/noInvoice.svg" alt="No invoice">
             <div>
                 <Text title size="h2" text="No Invoices"/>
                 <Text title size="p" text="To Create an Invoice"/>

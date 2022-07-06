@@ -1,21 +1,7 @@
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -34,31 +20,31 @@ __export(stdin_exports, {
   default: () => U5Binvoiceu5D
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_80978f94 = require("../../chunks/index-80978f94.js");
-var import_functionStore_c189635e = require("../../chunks/functionStore-c189635e.js");
-var import_stores_f168da72 = require("../../chunks/stores-f168da72.js");
-var import_Tag_65981a06 = require("../../chunks/Tag-65981a06.js");
-var InvoiceInformation_svelte_svelte_type_style_lang = "";
+var import_index_d2589f30 = require("../../chunks/index-d2589f30.js");
+var import_functionStore_31d719cc = require("../../chunks/functionStore-31d719cc.js");
+var import_stores_7cb77692 = require("../../chunks/stores-7cb77692.js");
+var import_Tag_a0045b76 = require("../../chunks/Tag-a0045b76.js");
+var InvoiceInformation_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".btns.svelte-lrrse9.svelte-lrrse9,.backButton.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList-items-total.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList-items.svelte-lrrse9.svelte-lrrse9,.bottomCard_buttons.svelte-lrrse9.svelte-lrrse9,.topCard.svelte-lrrse9.svelte-lrrse9{display:flex}.bottomCard_invoiceInfo-billTo-invoiceDate.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-invoiceDue.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-client-information.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-client.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList-items-description.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-senderInfo.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-ID.svelte-lrrse9.svelte-lrrse9,.bottomCard.svelte-lrrse9.svelte-lrrse9,.invoiceContainer.svelte-lrrse9.svelte-lrrse9{display:flex;flex-direction:column}.bottomCard_invoiceInfo-billTo.svelte-lrrse9 .bottomCard_invoiceInfo-billTo-email.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-invoices.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-details.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo.svelte-lrrse9.svelte-lrrse9{display:grid}.invoiceContainer.svelte-lrrse9.svelte-lrrse9{width:100%;max-width:62.5rem}.topCard.svelte-lrrse9.svelte-lrrse9{margin-bottom:1rem}@media(min-width: 768px){.topCard.svelte-lrrse9.svelte-lrrse9{justify-content:space-between}}.topCard_invoiceStatus.svelte-lrrse9.svelte-lrrse9{display:flex;justify-content:center;align-items:center;gap:0.9375rem;width:100%;padding:0.125rem}@media(min-width: 520px) and (max-width: 767px){.topCard_invoiceStatus.svelte-lrrse9.svelte-lrrse9{justify-content:center;gap:3rem}}@media(min-width: 768px){.topCard_invoiceStatus.svelte-lrrse9.svelte-lrrse9{justify-content:center}}.topCard_buttons.svelte-lrrse9.svelte-lrrse9{display:none;width:100%;justify-content:end;margin-right:1rem;gap:1.5625rem}@media(min-width: 768px){.topCard_buttons.svelte-lrrse9.svelte-lrrse9{display:flex}}.bottomCard_buttons.svelte-lrrse9.svelte-lrrse9{width:100%}@media(min-width: 768px){.bottomCard_buttons.svelte-lrrse9.svelte-lrrse9{display:none}}.bottomCard_invoiceInfo.svelte-lrrse9.svelte-lrrse9{padding:0.4rem;width:100%}.bottomCard_invoiceInfo-ID.svelte-lrrse9.svelte-lrrse9{gap:7px}.bottomCard_invoiceInfo-details.svelte-lrrse9.svelte-lrrse9{margin-bottom:3rem}@media(min-width: 520px){.bottomCard_invoiceInfo-details.svelte-lrrse9.svelte-lrrse9{grid-template-columns:1fr 1fr}}.bottomCard_invoiceInfo-senderInfo.svelte-lrrse9.svelte-lrrse9{gap:0.375rem;margin:2rem 0}@media(min-width: 520px){.bottomCard_invoiceInfo-senderInfo.svelte-lrrse9.svelte-lrrse9{margin:0;align-items:flex-end}}.bottomCard_invoiceInfo-itemList.svelte-lrrse9.svelte-lrrse9{place-self:center;margin:2rem 0 0 0;max-width:600px;width:100%}.bottomCard_invoiceInfo-itemList-items.svelte-lrrse9.svelte-lrrse9{justify-content:space-between;padding:0.5rem;margin-bottom:0.5rem;align-items:center}.bottomCard_invoiceInfo-itemList-items-total.svelte-lrrse9.svelte-lrrse9{justify-content:space-between;background-color:black;padding:1rem;width:100%;border-bottom-left-radius:12px;border-bottom-right-radius:12px}.bottomCard_invoiceInfo-itemList-items-total.svelte-lrrse9 h3.svelte-lrrse9{color:white}.bottomCard_invoiceInfo-itemList-items-description.svelte-lrrse9.svelte-lrrse9{gap:5px}.bottomCard_invoiceInfo-billTo.svelte-lrrse9.svelte-lrrse9{grid-template-columns:1fr 1fr;gap:35px}@media(min-width: 768px){.bottomCard_invoiceInfo-billTo.svelte-lrrse9.svelte-lrrse9{grid-template-columns:1fr 1fr 0.25fr}}.bottomCard_invoiceInfo-billTo-invoices.svelte-lrrse9.svelte-lrrse9{gap:20px}.bottomCard_invoiceInfo-billTo.svelte-lrrse9 .bottomCard_invoiceInfo-billTo-email.svelte-lrrse9{grid-column:span 2/span 2;gap:9px}@media(min-width: 768px){.bottomCard_invoiceInfo-billTo.svelte-lrrse9 .bottomCard_invoiceInfo-billTo-email.svelte-lrrse9{display:flex;flex-direction:column;grid-column:unset}}@media(min-width: 520px) and (max-width: 767px){.bottomCard_invoiceInfo-billTo-client.svelte-lrrse9.svelte-lrrse9{justify-content:flex-end}}.bottomCard_invoiceInfo-billTo-client-information.svelte-lrrse9.svelte-lrrse9{gap:0.4375rem}.bottomCard_invoiceInfo-billTo-invoiceDate.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-invoiceDue.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-client.svelte-lrrse9.svelte-lrrse9{gap:9px}.btns.svelte-lrrse9.svelte-lrrse9{justify-content:space-evenly;align-items:center;width:100%;gap:0.375rem}")();
 const css$1 = {
-  code: ".btns.svelte-1m31m9p.svelte-1m31m9p,.backButton.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-itemList-items-total.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-itemList-items.svelte-1m31m9p.svelte-1m31m9p,.topCard_btns.svelte-1m31m9p.svelte-1m31m9p,.topCard.svelte-1m31m9p.svelte-1m31m9p{display:flex}.bottomCard_invoiceInfo-billTo-invoiceDate.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-billTo-invoiceDue.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-billTo-client.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-senderInfo.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-ID.svelte-1m31m9p.svelte-1m31m9p,.bottomCard.svelte-1m31m9p.svelte-1m31m9p,.invoiceContainer.svelte-1m31m9p.svelte-1m31m9p{display:flex;flex-direction:column}.bottomCard_invoiceInfo-billTo.svelte-1m31m9p .bottomCard_invoiceInfo-billTo-email.svelte-1m31m9p,.bottomCard_invoiceInfo-billTo-invoices.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-billTo.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-itemList.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-details.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo.svelte-1m31m9p.svelte-1m31m9p{display:grid}.invoiceContainer.svelte-1m31m9p.svelte-1m31m9p{width:100%;max-width:62.5rem}.topCard.svelte-1m31m9p.svelte-1m31m9p{margin-bottom:1rem}@media(min-width: 768px){.topCard.svelte-1m31m9p.svelte-1m31m9p{justify-content:space-between}}.topCard_invoiceStatus.svelte-1m31m9p.svelte-1m31m9p{display:flex;justify-content:center;align-items:center;gap:0.9375rem;width:100%;padding:0.125rem}@media(min-width: 520px) and (max-width: 767px){.topCard_invoiceStatus.svelte-1m31m9p.svelte-1m31m9p{justify-content:center;gap:3rem}}@media(min-width: 768px){.topCard_invoiceStatus.svelte-1m31m9p.svelte-1m31m9p{justify-content:center}}.topCard_btns.svelte-1m31m9p.svelte-1m31m9p{width:100%;justify-content:end;margin-right:1rem;gap:1.5625rem}.bottomCard_invoiceInfo.svelte-1m31m9p.svelte-1m31m9p{padding:0.4rem;width:100%}.bottomCard_invoiceInfo-ID.svelte-1m31m9p.svelte-1m31m9p{gap:7px}.bottomCard_invoiceInfo-details.svelte-1m31m9p.svelte-1m31m9p{margin-bottom:3rem}@media(min-width: 520px){.bottomCard_invoiceInfo-details.svelte-1m31m9p.svelte-1m31m9p{grid-template-columns:1fr 1fr}}.bottomCard_invoiceInfo-senderInfo.svelte-1m31m9p.svelte-1m31m9p{gap:0.375rem;margin:2rem 0}@media(min-width: 520px){.bottomCard_invoiceInfo-senderInfo.svelte-1m31m9p.svelte-1m31m9p{margin:0;align-items:flex-end}}.bottomCard_invoiceInfo-itemList.svelte-1m31m9p.svelte-1m31m9p{place-self:center;margin:2rem 0 0 0;max-width:600px;width:100%}.bottomCard_invoiceInfo-itemList-items.svelte-1m31m9p.svelte-1m31m9p{justify-content:space-between;padding:0.5rem;margin-bottom:0.5rem;align-items:center}.bottomCard_invoiceInfo-itemList-items-total.svelte-1m31m9p.svelte-1m31m9p{justify-content:space-between;background-color:black;padding:1rem;width:100%;border-bottom-left-radius:12px;border-bottom-right-radius:12px}.bottomCard_invoiceInfo-itemList-items-total.svelte-1m31m9p h3.svelte-1m31m9p{color:white}.bottomCard_invoiceInfo-itemList-items-description.svelte-1m31m9p.svelte-1m31m9p{display:flex;flex-direction:column;gap:5px}.bottomCard_invoiceInfo-billTo.svelte-1m31m9p.svelte-1m31m9p{grid-template-columns:1fr 1fr;gap:35px}@media(min-width: 768px){.bottomCard_invoiceInfo-billTo.svelte-1m31m9p.svelte-1m31m9p{grid-template-columns:1fr 1fr 0.25fr}}.bottomCard_invoiceInfo-billTo-invoices.svelte-1m31m9p.svelte-1m31m9p{gap:20px}.bottomCard_invoiceInfo-billTo.svelte-1m31m9p .bottomCard_invoiceInfo-billTo-email.svelte-1m31m9p{grid-column:span 2/span 2;gap:9px}@media(min-width: 768px){.bottomCard_invoiceInfo-billTo.svelte-1m31m9p .bottomCard_invoiceInfo-billTo-email.svelte-1m31m9p{display:flex;flex-direction:column;grid-column:unset}}@media(min-width: 520px) and (max-width: 767px){.bottomCard_invoiceInfo-billTo-client.svelte-1m31m9p.svelte-1m31m9p{justify-content:flex-end}}.bottomCard_invoiceInfo-billTo-client-information.svelte-1m31m9p.svelte-1m31m9p{display:flex;flex-direction:column;gap:0.4375rem}.bottomCard_invoiceInfo-billTo-invoiceDate.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-billTo-invoiceDue.svelte-1m31m9p.svelte-1m31m9p,.bottomCard_invoiceInfo-billTo-client.svelte-1m31m9p.svelte-1m31m9p{gap:9px}.btns.svelte-1m31m9p.svelte-1m31m9p{justify-content:space-evenly;align-items:center;width:100%;gap:0.375rem}",
+  code: ".btns.svelte-lrrse9.svelte-lrrse9,.backButton.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList-items-total.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList-items.svelte-lrrse9.svelte-lrrse9,.bottomCard_buttons.svelte-lrrse9.svelte-lrrse9,.topCard.svelte-lrrse9.svelte-lrrse9{display:flex}.bottomCard_invoiceInfo-billTo-invoiceDate.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-invoiceDue.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-client-information.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-client.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList-items-description.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-senderInfo.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-ID.svelte-lrrse9.svelte-lrrse9,.bottomCard.svelte-lrrse9.svelte-lrrse9,.invoiceContainer.svelte-lrrse9.svelte-lrrse9{display:flex;flex-direction:column}.bottomCard_invoiceInfo-billTo.svelte-lrrse9 .bottomCard_invoiceInfo-billTo-email.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-invoices.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-itemList.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-details.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo.svelte-lrrse9.svelte-lrrse9{display:grid}.invoiceContainer.svelte-lrrse9.svelte-lrrse9{width:100%;max-width:62.5rem}.topCard.svelte-lrrse9.svelte-lrrse9{margin-bottom:1rem}@media(min-width: 768px){.topCard.svelte-lrrse9.svelte-lrrse9{justify-content:space-between}}.topCard_invoiceStatus.svelte-lrrse9.svelte-lrrse9{display:flex;justify-content:center;align-items:center;gap:0.9375rem;width:100%;padding:0.125rem}@media(min-width: 520px) and (max-width: 767px){.topCard_invoiceStatus.svelte-lrrse9.svelte-lrrse9{justify-content:center;gap:3rem}}@media(min-width: 768px){.topCard_invoiceStatus.svelte-lrrse9.svelte-lrrse9{justify-content:center}}.topCard_buttons.svelte-lrrse9.svelte-lrrse9{display:none;width:100%;justify-content:end;margin-right:1rem;gap:1.5625rem}@media(min-width: 768px){.topCard_buttons.svelte-lrrse9.svelte-lrrse9{display:flex}}.bottomCard_buttons.svelte-lrrse9.svelte-lrrse9{width:100%}@media(min-width: 768px){.bottomCard_buttons.svelte-lrrse9.svelte-lrrse9{display:none}}.bottomCard_invoiceInfo.svelte-lrrse9.svelte-lrrse9{padding:0.4rem;width:100%}.bottomCard_invoiceInfo-ID.svelte-lrrse9.svelte-lrrse9{gap:7px}.bottomCard_invoiceInfo-details.svelte-lrrse9.svelte-lrrse9{margin-bottom:3rem}@media(min-width: 520px){.bottomCard_invoiceInfo-details.svelte-lrrse9.svelte-lrrse9{grid-template-columns:1fr 1fr}}.bottomCard_invoiceInfo-senderInfo.svelte-lrrse9.svelte-lrrse9{gap:0.375rem;margin:2rem 0}@media(min-width: 520px){.bottomCard_invoiceInfo-senderInfo.svelte-lrrse9.svelte-lrrse9{margin:0;align-items:flex-end}}.bottomCard_invoiceInfo-itemList.svelte-lrrse9.svelte-lrrse9{place-self:center;margin:2rem 0 0 0;max-width:600px;width:100%}.bottomCard_invoiceInfo-itemList-items.svelte-lrrse9.svelte-lrrse9{justify-content:space-between;padding:0.5rem;margin-bottom:0.5rem;align-items:center}.bottomCard_invoiceInfo-itemList-items-total.svelte-lrrse9.svelte-lrrse9{justify-content:space-between;background-color:black;padding:1rem;width:100%;border-bottom-left-radius:12px;border-bottom-right-radius:12px}.bottomCard_invoiceInfo-itemList-items-total.svelte-lrrse9 h3.svelte-lrrse9{color:white}.bottomCard_invoiceInfo-itemList-items-description.svelte-lrrse9.svelte-lrrse9{gap:5px}.bottomCard_invoiceInfo-billTo.svelte-lrrse9.svelte-lrrse9{grid-template-columns:1fr 1fr;gap:35px}@media(min-width: 768px){.bottomCard_invoiceInfo-billTo.svelte-lrrse9.svelte-lrrse9{grid-template-columns:1fr 1fr 0.25fr}}.bottomCard_invoiceInfo-billTo-invoices.svelte-lrrse9.svelte-lrrse9{gap:20px}.bottomCard_invoiceInfo-billTo.svelte-lrrse9 .bottomCard_invoiceInfo-billTo-email.svelte-lrrse9{grid-column:span 2/span 2;gap:9px}@media(min-width: 768px){.bottomCard_invoiceInfo-billTo.svelte-lrrse9 .bottomCard_invoiceInfo-billTo-email.svelte-lrrse9{display:flex;flex-direction:column;grid-column:unset}}@media(min-width: 520px) and (max-width: 767px){.bottomCard_invoiceInfo-billTo-client.svelte-lrrse9.svelte-lrrse9{justify-content:flex-end}}.bottomCard_invoiceInfo-billTo-client-information.svelte-lrrse9.svelte-lrrse9{gap:0.4375rem}.bottomCard_invoiceInfo-billTo-invoiceDate.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-invoiceDue.svelte-lrrse9.svelte-lrrse9,.bottomCard_invoiceInfo-billTo-client.svelte-lrrse9.svelte-lrrse9{gap:9px}.btns.svelte-lrrse9.svelte-lrrse9{justify-content:space-evenly;align-items:center;width:100%;gap:0.375rem}",
   map: null
 };
-const InvoiceInformation = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
+const InvoiceInformation = (0, import_index_d2589f30.c)(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_globalStore;
   let $$unsubscribe_page;
-  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(import_functionStore_c189635e.g, (value) => value);
-  $$unsubscribe_page = (0, import_index_80978f94.a)(import_stores_f168da72.p, (value) => value);
-  let { status } = $$props;
-  let { id } = $$props;
-  let { description } = $$props;
-  let { createdAt } = $$props;
-  let { paymentDue } = $$props;
-  let { clientName } = $$props;
+  $$unsubscribe_globalStore = (0, import_index_d2589f30.a)(import_functionStore_31d719cc.g, (value) => value);
+  $$unsubscribe_page = (0, import_index_d2589f30.a)(import_stores_7cb77692.p, (value) => value);
+  let { status = "" } = $$props;
+  let { id = "" } = $$props;
+  let { description = "" } = $$props;
+  let { createdAt = "" } = $$props;
+  let { paymentDue = "" } = $$props;
+  let { clientName = "" } = $$props;
   let { clientAddress } = $$props;
-  let { clientEmail } = $$props;
+  let { clientEmail = "" } = $$props;
   let { senderAddress } = $$props;
   let { items = [] } = $$props;
-  let { total } = $$props;
+  let { total = 0 } = $$props;
   if ($$props.status === void 0 && $$bindings.status && status !== void 0)
     $$bindings.status(status);
   if ($$props.id === void 0 && $$bindings.id && id !== void 0)
@@ -84,100 +70,139 @@ const InvoiceInformation = (0, import_index_80978f94.c)(($$result, $$props, $$bi
   $$result.css.add(css$1);
   $$unsubscribe_globalStore();
   $$unsubscribe_page();
-  return `
+  return `<div class="${"invoiceContainer svelte-lrrse9"}"><div class="${"backButton svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_stores_7cb77692.B, "BackButton").$$render($$result, { href: true }, {}, {})}</div>
 
-<div class="${"invoiceContainer svelte-1m31m9p"}"><div class="${"backButton svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_stores_f168da72.B, "BackButton").$$render($$result, { href: true }, {}, {})}</div>
-
-    <div class="${"topCard svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.C, "Card").$$render($$result, { round: true }, {}, {
+    <div class="${"topCard svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.C, "Card").$$render($$result, { round: true }, {}, {
     default: () => {
-      return `<div class="${"topCard_invoiceStatus svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: "Status:" }, {}, {})}
-                ${(0, import_index_80978f94.v)(import_Tag_65981a06.T, "Tag").$$render($$result, { status }, {}, {})}</div>
-            ${``}`;
+      return `<div class="${"topCard_invoiceStatus svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: "Status:" }, {}, {})}
+                ${(0, import_index_d2589f30.v)(import_Tag_a0045b76.T, "Tag").$$render($$result, { status }, {}, {})}</div>
+                <div class="${"topCard_buttons svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
+        size: "large",
+        text: "Edit",
+        type: "secondary",
+        icon: "pen",
+        rounded: true
+      }, {}, {})}
+                    ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
+        size: "large",
+        text: "Delete",
+        type: "danger",
+        icon: "trash",
+        rounded: true
+      }, {}, {})}
+                    ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
+        text: "Mark as Paid",
+        size: "large",
+        disabled: status === "paid",
+        icon: "check",
+        rounded: true
+      }, {}, {})}</div>`;
     }
   })}</div>
 
-
-
-    <div class="${"bottomCard svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.C, "Card").$$render($$result, { round: true }, {}, {
+    <div class="${"bottomCard svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.C, "Card").$$render($$result, { round: true }, {}, {
     default: () => {
-      return `<div class="${"bottomCard_invoiceInfo svelte-1m31m9p"}"><div class="${"bottomCard_invoiceInfo-details svelte-1m31m9p"}"><div class="${"bottomCard_invoiceInfo-ID svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: "#" + id }, {}, {})}
-                        ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: description }, {}, {})}</div> 
-    
-                    <div class="${"bottomCard_invoiceInfo-senderInfo svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: senderAddress.street }, {}, {})}
-                        ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: senderAddress.city }, {}, {})}
-                        ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: senderAddress.postCode }, {}, {})}
-                        ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: senderAddress.country }, {}, {})}</div></div>
-            
-                
+      return `<div class="${"bottomCard_invoiceInfo svelte-lrrse9"}"><div class="${"bottomCard_invoiceInfo-details svelte-lrrse9"}"><div class="${"bottomCard_invoiceInfo-ID svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h3", text: "#" + id }, {}, {})}
+                        ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: description }, {}, {})}</div>
 
-                <div class="${"bottomCard_invoiceInfo-billTo svelte-1m31m9p"}"><div class="${"bottomCard_invoiceInfo-billTo-invoices svelte-1m31m9p"}"><div class="${"bottomCard_invoiceInfo-billTo-invoiceDate svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: "Invoice Date" }, {}, {})}
-                            ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+                    <div class="${"bottomCard_invoiceInfo-senderInfo svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: senderAddress.street }, {}, {})}
+                        ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: senderAddress.city }, {}, {})}
+                        ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: senderAddress.postCode }, {}, {})}
+                        ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: senderAddress.country }, {}, {})}</div></div>
+
+                <div class="${"bottomCard_invoiceInfo-billTo svelte-lrrse9"}"><div class="${"bottomCard_invoiceInfo-billTo-invoices svelte-lrrse9"}"><div class="${"bottomCard_invoiceInfo-billTo-invoiceDate svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: "Invoice Date" }, {}, {})}
+                            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
         size: "h3",
-        text: (0, import_functionStore_c189635e.c)(createdAt, 0)
+        text: (0, import_functionStore_31d719cc.c)(createdAt, 0)
       }, {}, {})}</div>
-    
-                        <div class="${"bottomCard_invoiceInfo-billTo-invoiceDue svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: "Payment Due" }, {}, {})}
-                            ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+
+                        <div class="${"bottomCard_invoiceInfo-billTo-invoiceDue svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: "Payment Due" }, {}, {})}
+                            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
         size: "h3",
-        text: (0, import_functionStore_c189635e.c)(paymentDue, 0)
+        text: (0, import_functionStore_31d719cc.c)(paymentDue, 0)
       }, {}, {})}</div></div>
 
-                    <div class="${"bottomCard_invoiceInfo-billTo-client svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: "Bill To" }, {}, {})}
-                        <div>${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: clientName }, {}, {})}</div>
-                        <div class="${"bottomCard_invoiceInfo-billTo-client-information svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: clientAddress.street }, {}, {})}
-                            ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: clientAddress.city }, {}, {})}
-                            ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: clientAddress.postCode }, {}, {})}
-                            ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: clientAddress.country }, {}, {})}</div></div>
-                
-                    <div class="${"bottomCard_invoiceInfo-billTo-email svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "p", text: "Sent to" }, {}, {})}
-                        ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: clientEmail }, {}, {})}</div></div>
+                    <div class="${"bottomCard_invoiceInfo-billTo-client svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: "Bill To" }, {}, {})}
+                        <div>${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h3", text: clientName }, {}, {})}</div>
+                        <div class="${"bottomCard_invoiceInfo-billTo-client-information svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: clientAddress.street }, {}, {})}
+                            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: clientAddress.city }, {}, {})}
+                            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: clientAddress.postCode }, {}, {})}
+                            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: clientAddress.country }, {}, {})}</div></div>
 
-                <div class="${"bottomCard_invoiceInfo-itemList svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_stores_f168da72.I, "InnerCard").$$render($$result, {}, {}, {
+                    <div class="${"bottomCard_invoiceInfo-billTo-email svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "p", text: "Sent to" }, {}, {})}
+                        ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h3", text: clientEmail }, {}, {})}</div></div>
+
+                <div class="${"bottomCard_invoiceInfo-itemList svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_stores_7cb77692.I, "InnerCard").$$render($$result, {}, {}, {
         default: () => {
-          return `${(0, import_index_80978f94.d)(items, (item, i) => {
-            return `<div class="${"bottomCard_invoiceInfo-itemList-items svelte-1m31m9p"}"><div class="${"bottomCard_invoiceInfo-itemList-items-description svelte-1m31m9p"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h3", text: item.name }, {}, {})}
-                                    ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+          return `${(0, import_index_d2589f30.f)(items, (item, i) => {
+            return `<div class="${"bottomCard_invoiceInfo-itemList-items svelte-lrrse9"}"><div class="${"bottomCard_invoiceInfo-itemList-items-description svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h3", text: item.name }, {}, {})}
+                                    ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
               size: "p",
               text: "$" + Number(items[i].price).toFixed(2) + " x " + items[i].quantity
             }, {}, {})}</div>
-                                ${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, {
+                                ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, {
               size: "h3",
-              text: "$" + (0, import_functionStore_c189635e.n)((item.quantity * item.price).toFixed(2))
+              text: "$" + (0, import_functionStore_31d719cc.n)((item.quantity * item.price).toFixed(2))
             }, {}, {})}
                             </div>`;
           })}`;
         }
       })}
-                    <div class="${"bottomCard_invoiceInfo-itemList-items-total svelte-1m31m9p"}"><h3 class="${"svelte-1m31m9p"}">Amount Due</h3>
-                        <h3 class="${"svelte-1m31m9p"}">$${(0, import_index_80978f94.e)((0, import_functionStore_c189635e.n)(total.toFixed(2)))}</h3></div></div></div>`;
+                    <div class="${"bottomCard_invoiceInfo-itemList-items-total svelte-lrrse9"}"><h3 class="${"svelte-lrrse9"}">Amount Due</h3>
+                        <h3 class="${"svelte-lrrse9"}">$${(0, import_index_d2589f30.e)((0, import_functionStore_31d719cc.n)(total.toFixed(2)))}</h3></div></div></div>`;
     }
   })}</div></div>
 
+<div class="${"bottomCard_buttons svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.C, "Card").$$render($$result, {}, {}, {
+    default: () => {
+      return `<div class="${"btns svelte-lrrse9"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
+        size: "medium",
+        fluid: true,
+        text: "Edit",
+        type: "secondary",
+        icon: "pen",
+        rounded: true
+      }, {}, {})}
+            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
+        size: "medium",
+        fluid: true,
+        text: "Delete",
+        type: "danger",
+        icon: "trash",
+        rounded: true
+      }, {}, {})}
+            ${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.B, "Button").$$render($$result, {
+        text: "Mark as Paid",
+        size: "medium",
+        fluid: true,
+        icon: "check",
+        disabled: status === "paid",
+        rounded: true
+      }, {}, {})}</div>`;
+    }
+  })}</div>
+
 
 ${``}
-
-
-${``}
-
 
 ${``}`;
 });
-var _invoice__svelte_svelte_type_style_lang = "";
+var _invoice__svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".loader.svelte-1v7wm0g{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:10px;height:100%}")();
 const css = {
   code: ".loader.svelte-1v7wm0g{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:10px;height:100%}",
   map: null
 };
 let msg = "Getting invoice information, please wait...";
-const U5Binvoiceu5D = (0, import_index_80978f94.c)(($$result, $$props, $$bindings, slots) => {
+const U5Binvoiceu5D = (0, import_index_d2589f30.c)(($$result, $$props, $$bindings, slots) => {
   let $globalStore, $$unsubscribe_globalStore;
   let $page, $$unsubscribe_page;
-  $$unsubscribe_globalStore = (0, import_index_80978f94.a)(import_functionStore_c189635e.g, (value) => $globalStore = value);
-  $$unsubscribe_page = (0, import_index_80978f94.a)(import_stores_f168da72.p, (value) => $page = value);
+  $$unsubscribe_globalStore = (0, import_index_d2589f30.a)(import_functionStore_31d719cc.g, (value) => $globalStore = value);
+  $$unsubscribe_page = (0, import_index_d2589f30.a)(import_stores_7cb77692.p, (value) => $page = value);
   async function getInvoiceInformation(path) {
-    await (0, import_functionStore_c189635e.a)();
+    await (0, import_functionStore_31d719cc.b)();
     let invoice = $globalStore.invoices.find((invoice2) => invoice2.id === path);
     if (invoice) {
-      return __spreadValues({}, invoice);
+      return { ...invoice };
     } else {
       setTimeout(() => {
         location.href = "/";
@@ -189,22 +214,16 @@ const U5Binvoiceu5D = (0, import_index_80978f94.c)(($$result, $$props, $$binding
   $$result.css.add(css);
   $$unsubscribe_globalStore();
   $$unsubscribe_page();
-  return `
-
-
-
-
-
-${function(__value) {
-    if ((0, import_index_80978f94.j)(__value)) {
-      __value.then(null, import_index_80978f94.n);
+  return `${function(__value) {
+    if ((0, import_index_d2589f30.l)(__value)) {
+      __value.then(null, import_index_d2589f30.n);
       return `
-    <div class="${"loader svelte-1v7wm0g"}">${(0, import_index_80978f94.v)(import_functionStore_c189635e.T, "Text").$$render($$result, { size: "h2", text: msg }, {}, {})}</div>
+    <div class="${"loader svelte-1v7wm0g"}">${(0, import_index_d2589f30.v)(import_functionStore_31d719cc.T, "Text").$$render($$result, { size: "h2", text: msg }, {}, {})}</div>
 `;
     }
     return function(inv) {
       return `
-    ${(0, import_index_80978f94.v)(InvoiceInformation, "InvoiceInformation").$$render($$result, Object.assign(inv), {}, {})}
+    ${(0, import_index_d2589f30.v)(InvoiceInformation, "InvoiceInformation").$$render($$result, Object.assign(inv), {}, {})}
 `;
     }(__value);
   }(getInvoiceInformation($page.params.invoice))}`;

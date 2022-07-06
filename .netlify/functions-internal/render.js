@@ -1,11 +1,11 @@
-const { init } = require('../handler.js');
+const { init } = require('../serverless.js');
 
 exports.handler = init({
 	appDir: "_app",
 	assets: new Set(["data.json","favicon.png","noInvoice.svg"]),
 	mimeTypes: {".json":"application/json",".png":"image/png",".svg":"image/svg+xml"},
 	_: {
-		entry: {"file":"start-9d973757.js","js":["start-9d973757.js","chunks/index-322d0d15.js","chunks/index-6d8f5e96.js"],"css":[]},
+		entry: {"file":"start-909bdc6a.js","js":["start-909bdc6a.js","chunks/index-073ef55e.js","chunks/index-6dd8a33c.js"],"css":[]},
 		nodes: [
 			() => Promise.resolve().then(() => require('../server/nodes/0.js')),
 			() => Promise.resolve().then(() => require('../server/nodes/1.js')),

@@ -2,8 +2,8 @@
     // COMPONENTS //
     import Text from "$lib/Text/Text.svelte";
     import InvoiceInformation from "$lib/Invoice/InvoiceInformation.svelte";
+
     // VARIABLES //
-    let innerWidth;
     let msg: string = "Getting invoice information, please wait...";
     // STORES //
     import { page } from "$app/stores";
@@ -30,8 +30,6 @@
     import "../scss/styles.scss";
 </script>
 
-<svelte:window bind:innerWidth />
-
 <style lang="scss">
     @import "../scss/util/index.scss";
     .loader {
@@ -41,6 +39,8 @@
         height: 100%;
     }
 </style>
+
+
 
 
 

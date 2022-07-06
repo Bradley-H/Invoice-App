@@ -1,6 +1,6 @@
 <script lang="ts">
     // PROPS //
-    export let status;
+    export let status: string = "" 
     // STORES //
     import {globalStore} from '../../store/globalStore';
     // SCSS FILES //
@@ -25,7 +25,7 @@
             &.Light{
             &.paid{
                 color: rgb(43, 148, 43);
-                background-color: rgba($color: rgb(24, 109, 28), $alpha: .2);
+                background-color: rgba($color: rgb(24, 109, 28), $alpha: .3);
             }
             &.pending{
                 color: darken($color: rgb(206, 164, 50), $amount: 10);
@@ -33,7 +33,7 @@
             }
             &.draft{
                 color: darken($color: rgb(255, 255, 255), $amount: 10);
-                background-color: rgba($color: rgb(41, 41, 41), $alpha: .5);
+                background-color: rgba($color: rgb(21, 21, 21), $alpha: .6);
             }
             }
 
@@ -48,7 +48,7 @@
             }
             &.draft{
                 color: darken($color: rgb(255, 255, 255), $amount: 10);
-                background-color: rgba($color: rgb(41, 41, 41), $alpha: .5);
+                background-color: rgba($color: rgb(56, 56, 56), $alpha: .5);
             }
             }
         }

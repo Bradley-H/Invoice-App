@@ -3,23 +3,21 @@
         import InnerCard from '../Card/InnerCard.svelte';
         import Text from '../Text/Text.svelte';
         import Button from '../Button/Button.svelte'
-    // CREATE EVENT DISPATCHER //
-    import {createEventDispatcher} from 'svelte';
-    const dispatch = createEventDispatcher();
-    // PROPS //
-    export let text;
-    // SVELTE IMPORTS //
-    import {scale, fade} from 'svelte/transition'
-    // FUNCTIONS // 
-    function decline(){
-        dispatch('decline', false);
-    }
+        // CREATE EVENT DISPATCHER //
+        import {createEventDispatcher} from 'svelte';
+        const dispatch = createEventDispatcher();
+        // PROPS //
+        export let text: string = "";
+        
+        // SVELTE IMPORTS //
+        import {scale, fade} from 'svelte/transition'
 
-    function accept(){
-        dispatch('accept', false);
-    }
-    // SCSS DEFINITIONS  //
-        import "../../scss/styles.scss"; 
+        // FUNCTIONS // 
+        function dispatchPrompt(status){
+            dispatch(status, false);  // dispatch prompt event
+        }
+        // SCSS DEFINITIONS  //
+            import "../../scss/styles.scss"; 
 </script>
 
 
@@ -60,8 +58,8 @@
     <InnerCard modal>
        <Text size="h3" {text}/>
        <div class="btns">
-           <Button type="secondary" text="Yes" on:click={accept}/>
-           <Button type="danger" text="No" on:click={decline}/>
+           <Button type="secondary" text="Yes" on:click={() => dispatchPrompt("accept")}/>
+           <Button type="danger" text="No" on:click={() => dispatchPrompt("decline")}/>
        </div>
     </InnerCard>
 </div>

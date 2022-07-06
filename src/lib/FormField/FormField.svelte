@@ -3,6 +3,8 @@
     import Text from "$lib/Text/Text.svelte";
 // STORES //
     import { globalStore } from "../../store/globalStore";
+// VARIBLES //
+$: theme = $globalStore.theme
 // PROPS //
     export let form:string = "text";
     export let title:boolean = false;
@@ -88,13 +90,13 @@
 <div class:title={title}>
     <label {disabled} for={id}> <Text {disabled} size="p" title {text}/></label>
 {#if form === "text"}
-    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} {id} type="text" {placeholder} bind:value={value} on:blur={() => touched = true} />
+    <input {disabled} class="{theme}" class:invalid={!valid && touched} {id} type="text" {placeholder} bind:value={value} on:blur={() => touched = true} />
 {:else if form === "number"}
-    <input {disabled} class="{$globalStore.theme}" class:invalid={!valid && touched} on:keydown={numField} {id} type="number" {placeholder} on:blur={() => touched = true}  bind:value={value} />
+    <input {disabled} class="{theme}" class:invalid={!valid && touched} on:keydown={numField} {id} type="number" {placeholder} on:blur={() => touched = true}  bind:value={value} />
 {:else if form === "date"}
     <input {disabled} {id} type="date" {placeholder} class:invalid={!valid}  bind:value={value}/>
     {:else if form === "select"}
-    <select class="{$globalStore.theme}" bind:value={value}>
+    <select class="{theme}" bind:value={value}>
         {#each options as val }
             <option value={val.value} on:click>{val.text}</option>
         {/each}
