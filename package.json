@@ -11,7 +11,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-netlify": "^1.0.0-next.36",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.35",
     "@sveltejs/kit": "^1.0.0-next.212",
     "node-sass": "^7.0.0",
     "sass": "^1.45.0",

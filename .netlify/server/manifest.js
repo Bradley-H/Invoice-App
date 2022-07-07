@@ -28,7 +28,7 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["data.json", "favicon.png", "noInvoice.svg"]),
   mimeTypes: { ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml" },
   _: {
-    entry: { "file": "start-ee66428d.js", "imports": ["start-ee66428d.js", "chunks/index-073ef55e.js", "chunks/index-6dd8a33c.js"], "stylesheets": [] },
+    entry: { "file": "start-61ce3b75.js", "imports": ["start-61ce3b75.js", "chunks/index-073ef55e.js", "chunks/index-6dd8a33c.js"], "stylesheets": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
