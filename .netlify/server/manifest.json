@@ -4,7 +4,7 @@
     "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-d2589f30.js"
+      "_index-e78bd06d.js"
     ],
     "dynamicImports": [
       ".svelte-kit/build/hooks.js"
@@ -15,10 +15,10 @@
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d2589f30.js",
-      "_functionStore-31d719cc.js",
-      "_InvoiceOptions-4b5fe3d5.js",
-      "_stores-7cb77692.js"
+      "_index-e78bd06d.js",
+      "_functionStore-1bfb3d3a.js",
+      "_InvoiceOptions-cf37dce2.js",
+      "_stores-cd2a3e26.js"
     ],
     "css": [
       "assets/entries/pages/__layout.svelte-a1fb8590.css"
@@ -29,7 +29,7 @@
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d2589f30.js"
+      "_index-e78bd06d.js"
     ]
   },
   "src/routes/[invoice].svelte": {
@@ -37,10 +37,10 @@
     "src": "src/routes/[invoice].svelte",
     "isEntry": true,
     "imports": [
-      "_index-d2589f30.js",
-      "_functionStore-31d719cc.js",
-      "_stores-7cb77692.js",
-      "_Tag-a0045b76.js"
+      "_index-e78bd06d.js",
+      "_functionStore-1bfb3d3a.js",
+      "_stores-cd2a3e26.js",
+      "_Tag-29e959ce.js"
     ],
     "css": [
       "assets/entries/pages/_invoice_.svelte-67c68099.css"
@@ -51,52 +51,52 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-d2589f30.js",
-      "_functionStore-31d719cc.js",
-      "_Tag-a0045b76.js",
-      "_InvoiceOptions-4b5fe3d5.js"
+      "_index-e78bd06d.js",
+      "_functionStore-1bfb3d3a.js",
+      "_Tag-29e959ce.js",
+      "_InvoiceOptions-cf37dce2.js"
     ],
     "css": [
       "assets/entries/pages/index.svelte-5efc95f9.css"
     ]
   },
-  "_index-d2589f30.js": {
-    "file": "chunks/index-d2589f30.js"
+  "_index-e78bd06d.js": {
+    "file": "chunks/index-e78bd06d.js"
   },
-  "_functionStore-31d719cc.js": {
-    "file": "chunks/functionStore-31d719cc.js",
+  "_functionStore-1bfb3d3a.js": {
+    "file": "chunks/functionStore-1bfb3d3a.js",
     "imports": [
-      "_index-d2589f30.js"
+      "_index-e78bd06d.js"
     ],
     "css": [
       "assets/functionStore-f3a7ed1a.css"
     ]
   },
-  "_InvoiceOptions-4b5fe3d5.js": {
-    "file": "chunks/InvoiceOptions-4b5fe3d5.js",
+  "_InvoiceOptions-cf37dce2.js": {
+    "file": "chunks/InvoiceOptions-cf37dce2.js",
     "imports": [
-      "_index-d2589f30.js",
-      "_functionStore-31d719cc.js"
+      "_index-e78bd06d.js",
+      "_functionStore-1bfb3d3a.js"
     ],
     "css": [
       "assets/InvoiceOptions-aa8b6fcb.css"
     ]
   },
-  "_stores-7cb77692.js": {
-    "file": "chunks/stores-7cb77692.js",
+  "_stores-cd2a3e26.js": {
+    "file": "chunks/stores-cd2a3e26.js",
     "imports": [
-      "_index-d2589f30.js",
-      "_functionStore-31d719cc.js"
+      "_index-e78bd06d.js",
+      "_functionStore-1bfb3d3a.js"
     ],
     "css": [
       "assets/stores-55fdd111.css"
     ]
   },
-  "_Tag-a0045b76.js": {
-    "file": "chunks/Tag-a0045b76.js",
+  "_Tag-29e959ce.js": {
+    "file": "chunks/Tag-29e959ce.js",
     "imports": [
-      "_index-d2589f30.js",
-      "_functionStore-31d719cc.js"
+      "_index-e78bd06d.js",
+      "_functionStore-1bfb3d3a.js"
     ],
     "css": [
       "assets/Tag-084418b5.css"

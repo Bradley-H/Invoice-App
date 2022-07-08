@@ -1,3 +1,41 @@
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var stdin_exports = {};
+__export(stdin_exports, {
+  a: () => subscribe,
+  b: () => createEventDispatcher,
+  c: () => create_ssr_component,
+  d: () => set_store_value,
+  e: () => escape,
+  f: () => each,
+  g: () => safe_not_equal,
+  h: () => null_to_empty,
+  i: () => is_void,
+  j: () => add_attribute,
+  k: () => getContext,
+  l: () => is_promise,
+  m: () => missing_component,
+  n: () => noop,
+  o: () => onDestroy,
+  s: () => setContext,
+  v: () => validate_component
+});
+module.exports = __toCommonJS(stdin_exports);
 function noop() {
 }
 function is_promise(value) {
@@ -72,18 +110,21 @@ const void_element_names = /^(?:area|base|br|col|command|embed|hr|img|input|keyg
 function is_void(name) {
   return void_element_names.test(name) || name.toLowerCase() === "!doctype";
 }
-const escaped = {
-  '"': "&quot;",
-  "'": "&#39;",
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;"
-};
-function escape(html) {
-  return String(html).replace(/["'&<>]/g, (match) => escaped[match]);
-}
-function escape_attribute_value(value) {
-  return typeof value === "string" ? escape(value) : value;
+const ATTR_REGEX = /[&"]/g;
+const CONTENT_REGEX = /[&<]/g;
+function escape(value, is_attr = false) {
+  const str = String(value);
+  const pattern = is_attr ? ATTR_REGEX : CONTENT_REGEX;
+  pattern.lastIndex = 0;
+  let escaped = "";
+  let last = 0;
+  while (pattern.test(str)) {
+    const i = pattern.lastIndex - 1;
+    const ch = str[i];
+    escaped += str.substring(last, i) + (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
+    last = i + 1;
+  }
+  return escaped + str.substring(last);
 }
 function each(items, fn) {
   let str = "";
@@ -141,7 +182,6 @@ function create_ssr_component(fn) {
 function add_attribute(name, value, boolean) {
   if (value == null || boolean && !value)
     return "";
-  const assignment = boolean && value === true ? "" : `="${escape_attribute_value(value.toString())}"`;
+  const assignment = boolean && value === true ? "" : `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
-export { subscribe as a, createEventDispatcher as b, create_ssr_component as c, set_store_value as d, escape as e, each as f, safe_not_equal as g, null_to_empty as h, is_void as i, add_attribute as j, getContext as k, is_promise as l, missing_component as m, noop as n, onDestroy as o, setContext as s, validate_component as v };

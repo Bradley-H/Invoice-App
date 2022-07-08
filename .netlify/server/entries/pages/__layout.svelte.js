@@ -1,22 +1,44 @@
-import { c as create_ssr_component, a as subscribe, e as escape, b as createEventDispatcher, v as validate_component, o as onDestroy, d as set_store_value, f as each } from "../../chunks/index-d2589f30.js";
-import { g as globalStore, T as Text, B as Button, c as convertDate, a as closeModal, s as strValid, e as emailValid, C as Card, n as numberWithCommas } from "../../chunks/functionStore-31d719cc.js";
-import { F as FormField, o as options } from "../../chunks/InvoiceOptions-4b5fe3d5.js";
-import { I as InnerCard, p as page, B as BackButton } from "../../chunks/stores-7cb77692.js";
-import { uid } from "uid";
-var Navigation_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "nav.svelte-bj8hib.svelte-bj8hib{display:flex;height:4.375rem;width:100%;background-color:#1e2139;z-index:3}@media(min-width: 992px){nav.svelte-bj8hib.svelte-bj8hib{flex-direction:column;height:100%;width:4.6875rem;position:fixed;left:0;top:0;border-top-right-radius:15px}}nav.svelte-bj8hib .settings.svelte-bj8hib{display:flex;justify-content:center;align-items:center;flex-direction:row;color:white;height:100%;font-size:1.75rem;margin:0 0 0 auto}@media(min-width: 992px){nav.svelte-bj8hib .settings.svelte-bj8hib{flex-direction:column;width:4.6875rem;height:100%;margin:auto 0 0 0}}nav.svelte-bj8hib .settings i.svelte-bj8hib{cursor:pointer;display:flex;justify-content:center;align-items:center;height:100%;width:100%}nav.svelte-bj8hib .settings .themeSwitcher.svelte-bj8hib{border-right:2px solid rgba(128, 128, 128, 0.6);height:100%;padding:0 1.5625rem 0 1.5625rem}@media(min-width: 992px){nav.svelte-bj8hib .settings .themeSwitcher.svelte-bj8hib{border-bottom:2px solid rgba(128, 128, 128, 0.6);border-right:none;width:4.6875rem;padding:0 0 2.0625rem 0;margin-top:auto;height:0}}nav.svelte-bj8hib .settings .avatar.svelte-bj8hib{padding:0 1.5625rem}@media(min-width: 992px){nav.svelte-bj8hib .settings .avatar.svelte-bj8hib{padding:1.25rem 0 0.9375rem 0}}a.svelte-bj8hib.svelte-bj8hib{display:flex;justify-content:center;align-items:center;background-color:#7c5dfa;color:white;width:4.6875rem;height:4.375rem;font-size:1.5625rem;transition:transform 0.4s ease-in-out;border-top-right-radius:15px}a.svelte-bj8hib.svelte-bj8hib:hover{transform:scale(1.1)}")();
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var stdin_exports = {};
+__export(stdin_exports, {
+  default: () => _layout
+});
+module.exports = __toCommonJS(stdin_exports);
+var import_index_e78bd06d = require("../../chunks/index-e78bd06d.js");
+var import_functionStore_1bfb3d3a = require("../../chunks/functionStore-1bfb3d3a.js");
+var import_InvoiceOptions_cf37dce2 = require("../../chunks/InvoiceOptions-cf37dce2.js");
+var import_stores_cd2a3e26 = require("../../chunks/stores-cd2a3e26.js");
+var import_uid = require("uid");
+var Navigation_svelte_svelte_type_style_lang = "";
 const css$3 = {
   code: "nav.svelte-bj8hib.svelte-bj8hib{display:flex;height:4.375rem;width:100%;background-color:#1e2139;z-index:3}@media(min-width: 992px){nav.svelte-bj8hib.svelte-bj8hib{flex-direction:column;height:100%;width:4.6875rem;position:fixed;left:0;top:0;border-top-right-radius:15px}}nav.svelte-bj8hib .settings.svelte-bj8hib{display:flex;justify-content:center;align-items:center;flex-direction:row;color:white;height:100%;font-size:1.75rem;margin:0 0 0 auto}@media(min-width: 992px){nav.svelte-bj8hib .settings.svelte-bj8hib{flex-direction:column;width:4.6875rem;height:100%;margin:auto 0 0 0}}nav.svelte-bj8hib .settings i.svelte-bj8hib{cursor:pointer;display:flex;justify-content:center;align-items:center;height:100%;width:100%}nav.svelte-bj8hib .settings .themeSwitcher.svelte-bj8hib{border-right:2px solid rgba(128, 128, 128, 0.6);height:100%;padding:0 1.5625rem 0 1.5625rem}@media(min-width: 992px){nav.svelte-bj8hib .settings .themeSwitcher.svelte-bj8hib{border-bottom:2px solid rgba(128, 128, 128, 0.6);border-right:none;width:4.6875rem;padding:0 0 2.0625rem 0;margin-top:auto;height:0}}nav.svelte-bj8hib .settings .avatar.svelte-bj8hib{padding:0 1.5625rem}@media(min-width: 992px){nav.svelte-bj8hib .settings .avatar.svelte-bj8hib{padding:1.25rem 0 0.9375rem 0}}a.svelte-bj8hib.svelte-bj8hib{display:flex;justify-content:center;align-items:center;background-color:#7c5dfa;color:white;width:4.6875rem;height:4.375rem;font-size:1.5625rem;transition:transform 0.4s ease-in-out;border-top-right-radius:15px}a.svelte-bj8hib.svelte-bj8hib:hover{transform:scale(1.1)}",
   map: null
 };
-const Navigation = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+const Navigation = (0, import_index_e78bd06d.c)(($$result, $$props, $$bindings, slots) => {
   let $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = subscribe(globalStore, (value) => value);
+  $$unsubscribe_globalStore = (0, import_index_e78bd06d.a)(import_functionStore_1bfb3d3a.g, (value) => value);
   let icon = "moon";
   $$result.css.add(css$3);
   $$unsubscribe_globalStore();
   return `<nav class="${"svelte-bj8hib"}"><a href="${"/"}" class="${"svelte-bj8hib"}"><i class="${"fas fa-home svelte-bj8hib"}"></i></a>
         
-    <div class="${"settings svelte-bj8hib"}"><div class="${"themeSwitcher svelte-bj8hib"}"><i class="${"fas fa-" + escape(icon) + " svelte-bj8hib"}"></i></div>
+    <div class="${"settings svelte-bj8hib"}"><div class="${"themeSwitcher svelte-bj8hib"}"><i class="${"fas fa-" + (0, import_index_e78bd06d.e)(icon, true) + " svelte-bj8hib"}"></i></div>
         <div class="${"avatar svelte-bj8hib"}"><i class="${"fas fa-user-circle svelte-bj8hib"}"></i></div></div>
 </nav>`;
 });
@@ -24,28 +46,28 @@ const css$2 = {
   code: ".prompt.svelte-1vb4462{display:flex;justify-content:center;align-items:center;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:100%;max-width:600px;z-index:5;padding:1.5rem;text-align:center}.overlay.svelte-1vb4462{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:4}.btns.svelte-1vb4462{display:flex;justify-content:space-around;margin-top:20px}",
   map: null
 };
-const ModalPrompt = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  createEventDispatcher();
+const ModalPrompt = (0, import_index_e78bd06d.c)(($$result, $$props, $$bindings, slots) => {
+  (0, import_index_e78bd06d.b)();
   let { text = "" } = $$props;
   if ($$props.text === void 0 && $$bindings.text && text !== void 0)
     $$bindings.text(text);
   $$result.css.add(css$2);
-  return `<div class="${"prompt svelte-1vb4462"}">${validate_component(InnerCard, "InnerCard").$$render($$result, { modal: true }, {}, {
+  return `<div class="${"prompt svelte-1vb4462"}">${(0, import_index_e78bd06d.v)(import_stores_cd2a3e26.I, "InnerCard").$$render($$result, { modal: true }, {}, {
     default: () => {
-      return `${validate_component(Text, "Text").$$render($$result, { size: "h3", text }, {}, {})}
-       <div class="${"btns svelte-1vb4462"}">${validate_component(Button, "Button").$$render($$result, { type: "secondary", text: "Yes" }, {}, {})}
-           ${validate_component(Button, "Button").$$render($$result, { type: "danger", text: "No" }, {}, {})}</div>`;
+      return `${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.T, "Text").$$render($$result, { size: "h3", text }, {}, {})}
+       <div class="${"btns svelte-1vb4462"}">${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.B, "Button").$$render($$result, { type: "secondary", text: "Yes" }, {}, {})}
+           ${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.B, "Button").$$render($$result, { type: "danger", text: "No" }, {}, {})}</div>`;
     }
   })}</div>
 
 <div class="${"overlay svelte-1vb4462"}"></div>`;
 });
-var InvoiceModal_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => ".btns.svelte-zxxez div.svelte-zxxez,.btns.svelte-zxxez.svelte-zxxez{display:flex}form.svelte-zxxez .billFrom.svelte-zxxez{display:flex;flex-direction:column}form.svelte-zxxez .billTo_information.svelte-zxxez,form.svelte-zxxez .billFrom_information.svelte-zxxez{display:grid}form.svelte-zxxez .billTo_information-city.svelte-zxxez,form.svelte-zxxez .billFrom_information-city.svelte-zxxez{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px}form.svelte-zxxez p.svelte-zxxez{color:#7c5dfa;margin:1rem 0;font-weight:bold}form.svelte-zxxez .items.svelte-zxxez{margin-bottom:5rem}form.svelte-zxxez .title.svelte-zxxez{margin-bottom:2.1875rem}form.svelte-zxxez .billFrom.svelte-zxxez{margin-top:2.1875rem}@media(min-width: 768px){form.svelte-zxxez .billFrom_information-city.svelte-zxxez{grid-template-columns:1fr 1fr 1fr}}form.svelte-zxxez .billFrom_information-country.svelte-zxxez{grid-column:span 2/span 2}@media(min-width: 768px){form.svelte-zxxez .billFrom_information-country.svelte-zxxez{grid-column:unset}}form.svelte-zxxez .billTo.svelte-zxxez{display:grid;grid-template-columns:1fr;gap:15px}@media(min-width: 768px){form.svelte-zxxez .billTo_invoiceInformation.svelte-zxxez{display:grid;grid-template-columns:1fr 1fr;gap:10px}}form.svelte-zxxez .billTo_information-city.svelte-zxxez{margin:1rem 0}@media(min-width: 768px){form.svelte-zxxez .billTo_information-city.svelte-zxxez{grid-template-columns:1fr 1fr 1fr}}form.svelte-zxxez .billTo_information-country.svelte-zxxez{grid-column:span 2/span 2}@media(min-width: 768px){form.svelte-zxxez .billTo_information-country.svelte-zxxez{grid-column:unset}}.modal.svelte-zxxez.svelte-zxxez{width:100%;height:100%;z-index:2;position:fixed;margin:2rem 0 0 0;max-width:37.5rem;margin:4.375rem 0 0 0;inset:0 0 0 0}@media(min-width: 768px) and (max-width: 991px){.modal.svelte-zxxez.svelte-zxxez{max-width:700px}}@media(min-width: 992px){.modal.svelte-zxxez.svelte-zxxez{max-width:575px;margin:0 0 0 4.6875rem}}div.overlay.svelte-zxxez.svelte-zxxez{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:1}.btns.svelte-zxxez.svelte-zxxez{justify-content:center;max-width:37.5rem;transform:translateY(-2.5rem);position:sticky;margin:2rem 0}@media(min-width: 520px){.btns.svelte-zxxez.svelte-zxxez{justify-content:space-between}}@media(min-width: 992px){.btns.svelte-zxxez.svelte-zxxez{margin:0}}.btns.svelte-zxxez div.svelte-zxxez{gap:10px;margin-left:0.5rem}@media(min-width: 992px){.btns.svelte-zxxez.svelte-zxxez{transform:translateY(-1rem)}}.itemList.svelte-zxxez.svelte-zxxez{display:grid;margin-bottom:2rem;gap:10px}@media(min-width: 520px){.itemList.svelte-zxxez.svelte-zxxez{display:grid;grid-template-columns:0.7fr 1.5fr}}.itemList.svelte-zxxez .nameField.svelte-zxxez{display:grid;grid-template-columns:1fr}.attributes.svelte-zxxez.svelte-zxxez{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}@media(min-width: 768px){.attributes.svelte-zxxez.svelte-zxxez{grid-template-columns:1fr 1fr 1.5fr 0.3fr}}i.svelte-zxxez.svelte-zxxez{color:red;font-size:1.1rem}button.svelte-zxxez.svelte-zxxez{height:5.5rem}")();
+var InvoiceModal_svelte_svelte_type_style_lang = "";
 const css$1 = {
   code: ".btns.svelte-zxxez div.svelte-zxxez,.btns.svelte-zxxez.svelte-zxxez{display:flex}form.svelte-zxxez .billFrom.svelte-zxxez{display:flex;flex-direction:column}form.svelte-zxxez .billTo_information.svelte-zxxez,form.svelte-zxxez .billFrom_information.svelte-zxxez{display:grid}form.svelte-zxxez .billTo_information-city.svelte-zxxez,form.svelte-zxxez .billFrom_information-city.svelte-zxxez{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px}form.svelte-zxxez p.svelte-zxxez{color:#7c5dfa;margin:1rem 0;font-weight:bold}form.svelte-zxxez .items.svelte-zxxez{margin-bottom:5rem}form.svelte-zxxez .title.svelte-zxxez{margin-bottom:2.1875rem}form.svelte-zxxez .billFrom.svelte-zxxez{margin-top:2.1875rem}@media(min-width: 768px){form.svelte-zxxez .billFrom_information-city.svelte-zxxez{grid-template-columns:1fr 1fr 1fr}}form.svelte-zxxez .billFrom_information-country.svelte-zxxez{grid-column:span 2/span 2}@media(min-width: 768px){form.svelte-zxxez .billFrom_information-country.svelte-zxxez{grid-column:unset}}form.svelte-zxxez .billTo.svelte-zxxez{display:grid;grid-template-columns:1fr;gap:15px}@media(min-width: 768px){form.svelte-zxxez .billTo_invoiceInformation.svelte-zxxez{display:grid;grid-template-columns:1fr 1fr;gap:10px}}form.svelte-zxxez .billTo_information-city.svelte-zxxez{margin:1rem 0}@media(min-width: 768px){form.svelte-zxxez .billTo_information-city.svelte-zxxez{grid-template-columns:1fr 1fr 1fr}}form.svelte-zxxez .billTo_information-country.svelte-zxxez{grid-column:span 2/span 2}@media(min-width: 768px){form.svelte-zxxez .billTo_information-country.svelte-zxxez{grid-column:unset}}.modal.svelte-zxxez.svelte-zxxez{width:100%;height:100%;z-index:2;position:fixed;margin:2rem 0 0 0;max-width:37.5rem;margin:4.375rem 0 0 0;inset:0 0 0 0}@media(min-width: 768px) and (max-width: 991px){.modal.svelte-zxxez.svelte-zxxez{max-width:700px}}@media(min-width: 992px){.modal.svelte-zxxez.svelte-zxxez{max-width:575px;margin:0 0 0 4.6875rem}}div.overlay.svelte-zxxez.svelte-zxxez{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:1}.btns.svelte-zxxez.svelte-zxxez{justify-content:center;max-width:37.5rem;transform:translateY(-2.5rem);position:sticky;margin:2rem 0}@media(min-width: 520px){.btns.svelte-zxxez.svelte-zxxez{justify-content:space-between}}@media(min-width: 992px){.btns.svelte-zxxez.svelte-zxxez{margin:0}}.btns.svelte-zxxez div.svelte-zxxez{gap:10px;margin-left:0.5rem}@media(min-width: 992px){.btns.svelte-zxxez.svelte-zxxez{transform:translateY(-1rem)}}.itemList.svelte-zxxez.svelte-zxxez{display:grid;margin-bottom:2rem;gap:10px}@media(min-width: 520px){.itemList.svelte-zxxez.svelte-zxxez{display:grid;grid-template-columns:0.7fr 1.5fr}}.itemList.svelte-zxxez .nameField.svelte-zxxez{display:grid;grid-template-columns:1fr}.attributes.svelte-zxxez.svelte-zxxez{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}@media(min-width: 768px){.attributes.svelte-zxxez.svelte-zxxez{grid-template-columns:1fr 1fr 1.5fr 0.3fr}}i.svelte-zxxez.svelte-zxxez{color:red;font-size:1.1rem}button.svelte-zxxez.svelte-zxxez{height:5.5rem}",
   map: null
 };
-const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+const InvoiceModal = (0, import_index_e78bd06d.c)(($$result, $$props, $$bindings, slots) => {
   let senderAddress;
   let clientAddress;
   let items;
@@ -60,17 +82,17 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
   let calculateTotal;
   let $globalStore, $$unsubscribe_globalStore;
   let $page, $$unsubscribe_page;
-  $$unsubscribe_globalStore = subscribe(globalStore, (value) => $globalStore = value);
-  $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  onDestroy(() => {
-    set_store_value(globalStore, $globalStore.modalStatus = null, $globalStore);
+  $$unsubscribe_globalStore = (0, import_index_e78bd06d.a)(import_functionStore_1bfb3d3a.g, (value) => $globalStore = value);
+  $$unsubscribe_page = (0, import_index_e78bd06d.a)(import_stores_cd2a3e26.p, (value) => $page = value);
+  (0, import_index_e78bd06d.o)(() => {
+    (0, import_index_e78bd06d.d)(import_functionStore_1bfb3d3a.g, $globalStore.modalStatus = null, $globalStore);
     newInvoice = null;
   });
   let isValid = false;
   let prompt = null;
   let terms = 30;
   let newInvoice = {
-    id: $globalStore.modalStatus === "edit" ? $page.params.invoice : uid(6).toUpperCase(),
+    id: $globalStore.modalStatus === "edit" ? $page.params.invoice : (0, import_uid.uid)(6).toUpperCase(),
     senderAddress: {
       street: "",
       city: "",
@@ -93,8 +115,8 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
     ],
     clientName: "",
     clientEmail: "",
-    paymentDue: convertDate(new Date(), terms),
-    createdAt: convertDate(new Date(), 0),
+    paymentDue: (0, import_functionStore_1bfb3d3a.c)(new Date(), terms),
+    createdAt: (0, import_functionStore_1bfb3d3a.c)(new Date(), 0),
     status: "",
     terms: +terms,
     description: "",
@@ -112,7 +134,7 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
     },
     discardInvoice() {
       prompt = null;
-      closeModal();
+      (0, import_functionStore_1bfb3d3a.a)();
     },
     calculateTotal() {
       let total = 0;
@@ -132,21 +154,21 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
         invoice.items = items;
         invoice.clientName = newInvoice.clientName;
         invoice.clientEmail = newInvoice.clientEmail;
-        invoice.paymentDue = convertDate(new Date(), terms);
+        invoice.paymentDue = (0, import_functionStore_1bfb3d3a.c)(new Date(), terms);
         invoice.createdAt = newInvoice.createdAt;
         invoice.description = newInvoice.description;
         invoice.total = newInvoice.total;
         invoice.terms = newInvoice.terms;
         invoice.status = status;
-        set_store_value(globalStore, $globalStore.invoices = [...$globalStore.invoices], $globalStore);
+        (0, import_index_e78bd06d.d)(import_functionStore_1bfb3d3a.g, $globalStore.invoices = [...$globalStore.invoices], $globalStore);
         localStorage.setItem("invoices", JSON.stringify($globalStore.invoices));
-        closeModal();
+        (0, import_functionStore_1bfb3d3a.a)();
         location.reload();
       } else {
         this.calculateTotal();
-        set_store_value(globalStore, $globalStore.invoices = [...$globalStore.invoices, newInvoice], $globalStore);
+        (0, import_index_e78bd06d.d)(import_functionStore_1bfb3d3a.g, $globalStore.invoices = [...$globalStore.invoices, newInvoice], $globalStore);
         localStorage.setItem("invoices", JSON.stringify($globalStore.invoices));
-        closeModal();
+        (0, import_functionStore_1bfb3d3a.a)();
       }
     },
     filterItem(index) {
@@ -160,29 +182,29 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
     $$settled = true;
     ({ senderAddress, clientAddress, items, id, clientName, description, clientEmail, filterItem, saveInvoice, discardInvoice, addItem, calculateTotal } = newInvoice);
     {
-      if (strValid(senderAddress.street) && strValid(senderAddress.city) && strValid(senderAddress.country) && strValid(senderAddress.postCode) && strValid(clientAddress.street) && strValid(clientAddress.city) && strValid(clientAddress.country) && strValid(clientAddress.postCode) && strValid(newInvoice.clientName) && emailValid(newInvoice.clientEmail) && strValid(newInvoice.description) && items.length > 0 && items.every((item) => strValid(item.name)) && items.every((item) => item.quantity > 0) && items.every((item) => item.price > 0)) {
+      if ((0, import_functionStore_1bfb3d3a.s)(senderAddress.street) && (0, import_functionStore_1bfb3d3a.s)(senderAddress.city) && (0, import_functionStore_1bfb3d3a.s)(senderAddress.country) && (0, import_functionStore_1bfb3d3a.s)(senderAddress.postCode) && (0, import_functionStore_1bfb3d3a.s)(clientAddress.street) && (0, import_functionStore_1bfb3d3a.s)(clientAddress.city) && (0, import_functionStore_1bfb3d3a.s)(clientAddress.country) && (0, import_functionStore_1bfb3d3a.s)(clientAddress.postCode) && (0, import_functionStore_1bfb3d3a.s)(newInvoice.clientName) && (0, import_functionStore_1bfb3d3a.e)(newInvoice.clientEmail) && (0, import_functionStore_1bfb3d3a.s)(newInvoice.description) && items.length > 0 && items.every((item) => (0, import_functionStore_1bfb3d3a.s)(item.name)) && items.every((item) => item.quantity > 0) && items.every((item) => item.price > 0)) {
         isValid = true;
       } else {
         isValid = false;
       }
     }
-    $$rendered = `<div class="${"modal svelte-zxxez"}">${validate_component(Card, "Card").$$render($$result, { modal: true }, {}, {
+    $$rendered = `<div class="${"modal svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.C, "Card").$$render($$result, { modal: true }, {}, {
       default: () => {
-        return `<form class="${"svelte-zxxez"}"><div class="${"title svelte-zxxez"}">${validate_component(Text, "Text").$$render($$result, {
+        return `<form class="${"svelte-zxxez"}"><div class="${"title svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.T, "Text").$$render($$result, {
           title: true,
           size: "h2",
           text: $globalStore.modalStatus === "add" ? "Add New Invoice" : `Edit Invoice #${id}`
         }, {}, {})}
 
-                ${validate_component(BackButton, "BackButton").$$render($$result, {}, {}, {})}</div>
+                ${(0, import_index_e78bd06d.v)(import_stores_cd2a3e26.B, "BackButton").$$render($$result, {}, {}, {})}</div>
 
             <div class="${"billFrom svelte-zxxez"}"><p class="${"svelte-zxxez"}">Bill From</p>
-                <div class="${"billFrom_information svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                <div class="${"billFrom_information svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           title: true,
           text: "Street Address",
           id: "senderStreet",
           placeholder: "Street Address",
-          valid: strValid(senderAddress.street),
+          valid: (0, import_functionStore_1bfb3d3a.s)(senderAddress.street),
           invalidMessage: "Please enter a valid street address",
           value: senderAddress.street
         }, {
@@ -192,12 +214,12 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                    <div class="${"billFrom_information-city svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                    <div class="${"billFrom_information-city svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           title: true,
           text: "City",
           id: "senderCity",
           placeholder: "City",
-          valid: strValid(senderAddress.city),
+          valid: (0, import_functionStore_1bfb3d3a.s)(senderAddress.city),
           invalidMessage: "Please enter a valid City",
           value: senderAddress.city
         }, {
@@ -207,12 +229,12 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                        ${validate_component(FormField, "FormField").$$render($$result, {
+                        ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           title: true,
           text: "Postal Code",
           id: "senderPostCode",
           placeholder: "Postal code",
-          valid: strValid(senderAddress.postCode),
+          valid: (0, import_functionStore_1bfb3d3a.s)(senderAddress.postCode),
           invalidMessage: "Please enter a valid postCode",
           value: senderAddress.postCode
         }, {
@@ -222,12 +244,12 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                        <div class="${"billFrom_information-country svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                        <div class="${"billFrom_information-country svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           title: true,
           id: "senderCountry",
           text: "Country",
           placeholder: "Country",
-          valid: strValid(senderAddress.country),
+          valid: (0, import_functionStore_1bfb3d3a.s)(senderAddress.country),
           invalidMessage: "Please enter a valid Country",
           value: senderAddress.country
         }, {
@@ -238,11 +260,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
         }, {})}</div></div></div></div>
 
             <div class="${"billTo svelte-zxxez"}"><p class="${"svelte-zxxez"}">Bill To</p>
-                ${validate_component(FormField, "FormField").$$render($$result, {
+                ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "Client's Name",
           id: "clientName",
           placeholder: "Name",
-          valid: strValid(clientName),
+          valid: (0, import_functionStore_1bfb3d3a.s)(clientName),
           invalidMessage: "Please enter a valid Name",
           value: newInvoice.clientName
         }, {
@@ -252,11 +274,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                ${validate_component(FormField, "FormField").$$render($$result, {
+                ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "Client's Email",
           id: "clientEmail",
           placeholder: "Email",
-          valid: emailValid(clientEmail),
+          valid: (0, import_functionStore_1bfb3d3a.e)(clientEmail),
           invalidMessage: "Please enter a valid Email",
           value: newInvoice.clientEmail
         }, {
@@ -266,11 +288,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                ${validate_component(FormField, "FormField").$$render($$result, {
+                ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "Street Address",
           id: "clientStreet",
           placeholder: "Street Address",
-          valid: strValid(clientAddress.street),
+          valid: (0, import_functionStore_1bfb3d3a.s)(clientAddress.street),
           invalidMessage: "Please enter a valid Street",
           value: clientAddress.street
         }, {
@@ -280,11 +302,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                <div class="${"billTo_information svelte-zxxez"}"><div class="${"billTo_information-city svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                <div class="${"billTo_information svelte-zxxez"}"><div class="${"billTo_information-city svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "City",
           id: "clientCity",
           placeholder: "City",
-          valid: strValid(clientAddress.city),
+          valid: (0, import_functionStore_1bfb3d3a.s)(clientAddress.city),
           invalidMessage: "Please enter a valid City",
           value: clientAddress.city
         }, {
@@ -294,11 +316,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                        ${validate_component(FormField, "FormField").$$render($$result, {
+                        ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "Postal Code",
           id: "clientPostCode",
           placeholder: "Postal code",
-          valid: strValid(clientAddress.postCode),
+          valid: (0, import_functionStore_1bfb3d3a.s)(clientAddress.postCode),
           invalidMessage: "Please enter a valid postal code",
           value: clientAddress.postCode
         }, {
@@ -308,11 +330,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}
 
-                        <div class="${"billTo_information-country svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                        <div class="${"billTo_information-country svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           id: "clientCountry",
           text: "Country",
           placeholder: "Country",
-          valid: strValid(clientAddress.country),
+          valid: (0, import_functionStore_1bfb3d3a.s)(clientAddress.country),
           invalidMessage: "Please enter a valid Country",
           value: clientAddress.country
         }, {
@@ -322,18 +344,18 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           }
         }, {})}</div></div></div>
 
-                <div class="${"billTo_invoiceInformation svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                <div class="${"billTo_invoiceInformation svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "Payment Due",
           id: "paymentDue",
           disabled: true,
-          value: convertDate(new Date(), terms),
+          value: (0, import_functionStore_1bfb3d3a.c)(new Date(), terms),
           valid: true
         }, {}, {})}
 
-                    ${validate_component(FormField, "FormField").$$render($$result, {
+                    ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           form: "select",
           text: "Payment Terms",
-          options,
+          options: import_InvoiceOptions_cf37dce2.o,
           id: "paymentTerms",
           value: terms
         }, {
@@ -342,11 +364,11 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
             $$settled = false;
           }
         }, {})}</div>
-                ${validate_component(FormField, "FormField").$$render($$result, {
+                ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
           text: "Project Description",
           id: "description",
           placeholder: "Project Description",
-          valid: strValid(description),
+          valid: (0, import_functionStore_1bfb3d3a.s)(description),
           invalidMessage: "Please enter a valid Description",
           value: newInvoice.description
         }, {
@@ -357,13 +379,13 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
         }, {})}</div>
 
             <p class="${"svelte-zxxez"}">Item list</p>
-            <div class="${"items svelte-zxxez"}">${each(items, (item, i) => {
-          return `<div class="${"itemList svelte-zxxez"}"><div class="${"nameField svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+            <div class="${"items svelte-zxxez"}">${(0, import_index_e78bd06d.f)(items, (item, i) => {
+          return `<div class="${"itemList svelte-zxxez"}"><div class="${"nameField svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
             title: true,
             id: "Name" + i,
             text: "Name",
             placeholder: "Item",
-            valid: strValid(item.name),
+            valid: (0, import_functionStore_1bfb3d3a.s)(item.name),
             invalidMessage: "Must be greater than 5 characters",
             value: item.name
           }, {
@@ -372,7 +394,7 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
               $$settled = false;
             }
           }, {})}</div>
-                        <div class="${"attributes svelte-zxxez"}">${validate_component(FormField, "FormField").$$render($$result, {
+                        <div class="${"attributes svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
             title: true,
             id: "qty" + i,
             form: "number",
@@ -387,7 +409,7 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
             }
           }, {})}
 
-                            ${validate_component(FormField, "FormField").$$render($$result, {
+                            ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
             title: true,
             id: "price" + i,
             form: "number",
@@ -402,9 +424,9 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
             }
           }, {})}
 
-                            ${validate_component(FormField, "FormField").$$render($$result, {
+                            ${(0, import_index_e78bd06d.v)(import_InvoiceOptions_cf37dce2.F, "FormField").$$render($$result, {
             title: true,
-            value: "$" + numberWithCommas(item.quantity * item.price),
+            value: "$" + (0, import_functionStore_1bfb3d3a.n)(item.quantity * item.price),
             valid: true,
             id: "total" + i,
             disabled: true,
@@ -415,20 +437,20 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
                             </button></div>
                     </div>`;
         })}
-                ${validate_component(Button, "Button").$$render($$result, {
+                ${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.B, "Button").$$render($$result, {
           rounded: true,
           icon: "plus",
           fluid: true,
           text: "Add Item"
         }, {}, {})}</div>
-            <div class="${"btns svelte-zxxez"}">${validate_component(Button, "Button").$$render($$result, {
+            <div class="${"btns svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.B, "Button").$$render($$result, {
           type: "danger",
           icon: "trash",
           size: "medium",
           rounded: true,
           text: "Discard"
         }, {}, {})}
-                <div class="${"svelte-zxxez"}">${validate_component(Button, "Button").$$render($$result, {
+                <div class="${"svelte-zxxez"}">${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.B, "Button").$$render($$result, {
           type: "secondary",
           icon: "save",
           size: "medium",
@@ -436,7 +458,7 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
           rounded: true,
           text: "Save as Draft"
         }, {}, {})}
-                    ${validate_component(Button, "Button").$$render($$result, {
+                    ${(0, import_index_e78bd06d.v)(import_functionStore_1bfb3d3a.B, "Button").$$render($$result, {
           type: "primary",
           size: "medium",
           icon: "paper-plane",
@@ -450,13 +472,13 @@ const InvoiceModal = create_ssr_component(($$result, $$props, $$bindings, slots)
 <div class="${"overlay svelte-zxxez"}"></div>
 
 
-${prompt == "discard" ? `${validate_component(ModalPrompt, "ModalPrompt").$$render($$result, { text: "You want to discard the changes?" }, {}, {})}` : ``}
+${prompt == "discard" ? `${(0, import_index_e78bd06d.v)(ModalPrompt, "ModalPrompt").$$render($$result, { text: "You want to discard the changes?" }, {}, {})}` : ``}
 
-${prompt === "draft" ? `${validate_component(ModalPrompt, "ModalPrompt").$$render($$result, {
+${prompt === "draft" ? `${(0, import_index_e78bd06d.v)(ModalPrompt, "ModalPrompt").$$render($$result, {
       text: "You want to save this invoice as draft?"
     }, {}, {})}` : ``}
 
-${prompt === "pending" ? `${validate_component(ModalPrompt, "ModalPrompt").$$render($$result, {
+${prompt === "pending" ? `${(0, import_index_e78bd06d.v)(ModalPrompt, "ModalPrompt").$$render($$result, {
       text: "You want to save this invoice as pending?"
     }, {}, {})}` : ``}`;
   } while (!$$settled);
@@ -464,22 +486,21 @@ ${prompt === "pending" ? `${validate_component(ModalPrompt, "ModalPrompt").$$ren
   $$unsubscribe_page();
   return $$rendered;
 });
-var __layout_svelte_svelte_type_style_lang = /* @__PURE__ */ (() => "main.svelte-1vdlmt2{display:flex;align-items:center;flex-direction:column;height:100%;width:100%;padding:1.25rem 1.0625rem;overflow:auto}@media(min-width: 992px){main.svelte-1vdlmt2{padding:1rem 2rem 2rem 6.5rem}}")();
+var __layout_svelte_svelte_type_style_lang = "";
 const css = {
   code: "main.svelte-1vdlmt2{display:flex;align-items:center;flex-direction:column;height:100%;width:100%;padding:1.25rem 1.0625rem;overflow:auto}@media(min-width: 992px){main.svelte-1vdlmt2{padding:1rem 2rem 2rem 6.5rem}}",
   map: null
 };
-const _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+const _layout = (0, import_index_e78bd06d.c)(($$result, $$props, $$bindings, slots) => {
   let theme;
   let $globalStore, $$unsubscribe_globalStore;
-  $$unsubscribe_globalStore = subscribe(globalStore, (value) => $globalStore = value);
+  $$unsubscribe_globalStore = (0, import_index_e78bd06d.a)(import_functionStore_1bfb3d3a.g, (value) => $globalStore = value);
   $$result.css.add(css);
   theme = $globalStore.theme;
   $$unsubscribe_globalStore();
-  return `${$globalStore.modalStatus !== null ? `${validate_component(InvoiceModal, "InvoiceModal").$$render($$result, {}, {}, {})}` : ``}
+  return `${$globalStore.modalStatus !== null ? `${(0, import_index_e78bd06d.v)(InvoiceModal, "InvoiceModal").$$render($$result, {}, {}, {})}` : ``}
 
 
-${validate_component(Navigation, "Navigation").$$render($$result, {}, {}, {})}
-<main class="${"bgColor" + escape(theme) + " svelte-1vdlmt2"}">${slots.default ? slots.default({}) : ``}</main>`;
+${(0, import_index_e78bd06d.v)(Navigation, "Navigation").$$render($$result, {}, {}, {})}
+<main class="${"bgColor" + (0, import_index_e78bd06d.e)(theme, true) + " svelte-1vdlmt2"}">${slots.default ? slots.default({}) : ``}</main>`;
 });
-export { _layout as default };
