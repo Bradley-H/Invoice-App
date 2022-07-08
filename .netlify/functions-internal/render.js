@@ -5,7 +5,7 @@ export const handler = init({
 	assets: new Set(["data.json","favicon.png","noInvoice.svg"]),
 	mimeTypes: {".json":"application/json",".png":"image/png",".svg":"image/svg+xml"},
 	_: {
-		entry: {"file":"start-e5c5120a.js","imports":["start-e5c5120a.js","chunks/index-073ef55e.js","chunks/index-6dd8a33c.js"],"stylesheets":[]},
+		entry: {"file":"start-962c74b2.js","imports":["start-962c74b2.js","chunks/index-073ef55e.js","chunks/index-6dd8a33c.js"],"stylesheets":[]},
 		nodes: [
 			() => import('../server/nodes/0.js'),
 			() => import('../server/nodes/1.js'),
