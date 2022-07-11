@@ -1,14 +1,59 @@
-import { c as create_ssr_component, s as setContext, v as validate_component, m as missing_component } from "./immutable/chunks/index-b6406b22.js";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key2 of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key2) && key2 !== except)
+        __defProp(to, key2, { get: () => from[key2], enumerable: !(desc = __getOwnPropDesc(from, key2)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __accessCheck = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet = (obj, member, getter) => {
+  __accessCheck(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet = (obj, member, value, setter) => {
+  __accessCheck(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var stdin_exports = {};
+__export(stdin_exports, {
+  Server: () => Server,
+  override: () => override
+});
+module.exports = __toCommonJS(stdin_exports);
+var import_index_b6406b22 = require("./immutable/chunks/index-b6406b22.js");
+var _use_hashes, _dev, _script_needs_csp, _style_needs_csp, _directives, _script_src, _style_src;
 function afterUpdate() {
 }
-const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+const Root = (0, import_index_b6406b22.c)(($$result, $$props, $$bindings, slots) => {
   let { stores } = $$props;
   let { page } = $$props;
   let { components } = $$props;
   let { props_0 = null } = $$props;
   let { props_1 = null } = $$props;
   let { props_2 = null } = $$props;
-  setContext("__svelte__", stores);
+  (0, import_index_b6406b22.s)("__svelte__", stores);
   afterUpdate(stores.page.notify);
   if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
     $$bindings.stores(stores);
@@ -28,15 +73,15 @@ const Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `
 
 
-${components[1] ? `${validate_component(components[0] || missing_component, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
+${components[1] ? `${(0, import_index_b6406b22.v)(components[0] || import_index_b6406b22.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
     default: () => {
-      return `${components[2] ? `${validate_component(components[1] || missing_component, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
+      return `${components[2] ? `${(0, import_index_b6406b22.v)(components[1] || import_index_b6406b22.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
         default: () => {
-          return `${validate_component(components[2] || missing_component, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
+          return `${(0, import_index_b6406b22.v)(components[2] || import_index_b6406b22.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
         }
-      })}` : `${validate_component(components[1] || missing_component, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
+      })}` : `${(0, import_index_b6406b22.v)(components[1] || import_index_b6406b22.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
     }
-  })}` : `${validate_component(components[0] || missing_component, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
+  })}` : `${(0, import_index_b6406b22.v)(components[0] || import_index_b6406b22.m, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {})}`}
 
 ${``}`;
 });
@@ -531,10 +576,11 @@ const escape_html_attr_dict = {
 const escape_html_attr_regex = new RegExp(`[${Object.keys(escape_html_attr_dict).join("")}]|[\\ud800-\\udbff](?![\\udc00-\\udfff])|[\\ud800-\\udbff][\\udc00-\\udfff]|[\\udc00-\\udfff]`, "g");
 function escape_html_attr(str) {
   const escaped_str = str.replace(escape_html_attr_regex, (match) => {
+    var _a;
     if (match.length === 2) {
       return match;
     }
-    return escape_html_attr_dict[match] ?? `&#${match.charCodeAt(0)};`;
+    return (_a = escape_html_attr_dict[match]) != null ? _a : `&#${match.charCodeAt(0)};`;
   });
   return `"${escaped_str}"`;
 }
@@ -679,67 +725,67 @@ const quoted = /* @__PURE__ */ new Set([
 ]);
 const crypto_pattern = /^(nonce|sha\d\d\d)-/;
 class Csp {
-  #use_hashes;
-  #dev;
-  #script_needs_csp;
-  #style_needs_csp;
-  #directives;
-  #script_src;
-  #style_src;
   constructor({ mode, directives }, { dev, prerender, needs_nonce }) {
-    this.#use_hashes = mode === "hash" || mode === "auto" && prerender;
-    this.#directives = dev ? { ...directives } : directives;
-    this.#dev = dev;
-    const d = this.#directives;
+    __privateAdd(this, _use_hashes, void 0);
+    __privateAdd(this, _dev, void 0);
+    __privateAdd(this, _script_needs_csp, void 0);
+    __privateAdd(this, _style_needs_csp, void 0);
+    __privateAdd(this, _directives, void 0);
+    __privateAdd(this, _script_src, void 0);
+    __privateAdd(this, _style_src, void 0);
+    __privateSet(this, _use_hashes, mode === "hash" || mode === "auto" && prerender);
+    __privateSet(this, _directives, dev ? { ...directives } : directives);
+    __privateSet(this, _dev, dev);
+    const d = __privateGet(this, _directives);
     if (dev) {
       const effective_style_src2 = d["style-src"] || d["default-src"];
       if (effective_style_src2 && !effective_style_src2.includes("unsafe-inline")) {
         d["style-src"] = [...effective_style_src2, "unsafe-inline"];
       }
     }
-    this.#script_src = [];
-    this.#style_src = [];
+    __privateSet(this, _script_src, []);
+    __privateSet(this, _style_src, []);
     const effective_script_src = d["script-src"] || d["default-src"];
     const effective_style_src = d["style-src"] || d["default-src"];
-    this.#script_needs_csp = !!effective_script_src && effective_script_src.filter((value) => value !== "unsafe-inline").length > 0;
-    this.#style_needs_csp = !dev && !!effective_style_src && effective_style_src.filter((value) => value !== "unsafe-inline").length > 0;
-    this.script_needs_nonce = this.#script_needs_csp && !this.#use_hashes;
-    this.style_needs_nonce = this.#style_needs_csp && !this.#use_hashes;
+    __privateSet(this, _script_needs_csp, !!effective_script_src && effective_script_src.filter((value) => value !== "unsafe-inline").length > 0);
+    __privateSet(this, _style_needs_csp, !dev && !!effective_style_src && effective_style_src.filter((value) => value !== "unsafe-inline").length > 0);
+    this.script_needs_nonce = __privateGet(this, _script_needs_csp) && !__privateGet(this, _use_hashes);
+    this.style_needs_nonce = __privateGet(this, _style_needs_csp) && !__privateGet(this, _use_hashes);
     if (this.script_needs_nonce || this.style_needs_nonce || needs_nonce) {
       this.nonce = generate_nonce();
     }
   }
   add_script(content) {
-    if (this.#script_needs_csp) {
-      if (this.#use_hashes) {
-        this.#script_src.push(`sha256-${sha256(content)}`);
-      } else if (this.#script_src.length === 0) {
-        this.#script_src.push(`nonce-${this.nonce}`);
+    if (__privateGet(this, _script_needs_csp)) {
+      if (__privateGet(this, _use_hashes)) {
+        __privateGet(this, _script_src).push(`sha256-${sha256(content)}`);
+      } else if (__privateGet(this, _script_src).length === 0) {
+        __privateGet(this, _script_src).push(`nonce-${this.nonce}`);
       }
     }
   }
   add_style(content) {
-    if (this.#style_needs_csp) {
-      if (this.#use_hashes) {
-        this.#style_src.push(`sha256-${sha256(content)}`);
-      } else if (this.#style_src.length === 0) {
-        this.#style_src.push(`nonce-${this.nonce}`);
+    if (__privateGet(this, _style_needs_csp)) {
+      if (__privateGet(this, _use_hashes)) {
+        __privateGet(this, _style_src).push(`sha256-${sha256(content)}`);
+      } else if (__privateGet(this, _style_src).length === 0) {
+        __privateGet(this, _style_src).push(`nonce-${this.nonce}`);
       }
     }
   }
   get_header(is_meta = false) {
     const header = [];
-    const directives = { ...this.#directives };
-    if (this.#style_src.length > 0) {
+    const directives = { ...__privateGet(this, _directives) };
+    if (__privateGet(this, _style_src).length > 0) {
       directives["style-src"] = [
         ...directives["style-src"] || directives["default-src"] || [],
-        ...this.#style_src
+        ...__privateGet(this, _style_src)
       ];
     }
-    if (this.#script_src.length > 0) {
+    if (__privateGet(this, _script_src).length > 0) {
       directives["script-src"] = [
         ...directives["script-src"] || directives["default-src"] || [],
-        ...this.#script_src
+        ...__privateGet(this, _script_src)
       ];
     }
     for (const key2 in directives) {
@@ -768,6 +814,13 @@ class Csp {
     return `<meta http-equiv="content-security-policy" content=${content}>`;
   }
 }
+_use_hashes = new WeakMap();
+_dev = new WeakMap();
+_script_needs_csp = new WeakMap();
+_style_needs_csp = new WeakMap();
+_directives = new WeakMap();
+_script_src = new WeakMap();
+_style_src = new WeakMap();
 const absolute = /^([a-z]+:)?\/?\//;
 const scheme = /^[a-z]+:/;
 function resolve(base2, path) {
@@ -835,6 +888,7 @@ async function render_response({
   resolve_opts,
   stuff
 }) {
+  var _a;
   if (state.prerendering) {
     if (options.csp.mode === "nonce") {
       throw new Error('Cannot use prerendering if config.kit.csp.mode === "nonce"');
@@ -871,7 +925,7 @@ async function render_response({
       if (props2)
         shadow_props = props2;
       cache = loaded == null ? void 0 : loaded.cache;
-      is_private = (cache == null ? void 0 : cache.private) ?? uses_credentials;
+      is_private = (_a = cache == null ? void 0 : cache.private) != null ? _a : uses_credentials;
     }
     const session = writable($session);
     const props = {
@@ -881,7 +935,8 @@ async function render_response({
         session: {
           ...session,
           subscribe: (fn) => {
-            is_private = (cache == null ? void 0 : cache.private) ?? true;
+            var _a2;
+            is_private = (_a2 = cache == null ? void 0 : cache.private) != null ? _a2 : true;
             return session.subscribe(fn);
           }
         },
@@ -1393,13 +1448,14 @@ async function load_node({
   status,
   error: error2
 }) {
-  const { module } = node;
+  var _a;
+  const { module: module2 } = node;
   let uses_credentials = false;
   const fetched = [];
   const cookies = parse_1(event.request.headers.get("cookie") || "");
   const new_cookies = [];
   let loaded;
-  const should_prerender = node.module.prerender ?? options.prerender.default;
+  const should_prerender = (_a = node.module.prerender) != null ? _a : options.prerender.default;
   const shadow = is_leaf ? await load_shadow_data(route, event, options, should_prerender) : {};
   if (shadow.cookies) {
     shadow.cookies.forEach((header) => {
@@ -1416,14 +1472,15 @@ async function load_node({
       status: shadow.status,
       redirect: shadow.redirect
     };
-  } else if (module.load) {
+  } else if (module2.load) {
     const load_input = {
       url: state.prerendering ? new PrerenderingURL(event.url) : new LoadURL(event.url),
       params: event.params,
       props: shadow.body || {},
       routeId: event.routeId,
       get session() {
-        if (node.module.prerender ?? options.prerender.default) {
+        var _a2;
+        if ((_a2 = node.module.prerender) != null ? _a2 : options.prerender.default) {
           throw Error("Attempted to access session from a prerendered page. Session would never be populated.");
         }
         uses_credentials = true;
@@ -1575,8 +1632,8 @@ async function load_node({
         return proxy;
       },
       stuff: { ...stuff },
-      status: is_error ? status ?? null : null,
-      error: is_error ? error2 ?? null : null
+      status: is_error ? status != null ? status : null : null,
+      error: is_error ? error2 != null ? error2 : null : null
     };
     if (options.dev) {
       Object.defineProperty(load_input, "page", {
@@ -1585,7 +1642,7 @@ async function load_node({
         }
       });
     }
-    loaded = await module.load.call(null, load_input);
+    loaded = await module2.load.call(null, load_input);
     if (!loaded) {
       throw new Error(`load function must return a value${options.dev ? ` (${node.file})` : ""}`);
     }
@@ -1786,6 +1843,7 @@ async function respond_with_error({
   }
 }
 async function respond$1(opts) {
+  var _a;
   const { event, options, state, $session, route, resolve_opts } = opts;
   let nodes;
   if (!resolve_opts.ssr) {
@@ -1820,7 +1878,7 @@ async function respond$1(opts) {
   const leaf = nodes[nodes.length - 1].module;
   let page_config = get_page_config(leaf, options);
   if (state.prerendering) {
-    const should_prerender = leaf.prerender ?? options.prerender.default;
+    const should_prerender = (_a = leaf.prerender) != null ? _a : options.prerender.default;
     if (!should_prerender) {
       return new Response(void 0, {
         status: 204
@@ -2311,15 +2369,14 @@ class Server {
       throw new Error("The first argument to server.respond must be a Request object. See https://github.com/sveltejs/kit/pull/3384 for details");
     }
     if (!this.options.hooks) {
-      const module = await import("./immutable/chunks/hooks-d259abab.js");
+      const module2 = await Promise.resolve().then(() => __toESM(require("./immutable/chunks/hooks-d259abab.js")));
       this.options.hooks = {
-        getSession: module.getSession || (() => ({})),
-        handle: module.handle || (({ event, resolve: resolve2 }) => resolve2(event)),
-        handleError: module.handleError || (({ error: error2 }) => console.error(error2.stack)),
-        externalFetch: module.externalFetch || fetch
+        getSession: module2.getSession || (() => ({})),
+        handle: module2.handle || (({ event, resolve: resolve2 }) => resolve2(event)),
+        handleError: module2.handleError || (({ error: error2 }) => console.error(error2.stack)),
+        externalFetch: module2.externalFetch || fetch
       };
     }
     return respond(request, this.options, options);
   }
 }
-export { Server, override };
